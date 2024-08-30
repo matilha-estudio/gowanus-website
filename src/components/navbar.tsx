@@ -1,0 +1,110 @@
+import { ArrowUpRight, X } from "lucide-react";
+import { Button } from "./ui/button";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
+import {
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerHeader,
+    DrawerTrigger,
+} from "@/components/ui/drawer"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
+
+interface INavBar extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+    showLogoIcon: boolean
+    hasBackground: boolean
+    hasHomeButton?: boolean
+    position?: "fixed" | "absolute" | "sticky"
+    variant: "navyOutline" | "white"
+}
+
+export default function NavBar({ className, hasBackground, showLogoIcon, variant, hasHomeButton = true, position = "fixed", ...props }: INavBar) {
+    const windowWidth = useWindowWidth()
+    const SCREEN_WIDTH = windowWidth
+    const MOBILE_BREAKPOINT = 768
+
+    return (
+        <nav className={cn("py-4 flex h-[60px] gap-9 w-full px-2 justify-between items-center z-30",
+            hasBackground ? "bg-sand/50" : "bg-transparent",
+            position,
+            className
+        )} {...props}>
+
+            <Drawer direction="left" handleOnly>
+                <div className="flex">
+                    <DrawerTrigger asChild>
+                        {
+                            SCREEN_WIDTH < MOBILE_BREAKPOINT ?
+                                <Image
+                                    src={variant === 'navyOutline' ? "/icons/Hamburger-menu-navy.svg" : "/icons/Hamburger-menu.svg"}
+                                    alt="Hamburger-menu"
+                                    width={29}
+                                    height={27}
+                                />
+                                :
+                                <Button variant={variant} size='default' label="menu" className="h-10 w-fit" />
+                        }
+                    </DrawerTrigger>
+                    {
+                        hasHomeButton &&
+                        <Link href="/">
+                            <Button variant={variant} size='default' label="home" className="h-10 w-fit" />
+                        </Link>
+                    }
+                </div>
+                {
+                    showLogoIcon && (
+                        <div className="absolute left-1/2 transform -translate-x-1/2">
+                            <Image src="/logos/waveicon-navy.svg" alt="waveicon-navy" width={120} height={6} />
+                        </div>
+                    )
+                }
+                <div className="flex gap-4">
+                    <div>
+                        <Button variant={variant} size='default' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
+                    </div>
+                    <div>
+                        <Button variant={variant} size='default' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="h-10 w-fit" />
+                    </div>
+                </div>
+
+                <DrawerContent className="w-full max-w-sm h-full rounded-none bg-sand" >
+                    <DrawerHeader className="flex justify-end -mt-10 bg-sand">
+                        <DrawerClose asChild>
+                            <Button variant="icon" className="text-navy" icon={<X className="w-6 h-6" />} />
+                        </DrawerClose>
+                    </DrawerHeader>
+                    <div className="mx-auto w-full max-w-sm h-full flex flex-col items-center body1  gap-4 text-navy">
+                        <Link href="/">
+                            <Image src="/logos/gowanus-favicon-navy.svg" alt="gowanus-favicon-navy" width={68} height={44} />
+                        </Link>
+
+                        <Accordion type="single" collapsible className="text-navy">
+                            <AccordionItem value={`item-${1}`} className="border-none">
+                                <AccordionTrigger className="body1">Rental Properties</AccordionTrigger>
+                                <AccordionContent className="body2 flex flex-col items-center gap-2">
+                                    <a href="/union-channel" className="hover:cursor-pointer hover:text-canalRoyale">Union Channel</a>
+                                    <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Douglass Port</a>
+                                    <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Nevins Landing</a>
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
+
+                        <Link href="/the-club" className="hover:text-canalRoyale">The Club</Link>
+                        <Link href="/venn-services" className="hover:text-canalRoyale">Services</Link>
+                        <Link href="" className="hover:text-canalRoyale">Explore Gowanus</Link>
+                        <Link href="" className="hover:text-canalRoyale">Wharf Happenings</Link>
+                        <Link href="" className="hover:text-canalRoyale">Availabilities</Link>
+                        <Link href="" className="hover:text-canalRoyale">Virtual Tours</Link>
+                        <Link href="" className="hover:text-canalRoyale">Contact</Link>
+                        <Link href="" className="hover:text-canalRoyale">Resident Login</Link>
+                    </div>
+                </DrawerContent>
+            </Drawer>
+
+        </nav>
+    )
+}

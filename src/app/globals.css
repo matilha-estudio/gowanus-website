@@ -2,32 +2,138 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+@font-face {
+  font-family: "FreightDispCmpPro";
+  src: url("/fonts/FreightDispCmpPro.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWKEverettMedium";
+  src: url("/fonts/TWKEverettMedium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "TWKEverettRegular";
+  src: url("/fonts/TWKEverettRegular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos de tipografia personalizados usando rem */
+.header1 {
+  font-family: "FreightDispCmpPro", sans-serif;
+  font-size: 5rem; /* 80px */
+  text-transform: uppercase;
+}
+
+.header1MD {
+  font-family: "FreightDispCmpPro", sans-serif;
+  font-size: 3.5rem; /* 56px */
+  text-transform: uppercase;
+}
+
+.header1XXL {
+  font-family: "FreightDispCmpPro", sans-serif;
+  font-size: 6.25rem; /* 112px */
+  text-transform: uppercase;
+}
+
+.header1XXXL {
+  font-family: "FreightDispCmpPro", sans-serif;
+  font-size: 12rem; /* 192px */
+  text-transform: uppercase;
+}
+
+.header2XXL {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 6.25rem; /* 112px */
+  text-transform: uppercase;
+}
+
+.header2 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 4rem; /* 64px */
+  text-transform: uppercase;
+}
+
+.subheader1 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 2.25rem; /* 36px */
+  text-transform: uppercase;
+}
+
+.subheader2 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1.5rem; /* 24px */
+  text-transform: uppercase;
+}
+
+.subheader3 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1.3125rem; /* 21px */
+  text-transform: uppercase;
+}
+
+.subheader3-bold {
+  font-family: "TWKEverettMedium", sans-serif;
+  font-size: 1.3125rem; /* 21px */
+  text-transform: uppercase;
+}
+
+.subheader4 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1rem; /* 16px */
+  text-transform: uppercase;
+}
+
+.subheader4 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1.125rem; /* 18px */
+  text-transform: uppercase;
+}
+
+.body1 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1.3125rem; /* 21px */
+}
+
+.body2 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1rem; /* 16px */
+}
+
+.accent1 {
+  font-family: "TWKEverettMedium", sans-serif;
+  font-size: 1rem; /* 16px */
+}
+
+.accent2 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 1rem; /* 16px */
+}
+
+.accent3 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 0.75rem; /* 12px */
+}
+
+.accent4 {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 0.75rem; /* 12px */
+  text-transform: uppercase;
+}
+
+.accent4-bold {
+  font-family: "TWKEverettMedium", sans-serif;
+  font-size: 0.75rem; /* 12px */
 }
