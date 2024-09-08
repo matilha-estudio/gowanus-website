@@ -13,6 +13,7 @@ import TextReveal from '@/components/textReveal';
 import { cn } from './lib/utils';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import MapCard from '@/components/mapCard';
+import { useState } from 'react';
 
 export default function Home() {
   const scrollByVh = useScrollByVh();
@@ -20,26 +21,31 @@ export default function Home() {
   const SCREEN_WIDTH = windowWidth
   const MOBILE_BREAKPOINT = 768
 
+  const [cardIndex, setCardIndex] = useState(0);
+
   const cardData = [
     {
       title: 'Public Records',
       description: 'Hi-fi record bar with food & drink offerings plus an intimate performance space & vegan cafe.',
       address: '233 Butler St, Brooklyn, NY 11217',
-      imageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      cardImageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      mapImageUrl: '/medias/MapIntegration.png',
       altText: '2024_GW_MVP_12_Moonkata',
     },
     {
       title: 'Claro',
       description: 'Mexican spot with a patio specializing in Oaxacan plates, including house tortillas, and mezcals.',
       address: '284 3rd Ave, Brooklyn, NY 11215',
-      imageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      cardImageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      mapImageUrl: '/medias/MapIntegration.png',
       altText: '2024_GW_MVP_12_Moonkata',
     },
     {
       title: 'The Royal Palms Shuffleboard Club',
       description: 'Shuffleboard courts draw playful crowds to this big bar with food trucks & occasional live music.',
       address: '514 Union St, Brooklyn, NY 11215',
-      imageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      cardImageUrl: '/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg',
+      mapImageUrl: '/medias/MapIntegration.png',
       altText: '2024_GW_MVP_12_Moonkata',
     }
   ];
@@ -256,14 +262,49 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative flex flex-col items-center w-full h-screen py-24 text-navy bg-white justify-center">
-        <Image src="/medias/Explore/Image_1.png" width={322} height={420} alt="Image1" className="absolute size-48 top-8 left-8 m:w-full m:h-full md:left-28 md:-mt-4 object-cover" />
-        <Image src="/medias/Explore/Image_2.png" width={343} height={228} alt="Image2" className="absolute h-28 w-48 top-[136px] right-8 md:left-8 md:mt-96 object-cover md:z-10" />
-        <Image src="/medias/Explore/Image_3.png" width={156} height={104.71} alt="Image3" className="absolute h-12 w-[71px] top-[296px] right-20 md:right-[438px] md:mt-4 object-cover md:-z-10" />
-        <Image src="/medias/Explore/Image_4.png" width={276} height={276} alt="Image4" className="absolute h-[156px] w-[103px] bottom-[69px] right-16 md:right-24 md:mt-4 object-cover" />
-        <Image src="/medias/Explore/Image_5.png" width={367.46} height={244} alt="Image5" className="absolute h-[126px] w-[190px] bottom-[27px] left-16 md:right-32 md:mt-80 object-cover md:-z-10" />
-        <Image src="/logos/waveicon-marigold.svg" width={242} height={12} alt="waveicon" className="absolute h-[7px] w-[144px] top-[120px] right-28 md:right-32 md:mt-80 object-cover md:-z-10" />
-        <Image src="/logos/waveicon-marigold.svg" width={242} height={12} alt="waveicon" className="absolute h-[7px] w-[144px] bottom-[84px] -right-4 md:right-32 md:mt-80 object-cover md:-z-10" />
+      <section className="relative flex flex-col items-center w-full h-screen py-24 text-navy bg-white justify-center overflow-hidden">
+        <Image
+          src="/medias/Explore/Image_1.png"
+          width={322} height={420}
+          alt="Image1"
+          className="absolute size-48 top-8 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover"
+        />
+        <Image
+          src="/medias/Explore/Image_2.png"
+          width={343} height={228}
+          alt="Image2"
+          className="absolute h-28 w-48 top-[136px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px]"
+        />
+        <Image
+          src="/medias/Explore/Image_3.png"
+          width={156} height={104.71}
+          alt="Image3"
+          className="absolute h-12 w-[71px] top-[296px] right-20 md:right-[468px] md:top-[160px] md:mt-4 object-cover md:z-10 md:w-[156px] md:h-[104px]"
+        />
+        <Image
+          src="/medias/Explore/Image_4.png"
+          width={276} height={276}
+          alt="Image4"
+          className="absolute h-[156px] w-[103px] bottom-[69px] right-16 md:right-24 md:mt-4 object-cover"
+        />
+        <Image
+          src="/medias/Explore/Image_5.png"
+          width={367.46} height={244}
+          alt="Image5"
+          className="absolute h-[126px] w-[190px] bottom-[27px] left-16 md:right-32 md:mt-80 object-cover md:-z-10"
+        />
+        <Image
+          src="/logos/waveicon-marigold.svg"
+          width={242} height={12}
+          alt="waveicon"
+          className="absolute h-[7px] w-[144px] top-[120px] right-28 md:right-32 md:mt-80 object-cover md:-z-10"
+        />
+        <Image
+          src="/logos/waveicon-marigold.svg"
+          width={242} height={12}
+          alt="waveicon"
+          className="absolute h-[7px] w-[144px] bottom-[84px] -right-4 md:right-32 md:mt-80 object-cover md:-z-10"
+        />
         <div className="flex flex-col text-center gap-16">
           <div className="flex flex-col z-20">
             <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>gowanus</h1>
@@ -285,7 +326,7 @@ export default function Home() {
           alt="MapIntegration"
           width={700}
           height={500}
-          className="w-full h-full md:max-h-[720px] object-cover"
+          className="w-full h-full md:max-h-[720px] md:flex hidden object-cover"
         />
         {cardData.map((item, index) => (
           <MapCard
@@ -293,9 +334,13 @@ export default function Home() {
             title={item.title}
             description={item.description}
             address={item.address}
-            imageUrl={item.imageUrl}
+            cardImageUrl={item.cardImageUrl}
+            mapImageUrl={item.mapImageUrl}
             altText={item.altText}
             index={index}
+            listSize={cardData.length}
+            setCardIndex={setCardIndex}
+            cardIndex={cardIndex}
           />
         ))}
         <div className="w-full bg-navy py-4 md:py-8 flex justify-center">
@@ -303,23 +348,24 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-        <div className="grid grid-cols-2">
-          <div className="flex flex-col text-center justify-center items-center gap-16">
-            <h1 className="header1">the club</h1>
-            <span className="body1 max-w-lg">
+      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
+        <div className="grid md:grid-cols-2 grid-cols-1">
+          <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
+          <div className="flex flex-col text-center justify-center items-center gap-16 ">
+            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>the club</h1>
+            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
             </span>
             <div>
-              <Button label="explore" variant='navy' icon={<ArrowUpRight />} />
+              <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
             </div>
           </div>
-          <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-video object-contain">the-club</video>
+          <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-video hidden md:flex object-contain">the-club</video>
         </div>
       </section>
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
-        <div className="grid grid-cols-2">
+        <div className="grid md:grid-cols-2 grid-cols-1 px-4">
           <div className="relative w-full overflow-hidden group">
             <img
               src="/medias/services-1.png"
@@ -333,12 +379,12 @@ export default function Home() {
             />
           </div>
           <div className="flex flex-col text-center justify-center items-center gap-16">
-            <h1 className="header1">services</h1>
-            <span className="body1 max-w-lg">
+            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>services</h1>
+            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
             </span>
             <div>
-              <Button label="explore" variant="navy" icon={<ArrowUpRight />} />
+              <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
             </div>
           </div>
         </div>
@@ -346,8 +392,8 @@ export default function Home() {
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
         <div className="flex flex-col text-center text-navy gap-8">
-          <h1 className="header1">the wharf dispatch</h1>
-          <span className="body1 max-w-3xl">
+          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1")}>the wharf dispatch</h1>
+          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
           </span>
         </div>
@@ -355,27 +401,27 @@ export default function Home() {
           <CustomCarousel />
         </div>
         <div>
-          <Button variant='marigold' label="read more" size='default' icon={<ArrowUpRight />} />
+          <Button variant='marigold' label="read more" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-        <img src="/medias/Availabilities.png" alt="Availabilities" className="object-cover w-full absolute" />
+      <section className="flex flex-col items-center justify-center w-full pt-6 md:py-24 text-navy bg-white">
+        <img src="/medias/Availabilities.png" alt="Availabilities" className="object-cover w-full h-full max-h-[405px] absolute" />
         <div className="flex flex-col text-center text-white gap-8 z-10">
-          <h1 className="header1">Available APARTMENTS</h1>
-          <span className="body1 max-w-3xl">
+          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1")}>Available APARTMENTS</h1>
+          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
             1 to 3-Bedrooms Now Pre-leasing
           </span>
           <div>
-            <Button variant='marigold' label="view all" size='default' icon={<ArrowUpRight />} />
+            <Button variant='marigold' label="view all" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-navy p-16">
-        <img src="/medias/GW-eblast-sketches.png" alt="GW-eblast-sketches" className="object-fill w-full h-full max-h-[700px] absolute" />
-        <div className="flex flex-col text-center text-navy gap-8 bg-sand px-20 py-16 w-full h-full z-10">
-          <h1 className="header1 leading-none">inquire</h1>
+      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-navy px-8 md:px-16">
+        <img src="/medias/GW-eblast-sketches.png" alt="GW-eblast-sketches" className="object-fill w-full h-full max-h-[800px] md:max-h-[700px] absolute" />
+        <div className="flex flex-col text-center text-navy gap-8 bg-sand px-10 md:px-20 py-16 w-full h-full z-10">
+          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4" : "header1", "leading-none")}>inquire</h1>
           <div className="flex flex-wrap gap-4">
             <InputWithLabel label="First Name" placeholder="First" />
             <InputWithLabel label="Last Name" placeholder="Last" />
@@ -383,18 +429,18 @@ export default function Home() {
             <InputWithLabel label="Zip Code" placeholder="XXXXX" />
             <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
             <div className="flex gap-4">
-              <Button variant='navy' label="submit" size='default' icon={<ArrowUpRight />} className="h-10 w-fit" />
-              <Button variant='navy' label="schedule a tour" size='default' icon={<ArrowUpRight />} className="h-10 w-fit" />
+              <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+              <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col justify-between w-full py-24 pt-40 text-white bg-navy p-16">
+      <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-16">
         <div className="relative flex flex-col gap-8">
           <Image src="/logos/gowanus-navy-marigold.svg" alt="gowanus-navy-marigold" width={216} height={10} />
           <div className="flex w-full justify-between">
-            <div className="flex gap-16">
+            <div className="hidden md:flex gap-16">
               <div className="flex flex-col gap-2">
                 <a href="/" className="subheader4 hover:text-marigold">Union Channel</a>
                 <a href="/" className="subheader4 hover:text-marigold">Douglass Port</a>
@@ -419,8 +465,8 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-end justify-end gap-8">
-              <div className="flex flex-col gap-2 text-end items-end">
+            <div className="flex flex-col md:items-end md:justify-end gap-8">
+              <div className="flex flex-col gap-2 md:text-end md:items-end">
                 <a href="/">
                   <img src="/logos/gowanus-favicon-white.svg" alt="gowanus-favicon-white" width={67} height={43} className="mb-8" />
                 </a>
@@ -435,6 +481,12 @@ export default function Home() {
                 <Link href="">
                   <Image src="/icons/Linkedin.svg" alt="LinkedIn" width={24} height={24} />
                 </Link>
+              </div>
+              <div className="flex md:hidden flex-col gap-2">
+                <a href="/" className="accent3-xs hover:text-marigold">Team</a>
+                <a href="/" className="accent3-xs hover:text-marigold">Legal Disclaimer</a>
+                <a href="/" className="accent3-xs hover:text-marigold">Fair Housing</a>
+                <a href="/" className="accent3-xs hover:text-marigold">Copyright 2024 Gowanus Wharf</a>
               </div>
             </div>
           </div>

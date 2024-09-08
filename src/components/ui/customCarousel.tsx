@@ -13,9 +13,16 @@ import {
 import { formatDate } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 export function CustomCarousel() {
     const heights = [332, 414, 284];
+
+    const mobileHeight = [319]
+
+    const windowWidth = useWindowWidth()
+    const SCREEN_WIDTH = windowWidth
+    const MOBILE_BREAKPOINT = 768
 
     const events = [
         {
@@ -77,19 +84,19 @@ export function CustomCarousel() {
     ];
 
     const MemoizedCarouselItem = React.memo(({ item, height }: { item: typeof events[0], height: number }) => (
-        <CarouselItem className="pl-1 basis-1/4 -ml-3">
+        <CarouselItem className={"pl-1 md:basis-1/4 md:-ml-3 flex justify-center"}>
             <Card
                 className="flex flex-col items-center w-[304px] rounded-none cursor-pointer"
                 style={{ height: `${height}px` }}
             >
                 <CardContent className="flex flex-col items-center w-full h-full p-0">
-                    <Link href={item.link} className="h-full w-full">
-                        <div className="relative flex-grow w-full h-full max-h-[376px]">
+                    <Link href={item.link} className="relative h-full w-full">
+                        <div className="relative flex-grow w-full h-full max-h-[282px] md:max-h-[376px]">
                             <Image
                                 src={item.image}
                                 alt={item.title}
                                 width={304}
-                                height={414}
+                                height={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 292 : 414}
                                 className="object-cover w-full h-full"
                             />
                             <span className="absolute bottom-0 py-2 px-4 text-white z-10 flex-wrap flex w-full subheader3-bold">{item.title}</span>
@@ -110,11 +117,12 @@ export function CustomCarousel() {
     return (
         <Carousel
             className="w-full"
-            opts={{ loop: true, align: 'start' }}
+            opts={{ loop: true, align: 'center' }}
             plugins={[
                 AutoScroll({
                     stopOnMouseEnter: true,
-                    speed: 1
+                    speed: 1,
+                    stopOnInteraction: SCREEN_WIDTH < MOBILE_BREAKPOINT ? true : false
                 }),
             ]}
         >
@@ -123,12 +131,12 @@ export function CustomCarousel() {
                     <MemoizedCarouselItem
                         key={item.title}
                         item={item}
-                        height={heights[index % heights.length]}
+                        height={SCREEN_WIDTH < MOBILE_BREAKPOINT ? mobileHeight[0] : heights[index % heights.length]}
                     />
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious variant={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'marigold' : 'icon'} />
+            <CarouselNext variant={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'marigold' : 'icon'} />
         </Carousel>
     );
 }

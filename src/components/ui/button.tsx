@@ -64,7 +64,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {
-          !isIcon &&
+          !isIcon && label &&
           <span className={pyLabel}>{label}</span>
         }
         {icon && (

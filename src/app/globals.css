@@ -96,7 +96,7 @@
   text-transform: uppercase;
 }
 
-.subheader4 {
+.subheader5 {
   font-family: "TWKEverettRegular", sans-serif;
   font-size: 1.125rem; /* 18px */
   text-transform: uppercase;
@@ -119,12 +119,17 @@
 
 .accent2 {
   font-family: "TWKEverettRegular", sans-serif;
-  font-size: 1rem; /* 16px */
+  font-size: 1.125rem; /* 18px */
 }
 
 .accent3 {
   font-family: "TWKEverettRegular", sans-serif;
   font-size: 0.75rem; /* 12px */
+}
+
+.accent3-xs {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 0.625rem; /* 10px */
 }
 
 .accent4 {
