@@ -61,7 +61,7 @@ export function CustomCarousel2() {
         setExpandedIndex(index)
     };
 
-    const MemoizedCarouselItem = React.memo(({ item, height, index }: { item: typeof events[0], height: number, index: number }) => {
+    const MemoizedCarouselItem2 = React.memo(({ item, height, index }: { item: typeof events[0], height: number, index: number }) => {
         const isExpanded = expandedIndex === index && expanded;
 
         return (
@@ -117,7 +117,7 @@ export function CustomCarousel2() {
         );
     });
 
-    MemoizedCarouselItem.displayName = "MemoizedCarouselItem2";
+    MemoizedCarouselItem2.displayName = "MemoizedCarouselItem2";
 
     return (
         <Carousel
@@ -132,7 +132,7 @@ export function CustomCarousel2() {
         >
             <CarouselContent className="-ml-1">
                 {events.map((item, index) => (
-                    <MemoizedCarouselItem
+                    <MemoizedCarouselItem2
                         key={item.title}
                         item={item}
                         height={heights[index % heights.length]}
