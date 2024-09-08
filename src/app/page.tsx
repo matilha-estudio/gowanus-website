@@ -14,6 +14,11 @@ import { cn } from './lib/utils';
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import MapCard from '@/components/mapCard';
 import { useState } from 'react';
+import GowanusWharf from '@/components/sections/gowanus';
+import Footer from '@/components/sections/footer';
+import AvailableApartments from '@/components/sections/availableApartments';
+import Inquire from './inquire/page';
+import InquireComponent from '@/components/sections/inquire';
 
 export default function Home() {
   const scrollByVh = useScrollByVh();
@@ -262,65 +267,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative flex flex-col items-center w-full h-screen py-24 text-navy bg-white justify-center overflow-hidden">
-        <Image
-          src="/medias/Explore/Image_1.png"
-          width={322} height={420}
-          alt="Image1"
-          className="absolute size-48 top-8 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover"
-        />
-        <Image
-          src="/medias/Explore/Image_2.png"
-          width={343} height={228}
-          alt="Image2"
-          className="absolute h-28 w-48 top-[136px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px]"
-        />
-        <Image
-          src="/medias/Explore/Image_3.png"
-          width={156} height={104.71}
-          alt="Image3"
-          className="absolute h-12 w-[71px] top-[296px] right-20 md:right-[468px] md:top-[160px] md:mt-4 object-cover md:z-10 md:w-[156px] md:h-[104px]"
-        />
-        <Image
-          src="/medias/Explore/Image_4.png"
-          width={276} height={276}
-          alt="Image4"
-          className="absolute h-[156px] w-[103px] bottom-[69px] right-16 md:right-24 md:mt-4 object-cover"
-        />
-        <Image
-          src="/medias/Explore/Image_5.png"
-          width={367.46} height={244}
-          alt="Image5"
-          className="absolute h-[126px] w-[190px] bottom-[27px] left-16 md:right-32 md:mt-80 object-cover md:-z-10"
-        />
-        <Image
-          src="/logos/waveicon-marigold.svg"
-          width={242} height={12}
-          alt="waveicon"
-          className="absolute h-[7px] w-[144px] top-[120px] right-28 md:right-32 md:mt-80 object-cover md:-z-10"
-        />
-        <Image
-          src="/logos/waveicon-marigold.svg"
-          width={242} height={12}
-          alt="waveicon"
-          className="absolute h-[7px] w-[144px] bottom-[84px] -right-4 md:right-32 md:mt-80 object-cover md:-z-10"
-        />
-        <div className="flex flex-col text-center gap-16">
-          <div className="flex flex-col z-20">
-            <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>gowanus</h1>
-            <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>is</h1>
-            <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>calling</h1>
-          </div>
-          <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-          </span>
-          <div>
-            <Button variant='marigold' label="learn more" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "mobile" : "default"} />
-          </div>
-        </div>
-      </section>
+      <GowanusWharf />
 
-      <section className="flex flex-col h-screen md:h-auto items-center w-full text-navy">
+      <section className="relative flex flex-col h-screen md:h-auto items-center w-full text-navy">
         <Image
           src="/medias/MapIntegration.png"
           alt="MapIntegration"
@@ -344,7 +293,7 @@ export default function Home() {
           />
         ))}
         <div className="w-full bg-navy py-4 md:py-8 flex justify-center">
-          <Button label="explore campus" variant='white' size="mobile" icon={<ArrowUpRight />} />
+          <Button label="explore campus" variant='white' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
         </div>
       </section>
 
@@ -405,93 +354,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center w-full pt-6 md:py-24 text-navy bg-white">
-        <img src="/medias/Availabilities.png" alt="Availabilities" className="object-cover w-full h-full max-h-[405px] absolute" />
-        <div className="flex flex-col text-center text-white gap-8 z-10">
-          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1")}>Available APARTMENTS</h1>
-          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-            1 to 3-Bedrooms Now Pre-leasing
-          </span>
-          <div>
-            <Button variant='marigold' label="view all" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-          </div>
-        </div>
-      </section>
+      <AvailableApartments />
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-navy px-8 md:px-16">
-        <img src="/medias/GW-eblast-sketches.png" alt="GW-eblast-sketches" className="object-fill w-full h-full max-h-[800px] md:max-h-[700px] absolute" />
-        <div className="flex flex-col text-center text-navy gap-8 bg-sand px-10 md:px-20 py-16 w-full h-full z-10">
-          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4" : "header1", "leading-none")}>inquire</h1>
-          <div className="flex flex-wrap gap-4">
-            <InputWithLabel label="First Name" placeholder="First" />
-            <InputWithLabel label="Last Name" placeholder="Last" />
-            <InputWithLabel label="Email" placeholder="email@email.com" />
-            <InputWithLabel label="Zip Code" placeholder="XXXXX" />
-            <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
-            <div className="flex gap-4">
-              <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-              <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <InquireComponent />
 
-      <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-16">
-        <div className="relative flex flex-col gap-8">
-          <Image src="/logos/gowanus-navy-marigold.svg" alt="gowanus-navy-marigold" width={216} height={10} />
-          <div className="flex w-full justify-between">
-            <div className="hidden md:flex gap-16">
-              <div className="flex flex-col gap-2">
-                <a href="/" className="subheader4 hover:text-marigold">Union Channel</a>
-                <a href="/" className="subheader4 hover:text-marigold">Douglass Port</a>
-                <a href="/" className="subheader4 hover:text-marigold">NEVINS LANDING</a>
-                <a href="/" className="subheader4 hover:text-marigold">the club</a>
-                <a href="/" className="subheader4 hover:text-marigold">services</a>
-                <a href="/" className="subheader4 hover:text-marigold">explore gowanus</a>
-                <a href="/" className="subheader4 hover:text-marigold">wharf happenings</a>
-                <a href="/" className="subheader4 hover:text-marigold">availabilities</a>
-                <a href="/" className="subheader4 hover:text-marigold">Virtual Tours</a>
-              </div>
-              <div className="flex flex-col gap-2">
-                <a href="/" className="subheader4 hover:text-marigold">contact</a>
-                <a href="/" className="subheader4 hover:text-marigold">resident login</a>
-                <a href="/" className="subheader4 hover:text-marigold">Building Brochure</a>
-                <div className="flex-1" />
-                <div className="flex flex-col gap-2">
-                  <a href="/" className="accent3 hover:text-marigold">Team</a>
-                  <a href="/" className="accent3 hover:text-marigold">Legal Disclaimer</a>
-                  <a href="/" className="accent3 hover:text-marigold">Fair Housing</a>
-                  <a href="/" className="accent3 hover:text-marigold">Copyright 2024 Gowanus Wharf</a>
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-col md:items-end md:justify-end gap-8">
-              <div className="flex flex-col gap-2 md:text-end md:items-end">
-                <a href="/">
-                  <img src="/logos/gowanus-favicon-white.svg" alt="gowanus-favicon-white" width={67} height={43} className="mb-8" />
-                </a>
-                <a href="/" className="subheader4 hover:text-marigold">100 1st St, Brooklyn, NY 11231</a>
-                <a href="/" className="subheader4 hover:text-marigold">555.555.5555</a>
-                <a href="/" className="subheader4 hover:text-marigold">CONTACT@gowanuswharf.com</a>
-              </div>
-              <div className="flex gap-4">
-                <Link href="">
-                  <Image src="/icons/Instagram.svg" alt="Instagram" width={24} height={24} />
-                </Link>
-                <Link href="">
-                  <Image src="/icons/Linkedin.svg" alt="LinkedIn" width={24} height={24} />
-                </Link>
-              </div>
-              <div className="flex md:hidden flex-col gap-2">
-                <a href="/" className="accent3-xs hover:text-marigold">Team</a>
-                <a href="/" className="accent3-xs hover:text-marigold">Legal Disclaimer</a>
-                <a href="/" className="accent3-xs hover:text-marigold">Fair Housing</a>
-                <a href="/" className="accent3-xs hover:text-marigold">Copyright 2024 Gowanus Wharf</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </main>
   );
 }

@@ -65,15 +65,19 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                     <Button variant='marigold' icon={<ArrowRight />} onClick={nextCard} />
                 </div>
             </div>
-            <div className={cn(`w-full p-8 flex justify-between ${styles.container}`,
+            <div className={cn(`w-full p-8 flex justify-between ${styles.container} md:absolute md:justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4 md:top-24 md:right-28`,
                 'transition-opacity duration-1000 ease-in-out',
                 cardIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none sr-only')}>
-                <div className='relative max-w-44 flex flex-col gap-4'>
+                <div className='relative max-w-44 flex flex-col gap-4 md:max-w-full'>
                     <span className={styles.title}>{title}</span>
                     <span className={styles.description}>{description}</span>
                     <span className={styles.address}>{address}</span>
                 </div>
-                <Image src={cardImageUrl} alt={altText} width={128} height={176} className='object-cover' />
+                <Image src={cardImageUrl} alt={altText} width={128} height={176} className='object-cover md:w-full' />
+                <div className='hidden absolute w-96 top-1/2 -translate-y-1/2 md:flex justify-between'>
+                    <Button variant='marigold' icon={<ArrowLeft />} onClick={prevCard} />
+                    <Button variant='marigold' icon={<ArrowRight />} onClick={nextCard} />
+                </div>
             </div>
         </>
     );
