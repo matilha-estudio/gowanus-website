@@ -117,6 +117,8 @@ export function CustomCarousel2() {
         );
     });
 
+    MemoizedCarouselItem.displayName = "MemoizedCarouselItem2";
+
     return (
         <Carousel
             className="w-full px-16"

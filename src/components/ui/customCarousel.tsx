@@ -114,6 +114,8 @@ export function CustomCarousel() {
         </CarouselItem>
     ));
 
+    MemoizedCarouselItem.displayName = "MemoizedCarouselItem";
+
     return (
         <Carousel
             className="w-full"
