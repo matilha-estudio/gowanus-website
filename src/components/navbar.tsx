@@ -14,14 +14,13 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 
 interface INavBar extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    showLogoIcon: boolean
     hasBackground: boolean
     hasHomeButton?: boolean
     position?: "fixed" | "absolute" | "sticky"
     variant: "navyOutline" | "white"
 }
 
-export default function NavBar({ className, hasBackground, showLogoIcon, variant, hasHomeButton = true, position = "fixed", ...props }: INavBar) {
+export default function NavBar({ className, hasBackground, variant, hasHomeButton = true, position = "fixed", ...props }: INavBar) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
@@ -55,13 +54,6 @@ export default function NavBar({ className, hasBackground, showLogoIcon, variant
                         </Link>
                     }
                 </div>
-                {
-                    showLogoIcon && (
-                        <div className="absolute left-1/2 transform -translate-x-1/2">
-                            <Image src="/logos/waveicon-navy.svg" alt="waveicon-navy" width={120} height={6} />
-                        </div>
-                    )
-                }
                 <div className="flex gap-4">
                     <div>
                         <Button variant={variant} size='default' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />

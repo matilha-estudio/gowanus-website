@@ -74,10 +74,10 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                     <span className={styles.address}>{address}</span>
                 </div>
                 <Image src={cardImageUrl} alt={altText} width={128} height={176} className='object-cover md:w-full' />
-                <div className='hidden absolute w-96 top-1/2 -translate-y-1/2 md:flex justify-between'>
+                {/* <div className='hidden absolute w-96 top-1/2 -translate-y-1/2 md:flex justify-between'>
                     <Button variant='marigold' icon={<ArrowLeft />} onClick={prevCard} />
                     <Button variant='marigold' icon={<ArrowRight />} onClick={nextCard} />
-                </div>
+                </div> */}
             </div>
         </>
     );

@@ -19,6 +19,8 @@ import Footer from '@/components/sections/footer';
 import AvailableApartments from '@/components/sections/availableApartments';
 import Inquire from './inquire/page';
 import InquireComponent from '@/components/sections/inquire';
+import MainHeader from '@/components/sections/mainHeader';
+import Services from '@/components/sections/services';
 
 export default function Home() {
   const scrollByVh = useScrollByVh();
@@ -57,101 +59,11 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-sand">
-      <section className="relative flex flex-col items-center bg-navy w-full h-screen">
-        <div className="absolute inset-0 bg-navy/40 transition-colors z-10" />
-        <NavBar
-          variant="white"
-          hasBackground={false}
-          showLogoIcon={false}
-          hasHomeButton={false}
-          position="absolute"
-          className="opacity-0 animate-show"
-          style={{ animationDelay: '10s' }}
-        />
-        <div
-          className="flex flex-col items-center w-full h-full justify-center text-marigold z-10 opacity-1 animate-zoomOut"
-          style={{ animationDelay: '6s' }}
-        >
-          <span
-            className={cn(
-              'header1 md:header1XXXL text-center leading-none opacity-0 animate-show',
-              SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'header1' : 'header1XXXL'
-            )}
-            style={{ animationDelay: '1s' }}
-          >
-            TO THE
-          </span>
-          <span
-            className={cn(
-              'header1 md:header1XXXL text-center leading-none opacity-0 animate-show',
-              SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'header1' : 'header1XXXL'
-            )}
-            style={{ animationDelay: '2s' }}
-          >
-            ENDURING SPIRIT
-          </span>
-          <span
-            className={cn(
-              'header1 md:header1XXXL text-center leading-none opacity-0 animate-show',
-              SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'header1' : 'header1XXXL'
-            )}
-            style={{ animationDelay: '3s' }}
-          >
-            OF BROOKLYN
-          </span>
-        </div>
-        <Image
-          src="/medias/MasterBrandFilm3.png"
-          alt="MasterBrandFilm3"
-          width={1511}
-          height={810}
-          className="absolute object-cover w-full h-full opacity-0 animate-zoomIn"
-          style={{ animationDelay: '4s' }}
-        />
-        <Image
-          src="/logos/gowanus-white.svg"
-          alt="gowanus-white"
-          width={270}
-          height={103}
-          className="w-full object-contain absolute max-w-[270px] z-10 -mt-6 top-1/2 -translate-y-1/2 opacity-0 animate-zoomIn"
-          style={{ animationDelay: '8s' }}
-        />
-        <div className="absolute bottom-14 flex flex-col md:flex-row gap-8 lg:gap-36 md:gap-20 opacity-0 animate-show z-10" style={{ animationDelay: '10s' }}>
-          <Image
-            src="/logos/union-channel-logo-white.svg"
-            alt="union-channel-logo-white"
-            width={192}
-            height={43}
-            className="w-full object-contain max-w-[192px]"
-          />
-          <Image
-            src="/logos/douglass-port.svg"
-            alt="douglass-port"
-            width={192}
-            height={43}
-            className="w-full object-contain max-w-[192px]"
-          />
-          <Image
-            src="/logos/nevins-lading.svg"
-            alt="nevins-lading"
-            width={192}
-            height={43}
-            className="w-full object-contain max-w-[192px]"
-          />
-        </div>
-        <Button
-          variant="icon"
-          icon={<ArrowDown className="text-marigold" />}
-          className="absolute bottom-2 opacity-0 animate-show z-20"
-          style={{ animationDelay: '10s' }}
-          onClick={scrollByVh}
-        />
-      </section>
+      <MainHeader />
 
       <NavBar
         variant="navyOutline"
         hasBackground={true}
-        showLogoIcon={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
         hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
         position="sticky"
         className="top-0"
@@ -218,7 +130,6 @@ export default function Home() {
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
               <span className="accent4 max-w-[151px] text-center">Coming Soon</span>
-              {/* <Button variant='marigold' label="explore" icon={<ArrowUpRight />} size="mobile" /> */}
             </div>
             <Link href="/union-channel" className="relative flex">
               <Image
@@ -243,7 +154,7 @@ export default function Home() {
           <div className="relative w-full md:flex-col flex-row gap-10 items-center flex md:hidden">
             <Link href="/union-channel" className="relative flex">
               <Image
-                src="/medias/cardExemple/2024_GW_MVP_4_Yoga.jpg"
+                src="/medias/MasterBrandFilm2.png"
                 alt="douglass-port"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
@@ -251,8 +162,8 @@ export default function Home() {
               />
               <div className="absolute inset-0 hover:bg-marigold/80 transition-colors z-20" />
               <Image
-                src="/logos/douglass-port-short-white.svg"
-                alt="douglass-port-short-white"
+                src="/logos/nevins-lading-short-white.svg"
+                alt="nevins-lading-short-white"
                 className="absolute left-1/2 transform -translate-x-1/2 self-center w-[114px] md:w-[374px]"
                 width={374}
                 height={84}
@@ -261,7 +172,7 @@ export default function Home() {
             </Link>
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
-              <Button variant="marigold" label="explore" icon={<ArrowUpRight />} size="mobile" />
+              <span className="accent4 max-w-[151px] text-center">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -313,31 +224,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
-        <div className="grid md:grid-cols-2 grid-cols-1 px-4">
-          <div className="relative w-full overflow-hidden group">
-            <img
-              src="/medias/services-1.png"
-              alt="services"
-              className="w-full"
-            />
-            <img
-              src="/medias/services-2.png"
-              alt="services"
-              className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-            />
-          </div>
-          <div className="flex flex-col text-center justify-center items-center gap-16">
-            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>services</h1>
-            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-            </span>
-            <div>
-              <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-            </div>
-          </div>
-        </div>
-      </section>
+      <Services />
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
         <div className="flex flex-col text-center text-navy gap-8">

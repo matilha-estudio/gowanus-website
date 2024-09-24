@@ -18,7 +18,7 @@ export default function VennServices() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-canalRoyale">
-            <NavBar variant="white" hasBackground={false} showLogoIcon={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
             <section className="flex text-white justify-center w-full h-screen">
                 <h1 className="absolute max-w-[585px] left-1/2 transform -translate-x-1/2 self-center header2XXL z-10">
                     SERVICES
@@ -33,7 +33,7 @@ export default function VennServices() {
                 />
             </section>
 
-            <NavBar variant="navyOutline" hasBackground={true} showLogoIcon={true} position='sticky' className='top-0' />
+            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0' />
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
                 <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pt-24' />

@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Inquire() {
     return (
         <main>
-            <NavBar variant="white" hasBackground={false} showLogoIcon={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
             <section className="relative flex flex-col items-center bg-navy w-full py-52 gap-16">
                 <h1 className="header2XXL text-white z-10">
                     inquire

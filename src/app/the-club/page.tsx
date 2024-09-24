@@ -25,7 +25,7 @@ export default function TheClub() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-sand">
-            <NavBar variant="white" hasBackground={false} showLogoIcon={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
 
             <section className="flex text-white justify-center w-full h-screen">
                 <h1 className="absolute max-w-[585px] left-1/2 transform -translate-x-1/2 self-center header2XXL">
@@ -40,7 +40,7 @@ export default function TheClub() {
                 />
             </section>
 
-            <NavBar variant="navyOutline" hasBackground={true} showLogoIcon={true} position='sticky' className='top-0' />
+            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0' />
 
             <section className="relative flex flex-col items-center bg-navy w-full pb-24">
                 <Image src="/logos/waveicon-marigold.svg" alt="waveicon-navy" width={242} height={12} className='pt-24' />

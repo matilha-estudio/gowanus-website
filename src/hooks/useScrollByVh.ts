@@ -6,7 +6,7 @@ export const useScrollByVh = () => {
         window.scrollBy({
             top: vh,
             left: 0,
-            behavior: 'smooth',
+            behavior: 'smooth'
         });
     }, []);
 

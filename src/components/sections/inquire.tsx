@@ -19,9 +19,9 @@ export default function InquireComponent() {
                     <InputWithLabel label="Email" placeholder="email@email.com" />
                     <InputWithLabel label="Zip Code" placeholder="XXXXX" />
                     <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
-                    <div className="flex gap-4">
-                        <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                        <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+                    <div className="flex gap-4 items-end">
+                        <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className="h-fit" />
+                        <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className="h-fit" />
                     </div>
                 </div>
             </div>
