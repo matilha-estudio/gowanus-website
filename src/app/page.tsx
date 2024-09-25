@@ -203,6 +203,7 @@ export default function Home() {
             cardIndex={cardIndex}
           />
         ))}
+
         <div className="w-full bg-navy py-4 md:py-8 flex justify-center">
           <Button label="explore campus" variant='white' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
         </div>
