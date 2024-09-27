@@ -35,13 +35,13 @@ export default function WalkThrough({ className }: IWalkThrough) {
                         <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                     </div>
                 </div>
-                <Image
-                    src="/medias/services-1.png"
-                    alt="services"
+                <video
+                    src="/medias/walkthrough.mov"
                     height={482}
                     width={592}
-                    className="aspect-video hidden md:flex object-contain"
-                />
+                    autoPlay muted loop disablePictureInPicture disableRemotePlayback
+                    className="aspect-video hidden md:flex object-contain h-[482px] ml-10"
+                ></video>
             </div>
         </section>
     )

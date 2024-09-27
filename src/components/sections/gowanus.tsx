@@ -10,7 +10,7 @@ export default function GowanusWharf() {
     const MOBILE_BREAKPOINT = 768
 
     return (
-        <section className="flex w-screen h-screen text-navy bg-white justify-center items-center overflow-hidden">
+        <section className="flex w-full h-screen text-navy bg-white justify-center items-center overflow-hidden">
             <div className="relative flex flex-col items-center max-w-screen-2xl w-screen h-screen py-24 justify-center overflow-hidden">
                 <Image
                     src="/medias/Explore/Image_1.png"
