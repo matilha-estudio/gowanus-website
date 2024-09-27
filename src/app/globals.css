@@ -60,6 +60,12 @@
   text-transform: uppercase;
 }
 
+.header2MD {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 2.625rem; /* 42px */
+  text-transform: uppercase;
+}
+
 .header2 {
   font-family: "TWKEverettRegular", sans-serif;
   font-size: 4rem; /* 64px */
@@ -120,6 +126,11 @@
 .accent2 {
   font-family: "TWKEverettRegular", sans-serif;
   font-size: 1.125rem; /* 18px */
+}
+
+.accent3-md {
+  font-family: "TWKEverettRegular", sans-serif;
+  font-size: 0.875rem; /* 14px */
 }
 
 .accent3 {

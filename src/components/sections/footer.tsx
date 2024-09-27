@@ -5,7 +5,6 @@ export default function Footer() {
     return (
         <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-16">
             <div className="relative flex flex-col gap-8">
-                <Image src="/logos/gowanus-navy-marigold.svg" alt="gowanus-navy-marigold" width={216} height={10} />
                 <div className="flex w-full justify-between">
                     <div className="hidden md:flex gap-16">
                         <div className="flex flex-col gap-2">
@@ -34,7 +33,7 @@ export default function Footer() {
                     </div>
                     <div className="flex flex-col md:items-end md:justify-end gap-8">
                         <div className="flex flex-col gap-2 md:text-end md:items-end">
-                            <a href="/">
+                            <a href="/" className="hidden md:flex">
                                 <img src="/logos/gowanus-favicon-white.svg" alt="gowanus-favicon-white" width={67} height={43} className="mb-8" />
                             </a>
                             <a href="/" className="subheader4 hover:text-marigold">100 1st St, Brooklyn, NY 11231</a>
