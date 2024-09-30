@@ -42,7 +42,7 @@ export default function VennServices() {
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
                 <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
-                <div className="flex flex-col text-center text-white gap-16">
+                <div className="flex flex-col text-center text-white gap-16 items-center">
 
                     {
                         SCREEN_WIDTH > MOBILE_BREAKPOINT && (

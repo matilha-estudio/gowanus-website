@@ -87,7 +87,7 @@ export default function Home() {
           </span>
         </div>
         <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10">
-          <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm" autoPlay muted loop>
+          <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm" autoPlay muted loop playsInline>
             2024_GW_MVP_1_TwinklingWater
           </video>
         </div>
@@ -211,7 +211,7 @@ export default function Home() {
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
         <div className="grid md:grid-cols-2 grid-cols-1">
-          <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
+          <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
           <div className="flex flex-col text-center justify-center items-center gap-16 ">
             <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>the club</h1>
             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
@@ -221,7 +221,7 @@ export default function Home() {
               <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
             </div>
           </div>
-          <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-video hidden md:flex object-contain">the-club</video>
+          <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
         </div>
       </section>
 

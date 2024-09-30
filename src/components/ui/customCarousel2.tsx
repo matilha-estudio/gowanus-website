@@ -130,8 +130,8 @@ export function CustomCarousel2() {
 
     return (
         <Carousel
-            className={cn("w-full")}
-            opts={{ loop: true, align: 'end' }}
+            className={cn("w-full lg:max-w-screen-2xl")}
+            opts={{ loop: true, align: 'center' }}
         >
             <CarouselContent className="-ml-1">
                 {events.map((item, index) => (

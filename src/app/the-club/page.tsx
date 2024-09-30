@@ -37,7 +37,7 @@ export default function TheClub() {
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 text-center self-center w-full")}>
                     The Club
                 </h1>
-                <video src="/medias/the-club.webm" autoPlay muted loop className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
+                <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button
                     variant="icon"
@@ -376,7 +376,7 @@ export default function TheClub() {
             </section>
 
             <section className="relative flex flex-col items-center justify-center w-full md:py-24 text-navy bg-white gap-16">
-                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg", "text-center")}>
+                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4 max-w-lg" : "body1 max-w-screen-lg", "text-center")}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
                 </span>
                 <div>

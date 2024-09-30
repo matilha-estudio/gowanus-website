@@ -103,7 +103,7 @@ export function CustomCarousel3() {
                         </div>
                     </CardContent>
                 </Card>
-                <div className="flex items-center w-full mt-4">
+                <div className="flex items-center w-full mt-4 max-w-[304px] md:max-w-[237px]">
                     <span className={cn("text-center w-full", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body2")}>{item.description}</span>
                 </div>
             </CarouselItem>
@@ -114,8 +114,8 @@ export function CustomCarousel3() {
 
     return (
         <Carousel
-            className="w-full"
-            opts={{ loop: true, align: 'end' }}
+            className="w-full lg:max-w-screen-2xl"
+            opts={{ loop: true, align: 'center' }}
         >
             <CarouselContent className="-ml-1">
                 {events.map((item, index) => (

@@ -63,7 +63,7 @@ export default function UnionChannel() {
                 </div>
             </section>
             <section className="flex flex-col items-center justify-center bg-sand w-full pb-8 px-8">
-                <video src="/medias/the-club.webm" autoPlay muted loop controls disablePictureInPicture disableRemotePlayback className="aspect-square md:aspect-video object-cover w-full">the-club</video>
+                <video src="/medias/the-club.webm" autoPlay playsInline muted loop controls disablePictureInPicture disableRemotePlayback className="aspect-square md:aspect-video object-cover w-full">the-club</video>
             </section>
 
             <section className="flex flex-col items-center justify-center w-full py-24 text-navy">

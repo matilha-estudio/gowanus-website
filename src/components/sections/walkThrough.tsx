@@ -21,7 +21,7 @@ export default function WalkThrough({ className }: IWalkThrough) {
                     src="/medias/walkthrough.mov"
                     height={482}
                     width={592}
-                    autoPlay muted loop disablePictureInPicture disableRemotePlayback
+                    autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
                     className="aspect-square p-4 flex md:hidden object-contain"
                 >
                     walk-through
@@ -39,7 +39,7 @@ export default function WalkThrough({ className }: IWalkThrough) {
                     src="/medias/walkthrough.mov"
                     height={482}
                     width={592}
-                    autoPlay muted loop disablePictureInPicture disableRemotePlayback
+                    autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
                     className="aspect-video hidden md:flex object-contain h-[482px] ml-10"
                 ></video>
             </div>
