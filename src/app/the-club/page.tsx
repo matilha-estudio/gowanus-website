@@ -315,9 +315,9 @@ export default function TheClub() {
                     </div>
 
                     <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                        <h1 className="header1">FITNESS</h1>
+                        <h1 className="header1">COWORKING</h1>
                         <span className="subheader3-bold max-w-lg">
-                            Premiere Gym | Mirror Fitness Room
+                            coffee bar | conference center | conference rooms | call rooms
                         </span>
                         <span className="body1 max-w-lg">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
