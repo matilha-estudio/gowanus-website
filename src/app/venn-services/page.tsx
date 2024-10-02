@@ -13,6 +13,7 @@ import Footer from "@/components/sections/footer";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import AvailableApartments from "@/components/sections/availableApartments";
 import { CustomCarousel3 } from "@/components/ui/customCarousel3";
+import Reveal from "@/components/animations/reveal";
 
 export default function VennServices() {
     const scrollByVh = useScrollByVh();
@@ -42,23 +43,24 @@ export default function VennServices() {
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
                 <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
-                <div className="flex flex-col text-center text-white gap-16 items-center">
+                <Reveal className="flex flex-col text-center text-white gap-16 items-center">
+                    <>
+                        {
+                            SCREEN_WIDTH > MOBILE_BREAKPOINT && (
+                                <TextReveal text='A Wealth Of Conveniences' />
+                            )
+                        }
 
-                    {
-                        SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                            <TextReveal text='A Wealth Of Conveniences' />
-                        )
-                    }
+                        <h1 className={'header1MD leading-none md:hidden'}>
+                            A Wealth Of Conveniences
+                        </h1>
 
-                    <h1 className={'header1MD leading-none md:hidden'}>
-                        A Wealth Of Conveniences
-                    </h1>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                        </span>
+                    </>
 
-                    <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                    </span>
-
-                </div>
+                </Reveal>
 
                 <div className="flex flex-col items-center justify-center gap-16 mt-24 bg-white w-full h-full pb-24">
                     <div className="flex flex-col md:flex-row px-8 justify-center gap-16">
@@ -89,21 +91,23 @@ export default function VennServices() {
 
             <section className="relative flex flex-col items-center bg-sand w-full pb-24 text-navy">
                 <Image src="/logos/waveicon-canalroyale.svg" alt="waveicon-navy" width={242} height={12} className='pt-24 pb-10' />
-                <div className="flex flex-col text-center gap-16 items-center">
-                    {
-                        SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                            <TextReveal text='RESIDENT PROGRAMMING' />
-                        )
-                    }
+                <Reveal className="flex flex-col text-center gap-16 items-center">
+                    <>
+                        {
+                            SCREEN_WIDTH > MOBILE_BREAKPOINT && (
+                                <TextReveal text='RESIDENT PROGRAMMING' />
+                            )
+                        }
 
-                    <h1 className={'header1MD leading-none md:hidden'}>
-                        RESIDENT PROGRAMMING
-                    </h1>
+                        <h1 className={'header1MD leading-none md:hidden'}>
+                            RESIDENT PROGRAMMING
+                        </h1>
 
-                    <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                    </span>
-                </div>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                        </span>
+                    </>
+                </Reveal>
 
                 <div className="h-10" />
                 <CustomCarousel3 />
@@ -112,8 +116,11 @@ export default function VennServices() {
                     <Button label="View sample calendar" variant="navy" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
                 </div>
             </section>
+
             <div className="h-20 md:h-0" />
+
             <AvailableApartments />
+
             <InquireComponent />
 
             <Footer />

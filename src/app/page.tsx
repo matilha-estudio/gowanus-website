@@ -18,6 +18,7 @@ import InquireComponent from '@/components/sections/inquire';
 import MainHeader from '@/components/sections/mainHeader';
 import Services from '@/components/sections/services';
 import MapComponent from '@/components/sections/mapComponent';
+import Reveal from '@/components/animations/reveal';
 
 export default function Home() {
   const windowWidth = useWindowWidth()
@@ -44,15 +45,17 @@ export default function Home() {
           height={12}
           className="pt-24"
         />
-        <div className="flex flex-col text-center text-navy gap-16">
-          <TextReveal text="Wake up at The Wharf" />
-          <span className="body1 max-w-3xl px-8">
-            Three residential experiences. Endless connected amenities. A multimodal homebase built for the ebb and flow of urban living. Be one with the local lifestyle in a place of arts and creation.
-          </span>
-          <span className="body1 max-w-3xl">
-            Gowanus, Brooklyn. 2025.
-          </span>
-        </div>
+        <Reveal className='flex flex-col items-center w-full'>
+          <div className="flex flex-col text-center text-navy gap-16">
+            <TextReveal text="Wake up at The Wharf" />
+            <span className="body1 max-w-3xl px-8">
+              Three residential experiences. Endless connected amenities. A multimodal homebase built for the ebb and flow of urban living. Be one with the local lifestyle in a place of arts and creation.
+            </span>
+            <span className="body1 max-w-3xl">
+              Gowanus, Brooklyn. 2025.
+            </span>
+          </div>
+        </Reveal>
         <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10">
           <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm" autoPlay muted loop playsInline>
             2024_GW_MVP_1_TwinklingWater
@@ -61,12 +64,14 @@ export default function Home() {
       </section>
 
       <section className="relative pt-56 flex flex-col items-center w-full py-24 bg-white">
-        <div className="flex flex-col text-center text-navy gap-8">
-          <TextReveal text="Rental properties" />
-          <span className="body1 max-w-3xl px-8 mt-8">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
-          </span>
-        </div>
+        <Reveal className="flex flex-col text-center text-navy gap-8">
+          <>
+            <TextReveal text="Rental properties" />
+            <span className="body1 max-w-3xl px-8 mt-8">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
+            </span>
+          </>
+        </Reveal>
         <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8">
           <div className="relative flex md:flex-col flex-row gap-10 items-center">
             <Link href="/union-channel" className="relative flex">
@@ -150,19 +155,21 @@ export default function Home() {
       <MapComponent showButton />
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
-        <div className="grid md:grid-cols-2 grid-cols-1">
-          <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
-          <div className="flex flex-col text-center justify-center items-center gap-16 ">
-            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>the club</h1>
-            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-            </span>
-            <div>
-              <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+        <Reveal>
+          <div className="grid md:grid-cols-2 grid-cols-1">
+            <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
+            <div className="flex flex-col text-center justify-center items-center gap-16 ">
+              <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>the club</h1>
+              <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+              </span>
+              <div>
+                <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+              </div>
             </div>
+            <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
           </div>
-          <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
-        </div>
+        </Reveal>
       </section>
 
       <Services />

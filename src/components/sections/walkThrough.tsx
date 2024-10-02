@@ -4,6 +4,7 @@ import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { ArrowUpRight } from "lucide-react"
 import { HTMLAttributes } from "react"
+import Reveal from "../animations/reveal"
 
 interface IWalkThrough {
     className?: string
@@ -26,15 +27,19 @@ export default function WalkThrough({ className }: IWalkThrough) {
                 >
                     walk-through
                 </video>
-                <div className="flex flex-col text-center justify-center items-center gap-8 md:gap-16 ">
-                    <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>WALK THROUGH</h1>
-                    <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                    </span>
-                    <div>
-                        <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                    </div>
-                </div>
+
+                <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-16 ">
+                    <>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>WALK THROUGH</h1>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                        </span>
+                        <div>
+                            <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+                        </div>
+                    </>
+                </Reveal>
+
                 <video
                     src="/medias/walkthrough.mov"
                     height={482}

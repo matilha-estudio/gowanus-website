@@ -15,6 +15,7 @@ import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { cn } from "../lib/utils";
 import { useScrollByVh } from "@/hooks/useScrollByVh";
 import WalkThrough from "@/components/sections/walkThrough";
+import Reveal from "@/components/animations/reveal";
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -80,12 +81,14 @@ export default function UnionChannel() {
                             className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <div className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>apartments</h1>
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                        </span>
-                    </div>
+                    <Reveal className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">
+                        <>
+                            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>apartments</h1>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                            </span>
+                        </>
+                    </Reveal>
                 </div>
             </section>
 
@@ -125,13 +128,17 @@ export default function UnionChannel() {
             <WalkThrough className="bg-sand" />
 
             <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-white">
-                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>The club</h1>
-                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg", 'text-center')}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                </span>
-                <div className="w-full md:py-8 flex justify-center">
-                    <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                </div>
+                <Reveal className="flex flex-col items-center md:gap-16 gap-8">
+                    <>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>The club</h1>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg", 'text-center')}>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                        </span>
+                        <div className="w-full md:py-8 flex justify-center">
+                            <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+                        </div>
+                    </>
+                </Reveal>
                 <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                     <CarouselContent>
                         {Array.from({ length: 5 }).map((_, index) => (

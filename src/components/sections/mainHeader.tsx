@@ -55,14 +55,14 @@ export default function MainHeader() {
                     OF BROOKLYN
                 </span>
             </div>
-            <Image
-                src="/medias/MasterBrandFilm3.png"
-                alt="MasterBrandFilm3"
+            <video
+                src="/medias/2024_GW_MVP_1_TwinklingWater.webm"
+                autoPlay playsInline muted loop disablePictureInPicture disableRemotePlayback
                 width={1511}
                 height={810}
                 className="absolute object-cover w-full h-full opacity-0 animate-zoomIn"
                 style={{ animationDelay: '4s' }}
-            />
+            >banner</video>
             <Image
                 src="/logos/gowanus-white.svg"
                 alt="gowanus-white"

@@ -79,20 +79,20 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                                 <AccordionTrigger className="body1">Rental Properties</AccordionTrigger>
                                 <AccordionContent className="body2 flex flex-col items-center gap-2">
                                     <a href="/union-channel" className="hover:cursor-pointer hover:text-canalRoyale">Union Channel</a>
-                                    <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Douglass Port</a>
-                                    <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Nevins Landing</a>
+                                    {/* <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Douglass Port</a>
+                                    <a href="/" className="hover:cursor-pointer hover:text-canalRoyale">Nevins Landing</a> */}
                                 </AccordionContent>
                             </AccordionItem>
                         </Accordion>
 
                         <Link href="/the-club" className="hover:text-canalRoyale">The Club</Link>
                         <Link href="/venn-services" className="hover:text-canalRoyale">Services</Link>
-                        <Link href="" className="hover:text-canalRoyale">Explore Gowanus</Link>
-                        <Link href="" className="hover:text-canalRoyale">Wharf Happenings</Link>
-                        <Link href="" className="hover:text-canalRoyale">Availabilities</Link>
-                        <Link href="" className="hover:text-canalRoyale">Virtual Tours</Link>
-                        <Link href="" className="hover:text-canalRoyale">Contact</Link>
-                        <Link href="" className="hover:text-canalRoyale">Resident Login</Link>
+                        <Link href="/neighborhood" className="hover:text-canalRoyale">Explore Gowanus</Link>
+                        <Link href="/the-wharf-dispatch" className="hover:text-canalRoyale">Wharf Happenings</Link>
+                        <Link href="/availability" className="hover:text-canalRoyale">Availabilities</Link>
+                        <Link href="/virtual-tours" className="hover:text-canalRoyale">Virtual Tours</Link>
+                        <Link href="/inquire" className="hover:text-canalRoyale">Contact</Link>
+                        {/* <Link href="" className="hover:text-canalRoyale">Resident Login</Link> */}
                     </div>
                 </DrawerContent>
             </Drawer>

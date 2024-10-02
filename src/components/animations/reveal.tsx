@@ -23,7 +23,7 @@ export default function Reveal({ children, className }: IReveal) {
     return (
         <motion.div
             ref={ref}
-            className={cn(className, "w-full relative")}
+            className={cn(className ?? "w-full relative")}
             variants={{
                 hidden: { opacity: 0, y: 75 },
                 visible: { opacity: 1, y: 0 }
