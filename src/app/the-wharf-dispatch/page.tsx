@@ -128,7 +128,7 @@ export default function TheWharfDispatch() {
                         const HEIGHT = SCREEN_WIDTH < MOBILE_BREAKPOINT ? mobileHeight[0] : heights[index % heights.length];
 
                         return (
-                            <div className={cn(HEIGHT >= 652 ? "w-[747px]" : "w-[304px]", "relative flex flex-col")}>
+                            <div key={index} className={cn(HEIGHT >= 652 ? "w-[747px]" : "w-[304px]", "relative flex flex-col")}>
                                 <Card
                                     className={cn(HEIGHT >= 652 ? "w-[747px]" : "w-[304px]", "flex flex-col items-center rounded-none justify-self-center cursor-pointer")}
                                     style={{ height: `${HEIGHT}px`, minHeight: mobileHeight[0] }} // Altura mínima para evitar sobreposição
