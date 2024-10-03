@@ -7,6 +7,7 @@ interface RentalProperty {
 }
 
 interface RentalProperties {
+  text: string
   union_channel: RentalProperty;
   douglass_port: RentalProperty;
   nevins_landing: RentalProperty;

@@ -18,9 +18,11 @@ interface INavBar extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     hasHomeButton?: boolean
     position?: "fixed" | "absolute" | "sticky"
     variant: "navyOutline" | "white"
+    pageName: string
+    pagePath: string
 }
 
-export default function NavBar({ className, hasBackground, variant, hasHomeButton = true, position = "fixed", ...props }: INavBar) {
+export default function NavBar({ className, hasBackground, variant, hasHomeButton = true, position = "fixed", pageName, pagePath, ...props }: INavBar) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
@@ -49,8 +51,8 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                     </DrawerTrigger>
                     {
                         hasHomeButton &&
-                        <Link href="/">
-                            <Button variant={variant} size='default' label="home" className="h-10 w-fit" />
+                        <Link href={pagePath}>
+                            <Button variant={variant} size='default' label={pageName} className="h-10 w-fit" />
                         </Link>
                     }
                 </div>

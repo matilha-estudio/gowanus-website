@@ -35,6 +35,10 @@ const config = {
           '0%': { opacity: '0', transform: 'scale(0)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        mainVideoZoomIn: {
+          '0%': { opacity: '0', transform: 'scale(0.5)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
         zoomOut: {
           '100%': { opacity: '0', transform: 'scale(0)' },
           '0%': { opacity: '1', transform: 'scale(1)' },
@@ -59,6 +63,7 @@ const config = {
         "accordion-up": "accordion-up 0.2s ease-out",
         "show": 'show 0.2s forwards',
         "zoomIn": 'zoomIn 2s ease-out forwards',
+        "mainVideoZoomIn": 'zoomIn 2s ease-out forwards',
         "zoomOut": 'zoomOut 2s ease-out forwards',
       },
     },

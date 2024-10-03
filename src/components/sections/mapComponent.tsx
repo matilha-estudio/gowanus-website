@@ -4,8 +4,8 @@ import Image from "next/image";
 import MapCard from "../mapCard";
 import { Button } from "../ui/button";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { ArrowUpRight, Flag, FlagTriangleRight, MapPin, Pin } from "lucide-react";
+import { SetStateAction, useState } from "react";
 
 interface IMapComponent {
     showButton?: boolean
@@ -16,7 +16,8 @@ export default function MapComponent(props: IMapComponent) {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
-    const [cardIndex, setCardIndex] = useState(0);
+    const [cardIndex, setCardIndex] = useState<number | null>(0);
+    const [mdPosition, setMdPosition] = useState("");
 
     const cardData = [
         {
@@ -45,15 +46,29 @@ export default function MapComponent(props: IMapComponent) {
         }
     ];
 
+    function handleMDCard(cardIndex: SetStateAction<number | null>, position: SetStateAction<string>) {
+        setCardIndex(cardIndex)
+        setMdPosition(position)
+    }
+
     return (
-        <section className="relative flex flex-col h-screen md:h-auto items-center w-full text-navy">
-            <Image
-                src="/medias/MapIntegration.png"
-                alt="MapIntegration"
-                width={1440}
-                height={810}
-                className="w-full h-full md:max-h-[810px] md:flex hidden object-cover"
-            />
+        <section className="relative flex flex-col h-screen md:h-auto items-center w-full bg-navy text-navy">
+            <div className="relative h-screen md:h-auto items-center w-full flex flex-col">
+
+                <Image
+                    src="/medias/MapIntegration.png"
+                    alt="MapIntegration"
+                    width={1440}
+                    height={810}
+                    className="w-full h-full md:max-h-[810px] md:flex md:w-[1440px] hidden object-center"
+                    onClick={() => setCardIndex(null)}
+                />
+
+                <FlagTriangleRight className="absolute hidden md:flex text-sand hover:cursor-pointer top-[43%] right-[45%] size-10 fill-current" onClick={() => handleMDCard(0, "md:top-[27%] md:right-[30%]")} />
+                <FlagTriangleRight className="absolute hidden md:flex text-teal hover:cursor-pointer bottom-[16%] left-[45%] size-10 fill-current" onClick={() => handleMDCard(2, "md:bottom-[22%] md:left-[30%]")} />
+                <FlagTriangleRight className="absolute hidden md:flex text-red hover:cursor-pointer bottom-[9%] left-[50%] size-10 fill-current" onClick={() => handleMDCard(1, "md:bottom-[15%] md:right-[35%]")} />
+            </div>
+
             {cardData.map((item, index) => (
                 <MapCard
                     key={index}
@@ -67,6 +82,7 @@ export default function MapComponent(props: IMapComponent) {
                     listSize={cardData.length}
                     setCardIndex={setCardIndex}
                     cardIndex={cardIndex}
+                    mdPosition={mdPosition}
                 />
             ))}
 

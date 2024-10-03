@@ -16,6 +16,9 @@ import { cn } from "../lib/utils";
 import { useScrollByVh } from "@/hooks/useScrollByVh";
 import WalkThrough from "@/components/sections/walkThrough";
 import Reveal from "@/components/animations/reveal";
+import { useEffect, useState } from "react";
+import { getUnionChannelPage } from "@/services/unionChannel";
+import { ApiResponseUnionChannel } from "@/services/models/unionChannel";
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -24,9 +27,33 @@ export default function UnionChannel() {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
+    const [data, setData] = useState<ApiResponseUnionChannel | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getUnionChannelPage()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
+
     return (
         <main>
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="union channel" pagePath="/union-channel" />
             <section className="flex">
                 {
                     SCREEN_WIDTH < MOBILE_BREAKPOINT ?
@@ -54,17 +81,18 @@ export default function UnionChannel() {
                     onClick={scrollByVh}
                 />
             </section>
+
             <section className="flex flex-col items-center bg-sand w-full py-24 gap-16">
                 <Image src="/logos/waveicon-canalroyale.svg" alt="waveicon-navy" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
+                    {data?.acf_medias.description}
                 </span>
                 <div className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                 </div>
             </section>
             <section className="flex flex-col items-center justify-center bg-sand w-full pb-8 px-8">
-                <video src="/medias/the-club.webm" autoPlay playsInline muted loop controls disablePictureInPicture disableRemotePlayback className="aspect-square md:aspect-video object-cover w-full">the-club</video>
+                <video src={data?.acf_medias.image_url} autoPlay playsInline muted loop controls disablePictureInPicture disableRemotePlayback className="aspect-square md:aspect-video object-cover w-full">the-club</video>
             </section>
 
             <section className="flex flex-col items-center justify-center w-full py-24 text-navy">
@@ -95,12 +123,12 @@ export default function UnionChannel() {
             <section className="w-full flex justify-center md:py-16">
                 <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                     <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
+                        {data?.acf_medias.carousel.map((_, index) => (
                             <CarouselItem key={index} className="max-w-[1000px]">
                                 <div className="md:p-1">
                                     <Card className="rounded-none">
                                         <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
-                                            <Image src={"/medias/MasterBrandFilm.png"} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
+                                            <Image src={_.image} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
                                         </CardContent>
                                     </Card>
                                 </div>
@@ -114,11 +142,11 @@ export default function UnionChannel() {
 
             <section className="w-full flex justify-center p-8 md:p-16 text-navy">
                 <Accordion type="single" collapsible className="w-full max-w-5xl">
-                    {Array.from({ length: 3 }).map((_, index) => (
+                    {data?.acf_medias.feature_category.map((_, index) => (
                         <AccordionItem key={index} value={`item-${index + 1}`} className="w-full">
-                            <AccordionTrigger className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader4' : 'subheader2')}>Residence Feature Category {index + 1}</AccordionTrigger>
+                            <AccordionTrigger className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader4' : 'subheader2')}>{_.title}</AccordionTrigger>
                             <AccordionContent className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body2")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
+                                {_.description}
                             </AccordionContent>
                         </AccordionItem>
                     ))}

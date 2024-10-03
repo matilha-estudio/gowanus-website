@@ -22,6 +22,7 @@ export default function MainHeader() {
                 position="absolute"
                 className="opacity-0 animate-show"
                 style={{ animationDelay: '10s' }}
+                pageName="home" pagePath="/"
             />
             <div
                 className="flex flex-col items-center w-full h-full justify-center text-marigold z-10 opacity-1 animate-zoomOut"
@@ -56,11 +57,11 @@ export default function MainHeader() {
                 </span>
             </div>
             <video
-                src="/medias/2024_GW_MVP_1_TwinklingWater.webm"
+                src="/medias/3319184472146877331.webm"
                 autoPlay playsInline muted loop disablePictureInPicture disableRemotePlayback
                 width={1511}
                 height={810}
-                className="absolute object-cover w-full h-full opacity-0 animate-zoomIn"
+                className="absolute object-cover w-full h-full opacity-0 animate-mainVideoZoomIn"
                 style={{ animationDelay: '4s' }}
             >banner</video>
             <Image

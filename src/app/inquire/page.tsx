@@ -15,7 +15,7 @@ export default function Inquire() {
     const MOBILE_BREAKPOINT = 768
     return (
         <main>
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="inquire" pagePath="/inquire" />
 
             <section className="relative flex flex-col items-center bg-navy w-full py-52 gap-16">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10")}>

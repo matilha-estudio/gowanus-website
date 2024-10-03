@@ -5,12 +5,25 @@ interface Service {
   description: string;
 }
 
+interface Resident_Programming {
+  title: string
+  text: string
+  carousel: Array<{
+    title: string
+    subtitle: string
+    image: number
+  }>
+}
+
 interface Acf {
   title: string;
   subtitle: string;
   image_1: number;
   image_2: number;
+  images_subtitle: string;
   services: Service[];
+  resident_programming: Resident_Programming;
+
 }
 
 interface AcfMedias {

@@ -19,11 +19,38 @@ import MainHeader from '@/components/sections/mainHeader';
 import Services from '@/components/sections/services';
 import MapComponent from '@/components/sections/mapComponent';
 import Reveal from '@/components/animations/reveal';
+import { getHomePage } from '@/services/home';
+import { useEffect, useState } from 'react';
+import { ApiResponseHomePage } from '@/services/models/home';
 
 export default function Home() {
   const windowWidth = useWindowWidth()
   const SCREEN_WIDTH = windowWidth
   const MOBILE_BREAKPOINT = 768
+
+  const [data, setData] = useState<ApiResponseHomePage | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleData() {
+    try {
+      const response = await getHomePage()
+      setData(response)
+    } catch (err) {
+      setError('Failed to fetch data')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    handleData()
+  }, [])
+
+  if (loading) return (
+    <div className='w-screen h-screen bg-navy' />
+  )
+  if (error) return <p>{error}</p>
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-sand">
@@ -35,6 +62,7 @@ export default function Home() {
         hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
         position="sticky"
         className="top-0"
+        pageName="home" pagePath="/"
       />
 
       <section className="relative flex flex-col items-center bg-sand w-full pb-24">
@@ -68,7 +96,7 @@ export default function Home() {
           <>
             <TextReveal text="Rental properties" />
             <span className="body1 max-w-3xl px-8 mt-8">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
+              {data?.acf.rental_properties.text}
             </span>
           </>
         </Reveal>
@@ -76,7 +104,7 @@ export default function Home() {
           <div className="relative flex md:flex-col flex-row gap-10 items-center">
             <Link href="/union-channel" className="relative flex">
               <Image
-                src="/medias/UnionChannelBanner.png"
+                src={data?.acf_medias.union_channel_image_url ?? ''}
                 alt="UnionChannelBanner"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
@@ -157,17 +185,17 @@ export default function Home() {
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-sand">
         <Reveal>
           <div className="grid md:grid-cols-2 grid-cols-1">
-            <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">the-club</video>
+            <video src={data?.acf_medias.the_club_video_url} autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">{data?.acf.the_club.title}</video>
             <div className="flex flex-col text-center justify-center items-center gap-16 ">
-              <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>the club</h1>
+              <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>{data?.acf.the_club.title}</h1>
               <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                {data?.acf.the_club.text}
               </span>
               <div>
                 <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
               </div>
             </div>
-            <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
+            <video src={data?.acf_medias.the_club_video_url} autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
           </div>
         </Reveal>
       </section>
@@ -175,13 +203,13 @@ export default function Home() {
       <Services />
 
       <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-        <div className="flex flex-col text-center text-navy gap-8">
+        <div className="flex flex-col text-center text-navy gap-8 items-center">
           <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1")}>the wharf dispatch</h1>
-          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-2xl")}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
           </span>
         </div>
-        <div className="w-full flex justify-center py-16">
+        <div className="w-full flex justify-center py-16 max-w-screen-2xl">
           <CustomCarousel />
         </div>
         <div>

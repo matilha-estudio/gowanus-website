@@ -13,8 +13,9 @@ interface CardProps {
     altText: string;
     index: number;
     listSize: number;
-    setCardIndex: Dispatch<SetStateAction<number>>
-    cardIndex: number
+    setCardIndex: Dispatch<SetStateAction<number | null>>
+    cardIndex: number | null
+    mdPosition: string
 }
 
 const cardStyles = [
@@ -38,17 +39,17 @@ const cardStyles = [
     },
 ];
 
-const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUrl, mapImageUrl, altText, index, listSize, cardIndex, setCardIndex }) => {
+const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUrl, mapImageUrl, altText, index, listSize, cardIndex, setCardIndex, mdPosition }) => {
 
     function nextCard() {
-        setCardIndex((prevIndex) => (prevIndex + 1) % listSize);
+        setCardIndex((prevIndex) => (prevIndex ?? 0 + 1) % listSize);
     }
 
     function prevCard() {
-        setCardIndex((prevIndex) => (prevIndex - 1 + listSize) % listSize);
+        setCardIndex((prevIndex) => (prevIndex ?? 0 - 1 + listSize) % listSize);
     }
 
-    const styles = cardStyles[cardIndex % cardStyles.length];
+    const styles = cardStyles[cardIndex ?? 0 % cardStyles.length];
 
     return (
         <>
@@ -65,8 +66,8 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                     <Button variant='marigold' icon={<ArrowRight />} onClick={nextCard} />
                 </div>
             </div>
-            <div className={cn(`w-full p-8 flex justify-between ${styles.container} md:absolute md:justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4 md:top-24 md:right-28`,
-                'transition-opacity duration-1000 ease-in-out',
+            <div className={cn(`w-full p-8 flex justify-between ${styles.container} md:absolute md:justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4`,
+                'transition-opacity duration-1000 ease-in-out', `${mdPosition}`,
                 cardIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none sr-only')}>
                 <div className='relative max-w-44 flex flex-col gap-4 md:max-w-full'>
                     <span className={styles.title}>{title}</span>

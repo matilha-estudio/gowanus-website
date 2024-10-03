@@ -15,8 +15,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { ApiResponseService } from "@/services/models/service";
 
-export function CustomCarousel3() {
+interface ICustomCarousel3 {
+    data: ApiResponseService | null
+}
+
+export function CustomCarousel3({ data }: ICustomCarousel3) {
     const heights = [386];
 
     const windowWidth = useWindowWidth()

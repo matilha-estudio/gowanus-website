@@ -32,7 +32,7 @@ export default function TheClub() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between ">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
+            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="the club" pagePath="/the-club" />
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 text-center self-center w-full")}>
@@ -48,7 +48,7 @@ export default function TheClub() {
                 />
             </section>
 
-            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' />
+            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="the club" pagePath="/the-club" />
 
             <section className="relative flex flex-col items-center bg-navy w-full pb-24">
                 <Image src="/logos/waveicon-marigold.svg" alt="waveicon-navy" width={182} height={12} className='pt-24' />

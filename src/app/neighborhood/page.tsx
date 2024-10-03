@@ -24,7 +24,7 @@ export default function Neighborhood() {
     return (
         <Reveal className="flex min-h-screen flex-col items-center justify-between bg-white">
             <>
-                <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" />
+                <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
                     <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
@@ -40,7 +40,7 @@ export default function Neighborhood() {
                     />
                 </section>
 
-                <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' />
+                <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="relative flex flex-col items-center bg-teal text-navy w-full">
                     <Image src="/logos/waveicon-navy.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />

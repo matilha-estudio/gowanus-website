@@ -7,7 +7,7 @@ export async function getUnionChannelPage(): Promise<ApiResponseUnionChannel> {
       endpoint: '/pages/144',
       method: 'GET',
     });
-
+    console.log(data)
     return data as ApiResponseUnionChannel;
   } catch (error) {
     console.error('Error fetching pages:', error instanceof Error ? error.message : error);
