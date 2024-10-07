@@ -191,9 +191,14 @@ export default function Home() {
               <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
                 {data?.acf.the_club.text}
               </span>
-              <div>
-                <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-              </div>
+              <Link href='/the-club'>
+                <Button
+                  label="explore"
+                  variant='marigold'
+                  size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'}
+                  icon={<ArrowUpRight />}
+                />
+              </Link>
             </div>
             <video src={data?.acf_medias.the_club_video_url} autoPlay muted loop playsInline className="aspect-video hidden md:flex object-contain">the-club</video>
           </div>

@@ -2,6 +2,7 @@ import { Links, Meta, Title, Guid } from "./common";
 
 interface Image {
   image: string;
+  text: string;
 }
 
 interface AcfMedias {

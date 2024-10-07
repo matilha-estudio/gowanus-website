@@ -10,7 +10,7 @@ import { useScrollByVh } from "@/hooks/useScrollByVh";
 import { ArrowDown, ArrowDownRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "../lib/utils";
 import { CustomCarousel2 } from "@/components/ui/customCarousel2";
 import Footer from "@/components/sections/footer";
@@ -18,6 +18,10 @@ import InquireComponent from "@/components/sections/inquire";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import WalkThrough from "@/components/sections/walkThrough";
 import Reveal from "@/components/animations/reveal";
+import { CarouselResponse } from "@/services/models/carousel";
+import { getCarousel } from "@/services/carousel";
+import { getTheClub } from "@/services/theClub";
+import { TheClubResponse } from "@/services/models/theClub";
 
 export default function TheClub() {
     const scrollByVh = useScrollByVh();
@@ -29,6 +33,35 @@ export default function TheClub() {
     const [expanded, setExpanded] = useState(false);
 
     const toggleExpand = () => setExpanded(!expanded);
+
+    const [dataCarousel, setDataCarousel] = useState<CarouselResponse | null>(null)
+    const [dataTheClub, setDataTheClub] = useState<TheClubResponse | null>(null)
+
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const responseCarousel = await getCarousel()
+            const responseTheClub = await getTheClub()
+
+            setDataCarousel(responseCarousel)
+            setDataTheClub(responseTheClub)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between ">
@@ -55,18 +88,19 @@ export default function TheClub() {
                 <Reveal className="flex flex-col text-center items-center text-white gap-16 mt-16">
                     <>
                         {
-                            SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                <TextReveal text='Welcome to the club' />
+                            SCREEN_WIDTH > MOBILE_BREAKPOINT && dataTheClub && (
+                                <>
+                                    <TextReveal text={dataTheClub[0].acf_medias.title} />
+
+                                    <h1 className={'header1MD leading-none md:hidden'}>
+                                        {dataTheClub[0].acf_medias.title}
+                                    </h1>
+                                    <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                                        {dataTheClub[0].acf_medias.description}
+                                    </span>
+                                </>
                             )
                         }
-
-                        <h1 className={'header1MD leading-none md:hidden'}>
-                            Welcome to the club
-                        </h1>
-
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
-                        </span>
                     </>
                 </Reveal>
             </section>
@@ -368,26 +402,30 @@ export default function TheClub() {
                 </div>
             </section>
 
-            <section className="w-full flex justify-center md:py-16 relative">
-                <div className="absolute w-full h-1/5 bg-sand top-0" />
-                <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
-                    <CarouselContent>
-                        {Array.from({ length: 5 }).map((_, index) => (
-                            <CarouselItem key={index} className="max-w-[1000px]">
-                                <div className="md:p-1">
-                                    <Card className="rounded-none">
-                                        <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
-                                            <Image src={"/medias/MasterBrandFilm.png"} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            </CarouselItem>
-                        ))}
-                    </CarouselContent>
-                    <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
-                    <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
-                </Carousel>
-            </section>
+            {
+                dataTheClub && (
+                    <section className="w-full flex justify-center md:py-16 relative">
+                        <div className="absolute w-full h-1/5 bg-sand top-0" />
+                        <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                            <CarouselContent>
+                                {dataTheClub[0].acf_medias.list_images.map((item, index) => (
+                                    <CarouselItem key={index} className="max-w-[1000px]">
+                                        <div className="md:p-1">
+                                            <Card className="rounded-none">
+                                                <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
+                                                    <Image src={item.image} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
+                                                </CardContent>
+                                            </Card>
+                                        </div>
+                                    </CarouselItem>
+                                ))}
+                            </CarouselContent>
+                            <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
+                            <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
+                        </Carousel>
+                    </section>
+                )
+            }
 
             <section className="relative flex flex-col items-center justify-center w-full md:py-24 text-navy bg-white gap-16">
                 <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4 max-w-lg" : "body1 max-w-screen-lg", "text-center")}>
@@ -479,15 +517,15 @@ export default function TheClub() {
                         }
 
                         <h1 className={'header1MD md:hidden'}>
-                            PARTNERSHIPS
+                            {dataCarousel && dataCarousel[0]?.acf_medias.page}
                         </h1>
 
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                            {dataCarousel && dataCarousel[0]?.acf_medias.description}
                         </span>
                     </>
                 </Reveal>
-                <CustomCarousel2 />
+                <CustomCarousel2 data={dataCarousel ? dataCarousel[0]?.acf_medias.images : []} />
             </section>
 
             <InquireComponent />

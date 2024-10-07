@@ -7,7 +7,7 @@ interface ACFSection {
 
 interface ACF {
   color: string;
-  type: string | false;
+  type: string;
   location: string;
   date: string | null;
   section_1: ACFSection;
@@ -37,8 +37,8 @@ interface Post {
   template: string;
   format: string;
   meta: {
-      _genesis_block_theme_hide_title: boolean;
-      footnotes: string;
+    _genesis_block_theme_hide_title: boolean;
+    footnotes: string;
   };
   categories: number[];
   tags: number[];
@@ -48,9 +48,9 @@ interface Post {
   featured_image_src_square: string | null;
   author_info: AuthorInfo;
   acf_medias: {
-      section_1: string | false | null;
-      section_2: string | false | null;
-      section_3: string | false | null;
+    section_1: string | null;
+    section_2: string | null;
+    section_3: string | null;
   };
   _links: Links;
 }

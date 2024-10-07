@@ -52,8 +52,8 @@ export default function MapComponent(props: IMapComponent) {
     }
 
     return (
-        <section className="relative flex flex-col h-screen md:h-auto items-center w-full bg-navy text-navy">
-            <div className="relative h-screen md:h-auto items-center w-full flex flex-col">
+        <section className="relative flex flex-col md:h-auto items-center w-full bg-navy text-navy">
+            <div className="relative md:h-auto items-center w-full flex flex-col">
 
                 <Image
                     src="/medias/MapIntegration.png"

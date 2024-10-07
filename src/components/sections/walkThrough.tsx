@@ -3,8 +3,11 @@ import { Button } from "../ui/button"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { ArrowUpRight } from "lucide-react"
-import { HTMLAttributes } from "react"
+import { HTMLAttributes, useEffect, useState } from "react"
 import Reveal from "../animations/reveal"
+import { getWalkThroughPage } from "@/services/walkThrough"
+import { ApiResponseWalkThrough } from "@/services/models/walkThrough"
+import Link from "next/link"
 
 interface IWalkThrough {
     className?: string
@@ -15,11 +18,36 @@ export default function WalkThrough({ className }: IWalkThrough) {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
+    const [data, setData] = useState<ApiResponseWalkThrough | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getWalkThroughPage()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
+
+
     return (
         <section className={cn("flex flex-col items-center justify-center w-full py-12 md:py-24 text-navy", className)}>
             <div className="grid md:grid-cols-2 grid-cols-1">
                 <video
-                    src="/medias/walkthrough.mov"
+                    src={data?.acf_medias.video_url}
                     height={482}
                     width={592}
                     autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
@@ -32,16 +60,16 @@ export default function WalkThrough({ className }: IWalkThrough) {
                     <>
                         <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>WALK THROUGH</h1>
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                            {data?.acf_medias.description}
                         </span>
-                        <div>
+                        <Link href='/virtual-tours'>
                             <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                        </div>
+                        </Link>
                     </>
                 </Reveal>
 
                 <video
-                    src="/medias/walkthrough.mov"
+                    src={data?.acf_medias.video_url}
                     height={482}
                     width={592}
                     autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline

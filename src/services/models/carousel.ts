@@ -1,13 +1,16 @@
 import { Links, Title, Guid, Meta } from "./common";
 
-interface Image {
+export interface ImageCarousel {
   title: string;
+  text: string;
+  address: string;
   image: string;
 }
 
 interface AcfMedias {
-  images: Image[];
+  images: ImageCarousel[];
   page: string;
+  description: string;
 }
 
 export interface CarouselItem {
