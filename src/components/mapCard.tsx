@@ -42,14 +42,14 @@ const cardStyles = [
 const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUrl, mapImageUrl, altText, index, listSize, cardIndex, setCardIndex, mdPosition }) => {
 
     function nextCard() {
-        setCardIndex((prevIndex) => (prevIndex + 1) % listSize);
+        setCardIndex((prevIndex: any) => (prevIndex + 1) % listSize);
     }
 
     function prevCard() {
-        setCardIndex((prevIndex) => (prevIndex - 1 + listSize) % listSize);
+        setCardIndex((prevIndex: any) => (prevIndex - 1 + listSize) % listSize);
     }
 
-    const styles = cardStyles[cardIndex % cardStyles.length];
+    const styles = cardStyles[cardIndex ?? 0 % cardStyles.length];
 
     return (
         <>

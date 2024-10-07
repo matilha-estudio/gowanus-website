@@ -15,7 +15,7 @@ interface ACF {
   section_3: ACFSection;
 }
 
-interface Post {
+export interface PostTheWharfDispatch {
   id: number;
   date: string;
   date_gmt: string;
@@ -55,4 +55,4 @@ interface Post {
   _links: Links;
 }
 
-export type PostResponse = Post[];
+export type PostResponse = PostTheWharfDispatch[];

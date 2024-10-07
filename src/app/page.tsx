@@ -217,9 +217,9 @@ export default function Home() {
         <div className="w-full flex justify-center py-16 max-w-screen-2xl">
           <CustomCarousel />
         </div>
-        <div>
+        <Link href='the-wharf-dispatch'>
           <Button variant='marigold' label="read more" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-        </div>
+        </Link>
       </section>
 
       <AvailableApartments />
