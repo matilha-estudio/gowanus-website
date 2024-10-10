@@ -126,6 +126,30 @@ export default function Home() {
             </div>
           </div>
 
+          {/* DESKTOP */}
+          <div className='relative w-full gap-8 hidden md:flex '>
+            <div className='relative bg-navy h-52 w-full flex justify-center'>
+              <Image
+                src="/logos/douglass-port.svg"
+                alt="douglass-port"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:w-[374px]"
+                width={374}
+                height={84}
+              />
+              <span className='subheader4 text-white self-end mb-8'>coming soon</span>
+            </div>
+            <div className='relative bg-navy h-52 w-full flex justify-center'>
+              <Image
+                src="/logos/nevins-lading.svg"
+                alt="nevins-lading"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:w-[374px]"
+                width={374}
+                height={84}
+              />
+              <span className='subheader4 text-white self-end mb-8'>coming soon</span>
+            </div>
+          </div>
+
           <div className="relative md:flex-col flex-row gap-10 items-center flex md:hidden">
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
