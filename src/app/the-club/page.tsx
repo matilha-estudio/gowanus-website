@@ -132,7 +132,7 @@ export default function TheClub() {
                                 Wellness
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT ? "subheader4" : "subheader3-bold max-w-lg")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 yoga Studio  |  Spa
                             </span>
 
@@ -171,7 +171,7 @@ export default function TheClub() {
                                 SPORT
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT ? "subheader4" : "subheader3-bold max-w-lg")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 Basketball Court  |  mini golf | Golf SIMULAtor
                             </span>
 
@@ -227,8 +227,16 @@ export default function TheClub() {
 
                     <Reveal className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
                         <>
-                            <h1 className="header1">FITNESS</h1>
-                            <span className="subheader3-bold max-w-lg">
+                            {
+                                SCREEN_WIDTH > MOBILE_BREAKPOINT && (
+                                    <TextReveal text='FITNESS' />
+                                )
+                            }
+
+                            <h1 className={'header1MD md:hidden'}>
+                                FITNESS
+                            </h1>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 Premiere Gym | Mirror Fitness Room
                             </span>
                             <span className="body1 max-w-lg">
@@ -266,7 +274,7 @@ export default function TheClub() {
                                 Rooftop
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT ? "subheader4" : "subheader3-bold max-w-lg")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 rooftop Pool  | Skylounge |  outdoor dining Terrace | Lounging lawn
                             </span>
 
@@ -317,7 +325,7 @@ export default function TheClub() {
                                 Entertainment
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT ? "subheader4" : "subheader3-bold max-w-lg")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 Dining Lounge | Game Lounge | Entertainment Lounge | Kids room
                             </span>
 
@@ -331,7 +339,7 @@ export default function TheClub() {
             </section>
 
             <section className="relative flex flex-col items-center justify-center w-full pb-24 text-navy bg-sand">
-                <div className="grid md:grid-cols-2 -mt-10 mx-auto">
+                <div className="grid md:grid-cols-2 -mt-10 mx-auto w-full px-5">
                     <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
                         <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                             <img
@@ -362,8 +370,16 @@ export default function TheClub() {
 
                     <Reveal className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
                         <>
-                            <h1 className="header1">COWORKING</h1>
-                            <span className="subheader3-bold max-w-lg">
+                            {
+                                SCREEN_WIDTH > MOBILE_BREAKPOINT && (
+                                    <TextReveal text='COWORKING' />
+                                )
+                            }
+
+                            <h1 className={'header1MD md:hidden'}>
+                                COWORKING
+                            </h1>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 coffee bar | conference center | conference rooms | call rooms
                             </span>
                             <span className="body1 max-w-lg">
@@ -372,8 +388,8 @@ export default function TheClub() {
                         </>
                     </Reveal>
 
-                    <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex overflow-hidden mx-auto hidden">
-                        <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                    <div className="relative w-[336px] h-[330px] md:w-full md:h-[618px] md:flex overflow-hidden mx-auto hidden">
+                        <div className="absolute bottom-0 md:left-48 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                             <img
                                 src="/medias/coworking1.png"
                                 alt="services"
@@ -386,7 +402,7 @@ export default function TheClub() {
                             />
                         </div>
 
-                        <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
+                        <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
                                 src="/medias/coworking2.png"
                                 alt="services"

@@ -20,8 +20,8 @@ export default function InquireComponent() {
                     <InputWithLabel label="Zip Code" placeholder="XXXXX" />
                     <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
                     <div className="flex gap-4 items-end">
-                        <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className="h-fit" />
-                        <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className="h-fit" />
+                        <Button variant='navy' label="submit" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} className={cn("max-h-[38px]", SCREEN_WIDTH > MOBILE_BREAKPOINT && 'subheader5 py-3')} />
+                        <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className={cn("max-h-[38px] md:h-full", SCREEN_WIDTH > MOBILE_BREAKPOINT && 'subheader5')} />
                     </div>
                 </div>
             </div>

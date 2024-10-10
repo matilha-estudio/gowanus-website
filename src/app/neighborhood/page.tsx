@@ -100,7 +100,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">Art & Culture</h1>
+                                <h1 className="header1 max-w-56 leading-none">Art & Culture</h1>
                                 <span className="body1 max-w-lg">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
                                 </span>
@@ -120,6 +120,8 @@ export default function Neighborhood() {
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
                                 </div>
+
+                                <Image src={"/logos/waveicon-marigold.svg"} alt="waveicon-marigold" width={200} height={10} className="absolute self-center left-1/2 transform -translate-x-1/2 z-20" />
 
                                 <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
@@ -194,8 +196,8 @@ export default function Neighborhood() {
                             </div>
 
                             {/* Desktop */}
-                            <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex overflow-hidden mx-auto hidden">
-                                <div className="absolute bottom-0 left-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                            <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex  mx-auto hidden">
+                                <div className="absolute bottom-0 left-0 w-[221px] h-[147px] md:h-[250px] md:w-[378px] overflow-hidden group z-10">
                                     <img
                                         src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
                                         alt="services"
@@ -208,7 +210,9 @@ export default function Neighborhood() {
                                     />
                                 </div>
 
-                                <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
+                                <Image src={"/logos/waveicon-marigold.svg"} alt="waveicon-marigold" width={200} height={10} className="absolute self-center -right-24 z-20" />
+
+                                <div className="absolute right-0 size-[336px] overflow-hidden group">
                                     <img
                                         src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
                                         alt="services"
@@ -224,7 +228,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">DIning & nightlife</h1>
+                                <h1 className="header1">Dining & nightlife</h1>
                                 <span className="body1 max-w-lg">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
                                 </span>
@@ -298,7 +302,7 @@ export default function Neighborhood() {
 
                             {/* Desktop */}
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex overflow-hidden mx-auto hidden">
-                                <div className="absolute bottom-0 right-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                                <div className="absolute bottom-0 left-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                                     <img
                                         src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
                                         alt="services"
@@ -311,7 +315,9 @@ export default function Neighborhood() {
                                     />
                                 </div>
 
-                                <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
+                                <Image src={"/logos/waveicon-marigold.svg"} alt="waveicon-marigold" width={200} height={10} className="absolute top-24 left-40 z-20" />
+
+                                <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
                                         src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
                                         alt="services"

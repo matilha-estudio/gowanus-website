@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         navy: "bg-navy text-white hover:bg-marigold hover:text-navy",
-        marigold: "bg-marigold text-navy hover:bg-marigold hover:text-navy",
+        marigold: "bg-marigold text-navy",
         navyOutline:
           "bg-transparent border-navy border-2 text-navy hover:bg-navy hover:text-white",
         white:
@@ -17,10 +17,11 @@ const buttonVariants = cva(
         icon: "bg-background hover:bg-accent hover:text-accent-foreground",
       },
       size: {
-        default: "subheader4",
+        default: "subheader2",
         lg: "subheader2",
         icon: "h-10 w-10",
-        mobile: "h-6 w-fit accent4"
+        mobile: "h-6 w-fit accent4",
+        md: "subheader5"
       },
     },
     defaultVariants: {
@@ -42,34 +43,39 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, label, icon, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
 
-    const pyLabel = size === 'default' ? 'px-6 py-3' : size === 'mobile' ? 'p-2' : 'px-8 py-4';
-    const pyIcon = size === 'default' ? 'p-3' : size === 'mobile' ? 'py-2' : 'p-4';
+    const isIcon = variant === "icon";
 
-    const isIcon = variant === 'icon' && "w-fit"
+    const pyLabel = size === "default" ? "px-6 py-0" : size === "mobile" ? "p-2" : "px-8 py-4";
+    const pyIcon = size === "default" ? "p-3" : size === "mobile" ? "py-2" : "p-4";
 
+    // Adicionando a lógica para aplicar o hover no ícone também quando a variant for "marigold"
     const bgIcon =
       variant === 'navy'
         ? 'bg-marigold text-navy'
         : variant === 'marigold'
-          ? 'bg-navy text-white hover:bg-marigold hover:text-navy'
+          ? 'bg-navy text-white'
           : variant === 'navyOutline'
             ? 'bg-navy text-white'
             : variant === 'white'
             && 'bg-white text-navy'
 
+    const iconHoverEffect = variant === "marigold" && "group-hover:bg-marigold group-hover:text-navy";
+
     return (
       <Comp
-        className={cn(buttonVariants({ variant, className, size }), isIcon)}
         ref={ref}
+        className={cn(
+          buttonVariants({ variant, size }),
+          className,
+          isIcon && "w-fit",
+          "group" // Adiciona uma classe de grupo para permitir o hover em componentes filhos
+        )}
         {...props}
       >
-        {
-          !isIcon && label &&
-          <span className={pyLabel}>{label}</span>
-        }
+        {!isIcon && label && <span className={pyLabel}>{label}</span>}
         {icon && (
           <span
-            className={cn("flex items-center h-full", pyIcon, bgIcon)}
+            className={cn("flex items-center h-full", pyIcon, bgIcon, iconHoverEffect)}
           >
             {icon}
           </span>
@@ -78,6 +84,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+
 Button.displayName = "Button";
 
 export { Button, buttonVariants };

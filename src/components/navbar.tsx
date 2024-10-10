@@ -28,7 +28,7 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
     const MOBILE_BREAKPOINT = 768
 
     return (
-        <nav className={cn("py-4 flex h-[60px] gap-9 w-full px-2 justify-between items-center z-30",
+        <nav className={cn("py-4 flex h-[60px] gap-9 w-full md:px-16 justify-between items-center z-30",
             hasBackground ? "bg-sand/50" : "bg-transparent",
             position,
             className
@@ -46,22 +46,22 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                                     height={27}
                                 />
                                 :
-                                <Button variant={variant} size='default' label="menu" className="h-10 w-fit" />
+                                <Button variant={variant} size='md' label="menu" className="h-10 w-fit" />
                         }
                     </DrawerTrigger>
                     {
                         hasHomeButton &&
                         <Link href={pagePath}>
-                            <Button variant={variant} size='default' label={pageName} className="h-10 w-fit" />
+                            <Button variant={variant} size='md' label={pageName} className="h-10 w-fit" />
                         </Link>
                     }
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 md:gap-8">
                     <div>
-                        <Button variant={variant} size='default' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
+                        <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
                     </div>
                     <div>
-                        <Button variant={variant} size='default' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="h-10 w-fit" />
+                        <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="h-10 w-fit" />
                     </div>
                 </div>
 

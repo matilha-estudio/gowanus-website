@@ -1,8 +1,6 @@
 'use client'
 import * as React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import Autoplay from "embla-carousel-autoplay"
-import AutoScroll from "embla-carousel-auto-scroll"
 import {
     Carousel,
     CarouselContent,
@@ -10,9 +8,8 @@ import {
     CarouselNext,
     CarouselPrevious,
 } from "@/components/ui/carousel";
-import { cn, formatDate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
 import { X } from "lucide-react";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { ImageCarousel } from "@/services/models/carousel";
@@ -42,7 +39,7 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
         return (
             <CarouselItem
                 className={cn(
-                    "px-16 transition-max-width duration-1000 ease-in-out mr-10",
+                    "px-16 transition-max-width duration-1000 ease-in-out mr-10 ",
                     !expanded && "md:basis-1/4 lg:basis-1/5",
                     !isExpanded && expanded && "hidden"
                 )}
@@ -67,7 +64,7 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
                                 alt={item.title}
                                 width={304}
                                 height={386}
-                                className={cn("object-cover h-full", expanded && "h-[238px] md:h-full")}
+                                className={cn("object-cover h-full", expanded && "h-[238px] md:w-full md:h-full")}
                             />
                             <span className={cn("absolute top-1/2 -translate-y-1/2 py-2 px-4 text-white z-10 text-center flex-wrap flex w-full subheader1 self-center leading-none",
                                 expanded && "md:hidden"
@@ -96,10 +93,10 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
 
     return (
         <Carousel
-            className={cn("w-full lg:max-w-screen-2xl")}
+            className={cn("w-full flex justify-center")}
             opts={{ loop: true, align: 'center' }}
         >
-            <CarouselContent className="-ml-1">
+            <CarouselContent className="-ml-1 lg:max-w-screen-2xl">
                 {data.map((item, index) => (
                     <MemoizedCarouselItem2
                         key={item.title}

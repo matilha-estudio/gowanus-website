@@ -45,7 +45,7 @@ export default function WalkThrough({ className }: IWalkThrough) {
 
     return (
         <section className={cn("flex flex-col items-center justify-center w-full py-12 md:py-24 text-navy", className)}>
-            <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className="grid md:grid-cols-2 grid-cols-1 w-full items-center max-w-screen-xl">
                 <video
                     src={data?.acf_medias.video_url}
                     height={482}
@@ -55,26 +55,29 @@ export default function WalkThrough({ className }: IWalkThrough) {
                 >
                     walk-through
                 </video>
+                <div className="flex w-full items-center justify-center px-4">
 
-                <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-16 ">
+                    <video
+                        src={data?.acf_medias.video_url}
+                        height={482}
+                        width={592}
+                        autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
+                        className="aspect-square hidden md:flex object-contain h-[482px]"
+                    >walk-through</video>
+                </div>
+
+                <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-16">
                     <>
                         <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>WALK THROUGH</h1>
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
                             {data?.acf_medias.description}
                         </span>
                         <Link href='/virtual-tours'>
-                            <Button label="explore" variant='marigold' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+                            <Button label="explore" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                         </Link>
                     </>
                 </Reveal>
 
-                <video
-                    src={data?.acf_medias.video_url}
-                    height={482}
-                    width={592}
-                    autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
-                    className="aspect-video hidden md:flex object-contain h-[482px] ml-10"
-                ></video>
             </div>
         </section>
     )

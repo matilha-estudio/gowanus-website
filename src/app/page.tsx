@@ -194,7 +194,7 @@ export default function Home() {
               <Link href='/the-club'>
                 <Button
                   label="explore"
-                  variant='marigold'
+                  variant='navy'
                   size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'}
                   icon={<ArrowUpRight />}
                 />

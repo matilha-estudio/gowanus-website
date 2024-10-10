@@ -120,36 +120,6 @@ export default function GowanusWharf() {
                     />
                 </div>
 
-                {/* Logos */}
-                <div>
-                    <Image
-                        src="/logos/waveicon-marigold.svg"
-                        width={242} height={12}
-                        alt="waveicon"
-                        className="absolute h-[7px] w-[144px] top-[120px] right-28 md:right-32 md:mt-80 object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
-                    />
-                    <Image
-                        src="/logos/waveicon-marigold.svg"
-                        width={242} height={12}
-                        alt="waveiconGIF"
-                        className="absolute h-[7px] w-[144px] top-[120px] right-28 md:right-32 md:mt-80 object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
-                    />
-                </div>
-                <div>
-                    <Image
-                        src="/logos/waveicon-marigold.svg"
-                        width={242} height={12}
-                        alt="waveicon"
-                        className="absolute h-[7px] w-[144px] bottom-[84px] -right-4 md:right-32 md:mt-80 object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
-                    />
-                    <Image
-                        src="/logos/waveicon-marigold.svg"
-                        width={242} height={12}
-                        alt="waveiconGIF"
-                        className="absolute h-[7px] w-[144px] bottom-[84px] -right-4 md:right-32 md:mt-80 object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
-                    />
-                </div>
-
                 {/* Text and Button */}
                 <div className="flex flex-col text-center gap-16">
                     <div className="flex flex-col z-20">
