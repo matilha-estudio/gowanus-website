@@ -132,7 +132,7 @@ export default function Home() {
               <Image
                 src="/logos/douglass-port.svg"
                 alt="douglass-port"
-                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:w-[374px]"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px8"
                 width={374}
                 height={84}
               />
@@ -142,7 +142,7 @@ export default function Home() {
               <Image
                 src="/logos/nevins-lading.svg"
                 alt="nevins-lading"
-                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:w-[374px]"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px8"
                 width={374}
                 height={84}
               />
