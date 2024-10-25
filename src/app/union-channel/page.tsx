@@ -155,7 +155,7 @@ export default function UnionChannel() {
 
             <WalkThrough className="bg-sand" />
 
-            <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-white">
+            <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-navy">
                 <Reveal className="flex flex-col items-center md:gap-16 gap-8">
                     <>
                         <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>The club</h1>
