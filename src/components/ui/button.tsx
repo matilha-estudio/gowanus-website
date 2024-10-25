@@ -13,7 +13,7 @@ const buttonVariants = cva(
         navyOutline:
           "bg-transparent border-navy border-2 text-navy hover:bg-navy hover:text-white",
         white:
-          "bg-transparent border-white border-2 text-white hover:bg-white hover:text-navy",
+          "bg-transparent border-white border-2 text-white hover:bg-marigold hover:border-marigold hover:text-navy",
         icon: "bg-background hover:bg-accent hover:text-accent-foreground",
       },
       size: {
@@ -60,6 +60,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             && 'bg-white text-navy'
 
     const iconHoverEffect = variant === "marigold" && "group-hover:bg-marigold group-hover:text-navy";
+    const iconHoverWhiteEffect = variant === "white" && "group-hover:bg-marigold group-hover:text-navy";
 
     return (
       <Comp
@@ -75,7 +76,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {!isIcon && label && <span className={pyLabel}>{label}</span>}
         {icon && (
           <span
-            className={cn("flex items-center h-full", pyIcon, bgIcon, iconHoverEffect)}
+            className={cn("flex items-center h-full", pyIcon, bgIcon, iconHoverEffect, iconHoverWhiteEffect)}
           >
             {icon}
           </span>

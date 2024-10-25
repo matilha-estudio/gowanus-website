@@ -34,8 +34,13 @@ export default function VirtualTours() {
                 />
             </section>
 
-            <section id="virtual-tours-section">
-
+            <section id="virtual-tours-section" className="relative w-full h-screen bg-sand py-10">
+                <iframe
+                    id="virtual-tours-iframe"
+                    src="https://d285m6toqyb25u.cloudfront.net/iframe"
+                    title="availability"
+                    className="w-full h-full"
+                />
             </section>
 
             <AvailableApartments />
