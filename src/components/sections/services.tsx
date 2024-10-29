@@ -47,7 +47,7 @@ export default function Services() {
                         <Image
                             src={data?.acf_medias.services_image_1 ?? ''}
                             alt="services"
-                            className="w-full max-w-[672px] max-h-[618px]"
+                            className="w-full h-full max-w-[672px] max-h-[618px] object-cover"
                             width={672}
                             height={618}
                         />
@@ -56,7 +56,7 @@ export default function Services() {
                             width={672}
                             height={618}
                             alt="services"
-                            className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                            className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
                     <div className="flex flex-col text-center justify-center items-center gap-16">
