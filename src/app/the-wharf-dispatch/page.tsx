@@ -41,7 +41,6 @@ export default function TheWharfDispatch() {
         try {
             const response = await getAllPosts()
             setData(response)
-            console.log(response)
         } catch (err) {
             setError('Failed to fetch data')
         } finally {
@@ -64,7 +63,7 @@ export default function TheWharfDispatch() {
 
             <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
-                    the wharf dispatch
+                    the drift
                 </h1>
                 <Image src={"/medias/thewharfdispatch.png"} alt={"thewharfdispatch"} width={1440} height={810} className="w-full md:h-screen object-cover" />
                 <div className={cn("absolute inset-0 bg-canalRoyale/70")} />
@@ -79,7 +78,7 @@ export default function TheWharfDispatch() {
             <section className="flex flex-col items-center bg-white w-full py-24 gap-16">
                 <Image src="/logos/waveicon-orangesicle.svg" alt="waveicon-orangesicle" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.
+                    New eats. Arts openings. Exclusive community affairs. Read into the ups, comings and goings on around Gowanus Wharf.
                 </span>
                 <div className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />

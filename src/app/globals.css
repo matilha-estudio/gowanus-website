@@ -32,7 +32,7 @@
 /* Estilos de tipografia personalizados usando rem */
 .header1 {
   font-family: "FreightDispCmpPro", sans-serif;
-  font-size: 5rem; /* 80px */
+  font-size: 6.875rem; /* 110px */
   text-transform: uppercase;
 }
 

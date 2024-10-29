@@ -44,6 +44,7 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                                     alt="Hamburger-menu"
                                     width={29}
                                     height={27}
+                                    className="ml-3 w-[29px] h-[27px] object-contain"
                                 />
                                 :
                                 <Button variant={variant} size='md' label="menu" className="h-10 w-fit" />
@@ -57,12 +58,12 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                     }
                 </div>
                 <div className="flex gap-4 md:gap-8">
-                    <div>
+                    <Link href='/inquire'>
                         <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
-                    </div>
-                    <div>
+                    </Link>
+                    <Link href='/availability'>
                         <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="h-10 w-fit" />
-                    </div>
+                    </Link>
                 </div>
 
                 <DrawerContent className="w-full max-w-sm h-full rounded-none bg-sand" >
@@ -71,12 +72,12 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                             <Button variant="icon" className="text-navy" icon={<X className="w-6 h-6" />} />
                         </DrawerClose>
                     </DrawerHeader>
-                    <div className="mx-auto w-full max-w-sm h-full flex flex-col items-center body1  gap-4 text-navy">
+                    <div className="mx-auto w-full max-w-sm h-full flex flex-col items-center body1 gap-4 text-navy">
                         <Link href="/">
                             <Image src="/logos/gowanus-favicon-navy.svg" alt="gowanus-favicon-navy" width={68} height={44} />
                         </Link>
 
-                        <Accordion type="single" collapsible className="text-navy">
+                        <Accordion type="single" collapsible className="text-navy -mb-4">
                             <AccordionItem value={`item-${1}`} className="border-none">
                                 <AccordionTrigger className="body1">Rental Properties</AccordionTrigger>
                                 <AccordionContent className="body2 flex flex-col items-center gap-2">

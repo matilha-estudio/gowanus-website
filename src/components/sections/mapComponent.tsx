@@ -4,7 +4,7 @@ import Image from "next/image";
 import MapCard from "../mapCard";
 import { Button } from "../ui/button";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
-import { ArrowUpRight, Flag, FlagTriangleRight, MapPin, Pin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { SetStateAction, useState } from "react";
 import Pins from "../svg/pins";
 
@@ -17,7 +17,7 @@ export default function MapComponent(props: IMapComponent) {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
-    const [cardIndex, setCardIndex] = useState<number | null>();
+    const [cardIndex, setCardIndex] = useState<number | null>(0);
     const [mdPosition, setMdPosition] = useState("");
 
     const cardData = [
@@ -54,7 +54,7 @@ export default function MapComponent(props: IMapComponent) {
             title: '',
             description: '',
             address: '585 Union Channel, Gowanus, Brooklyn',
-            cardImageUrl: '/logos/union-channel-logo-white.svg',
+            cardImageUrl: '/logos/union-channel-GA-logo-white.svg',
             mapImageUrl: '/medias/MapIntegration.png',
             backgroudImage: "/medias/union_card_bg.png",
             altText: 'Union',
@@ -63,7 +63,7 @@ export default function MapComponent(props: IMapComponent) {
             title: '',
             description: '',
             address: '251 Douglass Port, Gowanus, Brooklyn',
-            cardImageUrl: '/logos/douglass-port.svg',
+            cardImageUrl: '/logos/douglass-port-GA-white.svg',
             mapImageUrl: '/medias/MapIntegration.png',
             backgroudImage: "/medias/douglass_card_bg.png",
             altText: 'Douglass',
@@ -72,7 +72,7 @@ export default function MapComponent(props: IMapComponent) {
             title: '',
             description: '',
             address: '310 Nevins North, Gowanus, Brooklyn',
-            cardImageUrl: '/logos/nevins-lading.svg',
+            cardImageUrl: '/logos/nevins-lading-GA.svg',
             mapImageUrl: '/medias/MapIntegration.png',
             backgroudImage: "/medias/nevis_card_bg.png",
             altText: 'Nevins',
@@ -92,12 +92,12 @@ export default function MapComponent(props: IMapComponent) {
                     alt="MapIntegration"
                     width={1440}
                     height={810}
-                    className="w-full h-full max-w-[1440px] object-contain hidden md:flex"
+                    className="w-full h-full max-w-[1440px] object-cover hidden md:flex"
                     onClick={() => setCardIndex(null)}
                 />
 
                 <Pins
-                    className="absolute xl:top-[27.41%] lg:top-[17%] md:top-[3%] left-[30.83%] w-[36.79vw] h-[57.41vh] max-w-[529.62px] max-h-[465px]"
+                    className="absolute hidden md:block xl:top-[27.41%] lg:top-[17%] md:top-[3%] left-[30.83%] w-[36.79vw] h-[57.41vh] max-w-[529.62px] max-h-[465px] z-10"
                     handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
                 />
 

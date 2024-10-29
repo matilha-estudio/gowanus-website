@@ -53,8 +53,8 @@ export default function VennServices() {
             <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="services" pagePath="/venn-services" />
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
-                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center")}>
-                    SERVICES
+                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white text-center md:w-full z-10 absolute left-1/2 transform -translate-x-1/2 self-center")}>
+                    Resident Services
                 </h1>
                 <Image src={"/medias/services-1.png"} alt={"services"} width={1440} height={810} className="w-full md:h-screen object-cover" />
                 <div className={cn("absolute inset-0 bg-black/30")} />
@@ -122,7 +122,7 @@ export default function VennServices() {
                     <>
                         {
                             SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                <TextReveal text='RESIDENT PROGRAMMING' />
+                                <TextReveal text={data?.acf.resident_programming.title ?? ''} />
                             )
                         }
 

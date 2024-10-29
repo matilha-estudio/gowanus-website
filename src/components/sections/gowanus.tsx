@@ -128,7 +128,7 @@ export default function GowanusWharf() {
                         <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>calling</h1>
                     </div>
                     <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                        {data?.acf_medias.gowanus_is_calling.text}
                     </span>
                     <div className="z-10">
                         <Button variant='marigold' label="learn more" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "mobile" : "default"} />

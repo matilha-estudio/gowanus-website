@@ -69,7 +69,7 @@ export default function TheClub() {
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 text-center self-center w-full")}>
-                    The Club
+                    THE drift CLUB
                 </h1>
                 <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
@@ -124,20 +124,20 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Wellness' />
+                                    <TextReveal text='A dose of zen' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Wellness
+                                A dose of zen
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                yoga Studio  |  Spa
+                                Yoga Room | Garden Lounge
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                Engage your inner ohm at our residents' spa. Schvitz it out in the sauna. Book a private treatment room for a needed Swedish. Stoke your senses with an aroma therapy shower. Ride a blissful wave in the relaxation lounge.
                             </span>
                         </>
                     </Reveal>
@@ -163,12 +163,12 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='SPORT' />
+                                    <TextReveal text='Places for Play' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                SPORT
+                                Places for Play
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
@@ -176,7 +176,7 @@ export default function TheClub() {
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                Hit the court for a game of pickup. Finesse your drives and putts. Whether competitive at heart, or craving some play, it's easy to get in the game on your home turf.
                             </span>
                         </>
                     </Reveal>
@@ -229,18 +229,18 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='FITNESS' />
+                                    <TextReveal text='Ready set sweat' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                FITNESS
+                                Ready set sweat
                             </h1>
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
                                 Premiere Gym | Mirror Fitness Room
                             </span>
                             <span className="body1 max-w-lg">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                Work your body in any and every way you see fit. Whatever your machine, method, or routine, our premier gym is a go for your fitness needs.
                             </span>
                         </>
                     </Reveal>
@@ -266,20 +266,20 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Rooftop' />
+                                    <TextReveal text='A splash of awe' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Rooftop
+                                A splash of awe
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                rooftop Pool  | Skylounge |  outdoor dining Terrace | Lounging lawn
+                                Rooftop Pool | Sundeck
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                City-top swimming speaks for itself. Pair it with a lounge chair and easy read on the sundeck and your private pool club experience is complete.
                             </span>
                         </>
                     </Reveal>
@@ -317,12 +317,12 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Entertainment' />
+                                    <TextReveal text='Entertain & be entertained' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Entertainment
+                                Entertain & be entertained
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
@@ -330,7 +330,7 @@ export default function TheClub() {
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                We wouldn't suggest that world outside isn't worth exploring, but Drift Club gives you plenty of reasons to stay. Host a gathering. Take some big swings. Mix it up with your neighbors and expand your community feels.
                             </span>
                         </>
                     </Reveal>
@@ -372,18 +372,18 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='COWORKING' />
+                                    <TextReveal text='Remote on lock' />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                COWORKING
+                                Remote on lock
                             </h1>
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                coffee bar | conference center | conference rooms | call rooms
+                                co-working lounge | Library | Podcast & Music Room
                             </span>
                             <span className="body1 max-w-lg">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                Work from your extended home in one of many coworking spaces. From bookable conference rooms to an in-house podcasting studio, there's a space to match your productivity mode.
                             </span>
                         </>
                     </Reveal>
@@ -425,7 +425,7 @@ export default function TheClub() {
                         <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                             <CarouselContent>
                                 {dataTheClub[0].acf_medias.list_images.map((item, index) => (
-                                    <CarouselItem key={index} className="max-w-[1000px]">
+                                    <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                         <div className="md:p-1">
                                             <Card className="rounded-none">
                                                 <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
@@ -433,6 +433,9 @@ export default function TheClub() {
                                                 </CardContent>
                                             </Card>
                                         </div>
+                                        <span className="body2 text-navy text-center self-center">
+                                            {item.text}
+                                        </span>
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>

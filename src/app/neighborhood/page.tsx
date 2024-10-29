@@ -14,12 +14,39 @@ import MapComponent from "@/components/sections/mapComponent";
 import InquireComponent from "@/components/sections/inquire";
 import Footer from "@/components/sections/footer";
 import Reveal from "@/components/animations/reveal";
+import { useEffect, useState } from "react";
+import { getNeighborhood } from "@/services/neighborhood";
+import { NeighborhoodResponse } from "@/services/models/neighborhood";
 
 export default function Neighborhood() {
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
+
+    const [data, setData] = useState<NeighborhoodResponse | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getNeighborhood()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
 
     return (
         <Reveal className="flex min-h-screen flex-col items-center justify-between bg-white">
@@ -58,7 +85,7 @@ export default function Neighborhood() {
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                Pick up on the inimitable blend of people and experiences that energize our living locale.
                             </span>
                         </div>
                     </Reveal>
@@ -100,9 +127,9 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-56 leading-none">Art & Culture</h1>
+                                <h1 className="header1 max-w-56 leading-none">Life Out Loud</h1>
                                 <span className="body1 max-w-lg">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                    Artful invention. Personal expression. Makers, doers, and dreamers collide and create culture.
                                 </span>
                             </div>
 
@@ -144,15 +171,18 @@ export default function Neighborhood() {
                     <div className="absolute w-full h-1/5 bg-white top-0" />
                     <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
-                            {Array.from({ length: 5 }).map((_, index) => (
-                                <CarouselItem key={index} className="max-w-[1000px]">
+                            {data && data[0].acf_medias.list_images.map((item, index) => (
+                                <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                     <div className="md:p-1">
                                         <Card className="rounded-none">
                                             <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
-                                                <Image src={"/medias/MasterBrandFilm.png"} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
+                                                <Image src={item.image} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
                                             </CardContent>
                                         </Card>
                                     </div>
+                                    <span className="body2 text-navy text-center self-center">
+                                        {item.description}
+                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
@@ -228,9 +258,9 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">Dining & nightlife</h1>
+                                <h1 className="header1">Eats and Afters</h1>
                                 <span className="body1 max-w-lg">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                    A feast for the senses around every corner. The bites are bumping. The beats go boom.
                                 </span>
                             </div>
                         </div>
@@ -242,7 +272,7 @@ export default function Neighborhood() {
                     <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
                             {Array.from({ length: 5 }).map((_, index) => (
-                                <CarouselItem key={index} className="max-w-[1000px]">
+                                <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                     <div className="md:p-1">
                                         <Card className="rounded-none">
                                             <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
@@ -250,6 +280,10 @@ export default function Neighborhood() {
                                             </CardContent>
                                         </Card>
                                     </div>
+                                    <span className="body2 text-center self-center text-white">
+                                        {/* {item.description} */}
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
@@ -294,9 +328,9 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">RETAIL</h1>
+                                <h1 className="header1">Greater Goods</h1>
                                 <span className="body1 max-w-lg">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                                    Shop into an eclectic mix of brands you'll love, curated provisions, and locally-owned businesses.
                                 </span>
                             </div>
 
@@ -339,7 +373,7 @@ export default function Neighborhood() {
                     <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
                             {Array.from({ length: 5 }).map((_, index) => (
-                                <CarouselItem key={index} className="max-w-[1000px]">
+                                <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                     <div className="md:p-1">
                                         <Card className="rounded-none">
                                             <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
@@ -347,6 +381,10 @@ export default function Neighborhood() {
                                             </CardContent>
                                         </Card>
                                     </div>
+                                    <span className="body2 text-navy text-center self-center">
+                                        {/* {item.description} */}
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>

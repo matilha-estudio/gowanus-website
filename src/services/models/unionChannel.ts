@@ -2,6 +2,7 @@ import { Content, Excerpt, Links, Meta, Title, Guid } from "./common";
 
 interface CarouselItem {
   image: string;
+  description: string;
 }
 
 interface FeatureCategory {
