@@ -104,15 +104,19 @@ export default function UnionChannel() {
             <section className="flex flex-col items-center justify-center w-full py-24 text-navy">
                 <div className="grid md:grid-cols-2 grid-cols-1 px-4">
                     <div className="relative w-full overflow-hidden group">
-                        <img
-                            src="/medias/services-1.png"
+                        <Image
+                            src="/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp"
                             alt="services"
-                            className="w-full"
+                            className="w-full h-full max-w-[592px] mx-h-[482px] object-cover"
+                            width={592}
+                            height={482}
                         />
-                        <img
-                            src="/medias/services-2.png"
+                        <Image
+                            src="/medias/apartments/13-585-Union-St-Unit-H-Master-Bedroom-R07.webp"
                             alt="services"
-                            className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                            width={592}
+                            height={482}
+                            className="w-full h-full max-w-[592px] mx-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
                     <Reveal className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">
