@@ -75,13 +75,13 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
 
                         <div
                             className={cn(
-                                "relative flex flex-col text-navy p-4 md:px-16 transition-all duration-1000 ease-in-out gap-2 md:gap-8 h-full",
+                                "relative flex flex-col text-navy p-4 md:px-16 transition-all duration-1000 ease-in-out gap-2 md:gap-8 h-full justify-center",
                                 !isExpanded && "hidden"
                             )}
                         >
                             <h1 className="subheader1 leading-none hidden md:flex">{item.title}</h1>
                             <span className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body2")}>{item.text}</span>
-                            <span className={cn("leading-none text-canalRoyal", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body2")}>{item.address}</span>
+                            <span className={cn("leading-none text-canalRoyal", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body2", "text-canalRoyale")}>{item.address}</span>
                         </div>
                     </CardContent>
                 </Card>

@@ -68,7 +68,7 @@ export default function WalkThrough({ className }: IWalkThrough) {
 
                 <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-16">
                     <>
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2 max-w-[350px] text-center", "leading-none")}>WALK THROUGH</h1>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1 max-w-[350px] text-center", "leading-none")}>WALK THROUGH</h1>
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
                             {data?.acf_medias.description}
                         </span>

@@ -21,6 +21,7 @@ import { getUnionChannelPage } from "@/services/unionChannel";
 import { ApiResponseUnionChannel } from "@/services/models/unionChannel";
 import { getTheClub } from "@/services/theClub";
 import { TheClubResponse } from "@/services/models/theClub";
+import Link from "next/link";
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -171,17 +172,17 @@ export default function UnionChannel() {
             <WalkThrough className="bg-white" />
 
             <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-navy">
-                <Reveal className="flex flex-col items-center md:gap-16 gap-8">
+                <Reveal className="flex flex-col items-center gap-8">
                     <>
                         <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>The DRIFT club</h1>
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-4xl", 'text-center')}>
-                            Skyline sunsets from your rooftop pool. Sauna without leaving home.
-                            Co-work. Work out. Entertain friends and find your zen
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-3xl", 'text-center')}>
+                            Skyline sunsets from your rooftop pool. Sauna without leaving home. <br />
+                            Co-work. Work out. Entertain friends and find your zen.  <br />
                             All of the amenities across the three Wharf residences, at your demand.
                         </span>
-                        <div className="w-full md:py-8 flex justify-center">
+                        <Link href='/the-club' className="w-full md:py-8 flex justify-center">
                             <Button label="explore" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                        </div>
+                        </Link>
                     </>
                 </Reveal>
                 <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>

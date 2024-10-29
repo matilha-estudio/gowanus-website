@@ -123,9 +123,9 @@ export default function GowanusWharf() {
                 {/* Text and Button */}
                 <div className="flex flex-col text-center gap-16">
                     <div className="flex flex-col z-20">
-                        <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>gowanus</h1>
-                        <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>is</h1>
-                        <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1XXL")}>calling</h1>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>gowanus</h1>
+                        <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>is</h1>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>calling</h1>
                     </div>
                     <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
                         {data?.acf_medias.gowanus_is_calling.text}

@@ -69,8 +69,8 @@ export default function VennServices() {
             <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="services" pagePath="/venn-services" />
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
-                <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
-                <Reveal className="flex flex-col text-center text-white gap-16 items-center">
+                {/* <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' /> */}
+                <Reveal className="flex flex-col text-center text-white gap-10 items-center py-28">
                     <>
                         {
                             SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -82,7 +82,7 @@ export default function VennServices() {
                             {data?.acf.title}
                         </h1>
 
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-3xl")}>
                             {data?.acf.subtitle}
                         </span>
                     </>
@@ -116,7 +116,7 @@ export default function VennServices() {
                 </div>
             </section>
 
-            <section className="relative flex flex-col items-center bg-sand w-full pb-24 text-navy">
+            <section className="relative flex flex-col items-center bg-sand w-full pb-24 text-navy z-10">
                 <Image src="/logos/waveicon-canalroyale.svg" alt="waveicon-navy" width={242} height={12} className='pt-24 pb-10' />
                 <Reveal className="flex flex-col text-center gap-16 items-center">
                     <>
@@ -144,9 +144,7 @@ export default function VennServices() {
                 </div>
             </section>
 
-            <div className="h-20 md:h-0" />
-
-            <AvailableApartments />
+            <div className="h-20 md:h-0 z-10" />
 
             <InquireComponent />
 

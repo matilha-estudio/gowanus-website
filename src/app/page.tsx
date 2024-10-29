@@ -109,12 +109,12 @@ export default function Home() {
           </>
         </Reveal>
         <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8">
-          <div className="relative group flex md:flex-col flex-row gap-10 items-center">
-            <Link href="/union-channel" className="relative flex">
+          <div className="relative group flex md:flex-col flex-row gap-10 items-center md:max-w-[1376px] md:w-full">
+            <Link href="/union-channel" className="relative flex md:max-w-[1376px] md:w-full">
               <Image
                 src={data?.acf_medias.union_channel_image_url ?? ''}
                 alt="UnionChannelBanner"
-                className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
+                className="object-cover h-[205px] w-[175px] md:h-[514px]  md:w-full"
                 height={514}
                 width={1376}
               />
@@ -133,7 +133,7 @@ export default function Home() {
                 width={374}
                 height={84}
               />
-              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy">Explore living at The Wharf's anchor residence.</span>
+              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy text-center">Explore living at The Wharf's anchor residence.</span>
 
               <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
 

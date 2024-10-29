@@ -60,7 +60,7 @@ export default function Services() {
                         />
                     </div>
                     <div className="flex flex-col text-center justify-center items-center gap-16">
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1", "md:leading-none")}>{data?.acf.services.title}</h1>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2", "md:leading-none md:max-w-screen-sm")}>{data?.acf.services.title}</h1>
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
                             {data?.acf.services.text}
                         </span>

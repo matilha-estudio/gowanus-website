@@ -12,7 +12,7 @@ export default function AvailableApartments() {
         <section className="flex flex-col items-center justify-center w-full pt-6 md:py-16 text-navy bg-white">
             <img src="/medias/Availabilities.png" alt="Availabilities" className="object-cover w-full h-full max-h-[455px] absolute" />
             <div className="flex flex-col text-center text-white gap-8 z-10 items-center">
-                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1")}>Available APARTMENTS</h1>
+                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD px-4 leading-none" : "header2")}>Available APARTMENTS</h1>
                 <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg text-center")}>
                     1 to 3-Bedrooms Now Pre-leasing
                 </span>
