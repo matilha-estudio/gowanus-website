@@ -127,17 +127,17 @@ export default function Home() {
                 height={84}
               />
               <Image
-                src={SCREEN_WIDTH < MOBILE_BREAKPOINT ? '/logos/union-channel-short-navy.svg' : '/logos/union-channel-logo-navy.svg'}
+                src={SCREEN_WIDTH < MOBILE_BREAKPOINT ? '/logos/union-channel-logo-navy.svg' : '/logos/union-channel-logo-navy.svg'}
                 alt="union-channel-logo-navy"
                 className="absolute left-1/2 transform -translate-x-1/2 self-center w-[114px] md:w-[374px] md:z-10 hidden group-hover:flex"
                 width={374}
                 height={84}
               />
-              <span className="body1 text-white absolute group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy">Explore living at The Wharf's anchor residence.</span>
+              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy">Explore living at The Wharf's anchor residence.</span>
 
-              <span className="body1 text-white absolute group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
+              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
 
-              <span className="subheader4 text-white absolute group-hover:hidden md:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Now pre-leasing</span>
+              <span className="subheader4 text-white absolute md:group-hover:hidden md:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Now pre-leasing</span>
             </Link>
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>

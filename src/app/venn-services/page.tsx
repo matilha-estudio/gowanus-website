@@ -90,7 +90,7 @@ export default function VennServices() {
                 </Reveal>
 
                 <div className="flex flex-col items-center justify-center gap-16 mt-24 bg-white w-full h-full pb-24">
-                    <div className="flex flex-col md:flex-row px-8 justify-center gap-16">
+                    <div className="relative flex flex-col md:flex-row px-8 justify-center gap-16 max-h-[650px]">
                         <Image src={data?.acf_medias.image_url_1 ?? ''} alt="services-3" width={672} height={650} className="object-cover -mt-6" />
                         <span className="body2 px-5 text-center md:hidden flex -mt-6">{data?.acf.subtitle}</span>
 
