@@ -7,4 +7,5 @@ export type acf = {
     fair_housing: string
     phone_number: string
     email: string
+    press_email: string
 }

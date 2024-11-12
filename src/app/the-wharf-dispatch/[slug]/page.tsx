@@ -3,6 +3,7 @@
 import Reveal from "@/components/animations/reveal";
 import NavBar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
+import NewsletterComponent from "@/components/sections/newsletter";
 import TextReveal from "@/components/textReveal";
 import { useScrollByVh } from "@/hooks/useScrollByVh";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
@@ -26,8 +27,8 @@ export default function Article({ params }: { params: { slug: string } }) {
     const [error, setError] = useState<string | null>(null)
 
     function date() {
-        if (data) {
-            const formattedDate = parse(data[0].acf.date, 'yyyyMMdd', new Date());
+        if (data && data[0]?.acf?.date) {
+            const formattedDate = parse(data[0]?.acf?.date, 'yyyyMMdd', new Date());
             return formattedDate
         }
         return new Date()
@@ -55,7 +56,7 @@ export default function Article({ params }: { params: { slug: string } }) {
     if (error) return <p>{error}</p>
 
     return (
-        data && (
+        data && data[0] && (
             <Reveal className="flex min-h-screen flex-col items-center bg-white">
                 <>
                     <NavBar
@@ -89,16 +90,16 @@ export default function Article({ params }: { params: { slug: string } }) {
 
                                 {
                                     SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                        <TextReveal text={data[0].title.rendered} />
+                                        <TextReveal text={data[0]?.title?.rendered} />
                                     )
                                 }
 
                                 <h1 className={'header1MD leading-none md:hidden'}>
-                                    {data[0].title.rendered}
+                                    {data[0]?.title?.rendered}
                                 </h1>
                                 <div className="w-full gap-8 flex">
                                     <span className={cn("uppercase text-teal", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4-bold" : "subheader3-bold")}>
-                                        {data[0].acf.type}
+                                        {data[0]?.acf?.type}
                                     </span>
                                     <span className={cn("uppercase", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4-bold" : "subheader3-bold")}>
                                         {formatDate(date())}
@@ -109,11 +110,11 @@ export default function Article({ params }: { params: { slug: string } }) {
                     </section>
 
                     <section className="flex flex-col w-full px-8 py-12 gap-8 text-navy items-center max-w-screen-2xl">
-                        <Image src={data[0].acf_medias.section_1} alt="section 1" width={1152} height={624} className="aspect-square object-cover md:aspect-video md:w-full md:max-h-[624px]" />
+                        <Image src={data[0]?.acf_medias?.section_1 ?? ''} alt="section 1" width={1152} height={624} className="aspect-square object-cover md:aspect-video md:w-full md:max-h-[624px]" />
 
                         <div className="w-full flex flex-col gap-16 mb-8">
                             <h1 className={cn("text-left", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader2" : "subheader1")}>
-                                {data[0]?.acf.section_1.subtitle_or_pull_quote ?? ''}
+                                {data[0]?.acf.section_1?.subtitle_or_pull_quote ?? ''}
                             </h1>
 
                             <span className={cn("text-left", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
@@ -136,14 +137,14 @@ export default function Article({ params }: { params: { slug: string } }) {
                             <section className="relative flex flex-col w-full px-8 py-12 gap-8 text-white items-center z-10 max-w-screen-2xl">
                                 <div className="relative flex w-full flex-wrap gap-8 justify-center md:h-[544px] lg:h-[644px]">
                                     <Image
-                                        src={data[0].acf_medias.section_2_image_1}
+                                        src={data[0]?.acf_medias?.section_2_image_1 ?? ''}
                                         alt="section 2"
                                         width={1152}
                                         height={624}
                                         className="aspect-square object-cover md:aspect-video md:max-w-[560px] md:max-h-[644px]"
                                     />
                                     <Image
-                                        src={data[0].acf_medias.section_2_image_2}
+                                        src={data[0]?.acf_medias.section_2_image_2 ?? ''}
                                         alt="section 2"
                                         width={1152}
                                         height={624}
@@ -172,7 +173,7 @@ export default function Article({ params }: { params: { slug: string } }) {
 
                                 <div
                                     className="absolute h-full w-full top-[35%] -z-10"
-                                    style={{ backgroundColor: data[0].acf.color }}
+                                    style={{ backgroundColor: data[0]?.acf.color }}
                                 />
                             </section>
                         )
@@ -183,9 +184,9 @@ export default function Article({ params }: { params: { slug: string } }) {
                             <section className="relative flex flex-col w-full px-8 py-12 gap-8 text-navy items-center bg-white z-10 max-w-screen-2xl">
                                 <div
                                     className="absolute h-[10%] w-full top-0 -z-10"
-                                    style={{ backgroundColor: data[0].acf.color }}
+                                    style={{ backgroundColor: data[0]?.acf.color }}
                                 />
-                                <Image src={data[0].acf_medias.section_3} alt="section 3" width={1152} height={624} className="aspect-square object-cover md:aspect-video md:w-full md:max-h-[624px]" />
+                                <Image src={data[0]?.acf_medias.section_3 ?? ''} alt="section 3" width={1152} height={624} className="aspect-square object-cover md:aspect-video md:w-full md:max-h-[624px]" />
 
                                 <div className="w-full flex flex-col gap-16 mb-8">
                                     <h1 className={cn("text-left", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader2" : "subheader1")}>
@@ -200,6 +201,7 @@ export default function Article({ params }: { params: { slug: string } }) {
                         )
                     }
 
+                    <NewsletterComponent />
                     <Footer />
                 </>
             </Reveal>
