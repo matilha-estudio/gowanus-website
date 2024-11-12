@@ -7,7 +7,11 @@ import { useEffect, useState } from "react";
 import { ApiResponseHomePage } from "@/services/models/home";
 import { getHomePage } from "@/services/home";
 
-export default function GowanusWharf() {
+interface IGowanusWharf {
+    fontFamily?: "Freight" | "TWK"
+}
+
+export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
     const windowWidth = useWindowWidth();
     const SCREEN_WIDTH = windowWidth;
     const MOBILE_BREAKPOINT = 768;
@@ -46,13 +50,13 @@ export default function GowanusWharf() {
                         src={data?.acf_medias.gowanus_is_calling.images[0].image.url ?? ''}
                         width={322} height={420}
                         alt="Image1"
-                        className="absolute size-48 top-8 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
+                        className="absolute size-48 top-8 md:top-32 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
                     />
                     <Image
                         src={data?.acf_medias.gowanus_is_calling.images[0].gif.url ?? ''}
                         width={322} height={420}
                         alt="Image1GIF"
-                        className="absolute size-48 top-8 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
+                        className="absolute size-48 top-8 md:top-32 left-8 md:w-[222px] md:h-[320px] lg:w-[322px] lg:h-[420px] md:left-28 md:-mt-4 object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
                     />
                 </div>
 
@@ -62,13 +66,13 @@ export default function GowanusWharf() {
                         src={data?.acf_medias.gowanus_is_calling.images[1].image.url ?? ''}
                         width={343} height={228}
                         alt="Image2"
-                        className="absolute h-28 w-48 top-[136px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
+                        className="absolute h-28 w-48 top-[130px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px] transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
                     />
                     <Image
                         src={data?.acf_medias.gowanus_is_calling.images[1].gif.url ?? ''}
                         width={343} height={228}
                         alt="Image2GIF"
-                        className="absolute h-28 w-48 top-[136px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
+                        className="absolute h-28 w-48 top-[130px] right-8 md:left-8 md:mt-96 object-cover md:z-10 md:w-[243px] md:h-[128px] lg:w-[343px] lg:h-[228px] transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
                     />
                 </div>
 
@@ -110,23 +114,33 @@ export default function GowanusWharf() {
                         src={data?.acf_medias.gowanus_is_calling.images[4].image.url ?? ''}
                         width={367.46} height={244}
                         alt="Image5"
-                        className="absolute h-[126px] w-[190px] bottom-[27px] left-16 md:left-[70%] lg:bottom-[10%] md:w-[267.46px] md:h-[144px] lg:w-[367.46px] lg:h-[244px] object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
+                        className="absolute h-[126px] w-[190px] bottom-[47px] left-16 md:left-[70%] lg:bottom-[13%] md:w-[267.46px] md:h-[144px] lg:w-[367.46px] lg:h-[244px] object-cover transition-opacity duration-500 ease-in-out opacity-100 hover:opacity-0"
                     />
                     <Image
                         src={data?.acf_medias.gowanus_is_calling.images[4].gif.url ?? ''}
                         width={367.46} height={244}
                         alt="Image5GIF"
-                        className="absolute h-[126px] w-[190px] bottom-[27px] left-16 md:left-[70%] lg:bottom-[10%] md:w-[267.46px] md:h-[144px] lg:w-[367.46px] lg:h-[244px] object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
+                        className="absolute h-[126px] w-[190px] bottom-[47px] left-16 md:left-[70%] lg:bottom-[13%] md:w-[267.46px] md:h-[144px] lg:w-[367.46px] lg:h-[244px] object-cover transition-opacity duration-500 ease-in-out opacity-0 hover:opacity-100"
                     />
                 </div>
 
                 {/* Text and Button */}
                 <div className="flex flex-col text-center gap-16">
-                    <div className="flex flex-col z-20">
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>gowanus</h1>
-                        <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>is</h1>
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>calling</h1>
-                    </div>
+                    {
+                        fontFamily === "TWK" ? (
+                            <div className="flex flex-col z-20">
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>gowanus</h1>
+                                <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>is</h1>
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XL")}>calling</h1>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col z-20">
+                                <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>gowanus</h1>
+                                <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>is</h1>
+                                <h1 className={cn("leading-none", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1")}>calling</h1>
+                            </div>
+                        )
+                    }
                     <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
                         {data?.acf_medias.gowanus_is_calling.text}
                     </span>

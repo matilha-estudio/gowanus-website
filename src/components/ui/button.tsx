@@ -69,7 +69,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           buttonVariants({ variant, size }),
           className,
           isIcon && "w-fit",
-          "group" // Adiciona uma classe de grupo para permitir o hover em componentes filhos
+          "group"
         )}
         {...props}
       >

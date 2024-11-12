@@ -1,7 +1,34 @@
+import { getLinks } from "@/services/links";
+import { acf } from "@/services/models/links";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
+    const [data, setData] = useState<acf | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getLinks()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
+
     return (
         <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-16">
             <div className="relative flex flex-col gap-8">
@@ -16,17 +43,17 @@ export default function Footer() {
                             <a href="/neighborhood" className="subheader4 hover:text-marigold">explore gowanus</a>
                             <a href="/the-wharf-dispatch" className="subheader4 hover:text-marigold">wharf happenings</a>
                             <a href="/availability" className="subheader4 hover:text-marigold">availabilities</a>
-                            <a href="/virtual-tours" className="subheader4 hover:text-marigold">Virtual Tours</a>
+                            {/* <a href="/virtual-tours" className="subheader4 hover:text-marigold">Virtual Tours</a> */}
                         </div>
                         <div className="flex flex-col gap-2">
                             <a href="/inquire" className="subheader4 hover:text-marigold">contact</a>
                             {/* <a href="/" className="subheader4 hover:text-marigold">resident login</a> */}
-                            <a href="/" className="subheader4 hover:text-marigold">Building Brochure</a>
-                            <div className="flex-1" />
+                            <a href={data?.brochure} className="subheader4 hover:text-marigold">Building Brochure</a>
+                            <div className="h-6" />
                             <div className="flex flex-col gap-2">
-                                <a href="/" className="accent3 hover:text-marigold">Team</a>
-                                <a href="/" className="accent3 hover:text-marigold">Legal Disclaimer</a>
-                                <a href="/" className="accent3 hover:text-marigold">Fair Housing</a>
+                                <a href={data?.team} className="accent3 hover:text-marigold">Team</a>
+                                <a href={data?.legal_disclaimer} className="accent3 hover:text-marigold">Legal Disclaimer</a>
+                                <a href={data?.fair_housing} className="accent3 hover:text-marigold">Fair Housing</a>
                                 <span className="accent3 ">Copyright 2024 Gowanus Wharf</span>
                             </div>
                         </div>
@@ -44,32 +71,38 @@ export default function Footer() {
                             >
                                 100 1st St, Brooklyn, NY 11231
                             </a>
+                            {
+                                data?.phone_number && (
+                                    <a
+                                        href={`tel:+1${data?.phone_number}`}
+                                        className="subheader4 hover:text-marigold"
+                                    >
+                                        {String(data?.phone_number)?.slice(0, 3)}.
+                                        {String(data?.phone_number)?.slice(3, 6)}.
+                                        {String(data?.phone_number)?.slice(6, 10)}
+                                    </a>
+                                )
+                            }
                             <a
-                                href="tel:+15555555555"
+                                href={`mailto:${data?.email}`}
                                 className="subheader4 hover:text-marigold"
                             >
-                                555.555.5555
-                            </a>
-                            <a
-                                href="mailto:contact@gowanuswharf.com"
-                                className="subheader4 hover:text-marigold"
-                            >
-                                CONTACT@gowanuswharf.com
+                                {data?.email}
                             </a>
                         </div>
                         <div className="flex gap-4">
-                            <Link href="https://www.instagram.com/gowanuswharf/" target="_blank">
+                            <Link href={data?.instagram ?? ''} target="_blank">
                                 <Image src="/icons/Instagram.svg" alt="Instagram" width={24} height={24} />
                             </Link>
-                            <Link href="">
+                            <Link href={data?.facebook ?? ''}>
                                 <Image src="/icons/Linkedin.svg" alt="Facebook" width={24} height={24} />
                             </Link>
                         </div>
                         <div className="flex md:hidden flex-col gap-2">
-                            <a href="/" className="accent3-xs hover:text-marigold">Team</a>
-                            <a href="/" className="accent3-xs hover:text-marigold">Legal Disclaimer</a>
-                            <a href="/" className="accent3-xs hover:text-marigold">Fair Housing</a>
-                            <a href="/" className="accent3-xs hover:text-marigold">Copyright 2024 Gowanus Wharf</a>
+                            <a href={data?.team} className="accent3-xs hover:text-marigold">Team</a>
+                            <a href={data?.legal_disclaimer} className="accent3-xs hover:text-marigold">Legal Disclaimer</a>
+                            <a href={data?.fair_housing} className="accent3-xs hover:text-marigold">Fair Housing</a>
+                            <span className="accent3-xs hover:text-marigold">Copyright 2024 Gowanus Wharf</span>
                         </div>
                     </div>
                 </div>

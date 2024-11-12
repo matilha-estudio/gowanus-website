@@ -22,6 +22,7 @@ import { CarouselResponse } from "@/services/models/carousel";
 import { getCarousel } from "@/services/carousel";
 import { getTheClub } from "@/services/theClub";
 import { TheClubResponse } from "@/services/models/theClub";
+import { type CarouselApi } from "@/components/ui/carousel"
 
 export default function TheClub() {
     const scrollByVh = useScrollByVh();
@@ -31,6 +32,8 @@ export default function TheClub() {
     const MOBILE_BREAKPOINT = 768
 
     const [expanded, setExpanded] = useState(false);
+    const [api, setApi] = useState<CarouselApi>();
+    const [current, setCurrent] = useState(0)
 
     const toggleExpand = () => setExpanded(!expanded);
 
@@ -39,6 +42,18 @@ export default function TheClub() {
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCurrent(api.selectedScrollSnap())
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap())
+        })
+    }, [api])
 
     async function handleData() {
         try {
@@ -107,7 +122,7 @@ export default function TheClub() {
 
             <section className="relative flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
                 <div className="absolute w-full h-1/5 bg-navy top-0" />
-                <div className="grid px-6 md:grid-cols-2">
+                <div className="grid px-6 md:grid-cols-2 w-full">
                     <div className="relative w-full overflow-hidden group gap-8 max-w-[672px]">
                         <Image
                             src="/medias/the-club-exemple1.png"
@@ -152,7 +167,7 @@ export default function TheClub() {
 
             <section className="relative flex flex-col items-center justify-center w-full py-12 text-navy bg-white">
                 <div className="absolute w-full h-1/5 top-0" />
-                <div className="grid px-6 md:grid-cols-2 gap-8 z-10">
+                <div className="grid px-6 md:grid-cols-2 gap-8 z-10 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
                         <img
                             src="/medias/the-club-exemple1.png"
@@ -264,7 +279,7 @@ export default function TheClub() {
 
             <section className="relative flex flex-col items-center justify-center w-full py-12 text-navy bg-white">
                 <div className="absolute w-full h-1/6 bg-lavenderLake top-0" />
-                <div className="grid px-6 md:grid-cols-2">
+                <div className="grid px-6 md:grid-cols-2 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
                         <img
                             src="/medias/the-club-exemple1.png"
@@ -320,8 +335,8 @@ export default function TheClub() {
             </section>
 
             <section className="relative flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-                <div className="absolute w-full h-1/5 md:bg-sand bottom-0" />
-                <div className="grid px-6 md:grid-cols-2 gap-8">
+                <div className="absolute w-full h-1/6 md:bg-sand bottom-0" />
+                <div className="grid px-6 md:grid-cols-2 gap-8 w-full">
                     <div className="relative w-full overflow-hidden group max-w-[672px]">
                         <Image
                             src="/medias/the-club-exemple1.png"
@@ -338,7 +353,7 @@ export default function TheClub() {
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center  items-center gap-12">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -397,7 +412,9 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Remote on lock' />
+                                    <div className="max-w-[400px]">
+                                        <TextReveal text='Remote on lock' />
+                                    </div>
                                 )
                             }
 
@@ -447,7 +464,7 @@ export default function TheClub() {
                 dataTheClub && (
                     <section className="w-full flex justify-center md:py-16 relative">
                         <div className="absolute w-full h-1/5 bg-sand top-0" />
-                        <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                        <Carousel setApi={setApi} className="w-full" opts={{ loop: true, align: 'center' }}>
                             <CarouselContent>
                                 {dataTheClub[0].acf_medias.list_images.map((item, index) => (
                                     <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
@@ -458,12 +475,14 @@ export default function TheClub() {
                                                 </CardContent>
                                             </Card>
                                         </div>
-                                        <span className="body2 text-navy text-center self-center">
-                                            {item.text}
-                                        </span>
                                     </CarouselItem>
                                 ))}
                             </CarouselContent>
+                            <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                                <span className="body2 text-navy text-center max-w-screen-lg">
+                                    {dataTheClub && dataTheClub[0]?.acf_medias.list_images[current]?.text}
+                                </span>
+                            </div>
                             <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                             <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                         </Carousel>
@@ -547,9 +566,9 @@ export default function TheClub() {
                 </div>
             </section>
 
-            <WalkThrough className="pt-0" />
+            <WalkThrough className="pt-0" videoSide="left" fontFamily="Freight" />
 
-            <section className="relative flex flex-col items-center justify-center w-full pb-24 pt-0 text-navy bg-canalRoyale gap-16">
+            <section className="relative flex flex-col items-center justify-center w-full pb-24 pt-0 text-navy bg-canalRoyale gap-16 md:-mb-10">
                 <Reveal className="flex flex-col items-center text-center text-white gap-16">
                     <>
                         <Image src="/logos/waveicon-white.svg" alt="waveicon-navy" width={242} height={12} className='pt-24 -mb-5' />
@@ -573,7 +592,7 @@ export default function TheClub() {
                 <CustomCarousel2 data={dataCarousel ? dataCarousel[0]?.acf_medias.images : []} />
             </section>
 
-            <InquireComponent />
+            <InquireComponent fontFamily="TWK" />
 
             <Footer />
 

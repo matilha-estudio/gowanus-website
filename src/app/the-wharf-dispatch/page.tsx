@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import { PostResponse } from "@/services/models/blog";
 import { getAllPosts } from "@/services/blog";
 import { parse } from "date-fns";
+import NewsletterComponent from "@/components/sections/newsletter";
 
 export default function TheWharfDispatch() {
     const scrollByVh = useScrollByVh();
@@ -130,6 +131,8 @@ export default function TheWharfDispatch() {
                     })
                 }
             </section>
+
+            <NewsletterComponent />
 
             <Footer />
         </main>

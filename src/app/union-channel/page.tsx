@@ -22,6 +22,7 @@ import { ApiResponseUnionChannel } from "@/services/models/unionChannel";
 import { getTheClub } from "@/services/theClub";
 import { TheClubResponse } from "@/services/models/theClub";
 import Link from "next/link";
+import { type CarouselApi } from "@/components/ui/carousel"
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -34,6 +35,36 @@ export default function UnionChannel() {
     const [dataTheClub, setDataTheClub] = useState<TheClubResponse | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+
+    const [api, setApi] = useState<CarouselApi>()
+    const [api2, setApi2] = useState<CarouselApi>()
+
+    const [current, setCurrent] = useState(0)
+    const [current2, setCurrent2] = useState(0)
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCurrent(api.selectedScrollSnap())
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap())
+        })
+    }, [api])
+
+    useEffect(() => {
+        if (!api2) {
+            return
+        }
+
+        setCurrent2(api2.selectedScrollSnap())
+
+        api2.on("select", () => {
+            setCurrent2(api2.selectedScrollSnap())
+        })
+    }, [api])
 
     async function handleData() {
         try {
@@ -104,11 +135,11 @@ export default function UnionChannel() {
 
             <section className="flex flex-col items-center justify-center w-full py-24 text-navy">
                 <div className="grid md:grid-cols-2 grid-cols-1 px-4">
-                    <div className="relative w-full overflow-hidden group">
+                    <div className="relative w-full overflow-hidden group max-w-[592px] min-h-[482px] h-full">
                         <Image
                             src="/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp"
                             alt="services"
-                            className="w-full h-full max-w-[592px] mx-h-[482px] object-cover"
+                            className="w-full h-full max-w-[592px] min-h-[482px] object-cover"
                             width={592}
                             height={482}
                         />
@@ -117,7 +148,7 @@ export default function UnionChannel() {
                             alt="services"
                             width={592}
                             height={482}
-                            className="w-full h-full max-w-[592px] mx-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                            className="w-full h-full max-w-[592px] min-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
                     <Reveal className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">
@@ -132,7 +163,7 @@ export default function UnionChannel() {
             </section>
 
             <section className="w-full flex justify-center md:py-16">
-                <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                <Carousel setApi={setApi} className="w-full" opts={{ loop: true, align: 'center' }}>
                     <CarouselContent>
                         {data?.acf_medias.carousel.map((item, index) => (
                             <>
@@ -144,13 +175,15 @@ export default function UnionChannel() {
                                             </CardContent>
                                         </Card>
                                     </div>
-                                    <span className="body2 text-navy text-center self-center">
-                                        {item.description}
-                                    </span>
                                 </CarouselItem>
                             </>
                         ))}
                     </CarouselContent>
+                    <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                        <span className="body2 text-navy text-center max-w-screen-lg">
+                            {data && data.acf_medias.carousel[current]?.description}
+                        </span>
+                    </div>
                     <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                     <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                 </Carousel>
@@ -169,7 +202,7 @@ export default function UnionChannel() {
                 </Accordion>
             </section>
 
-            <WalkThrough className="bg-white" />
+            <WalkThrough className="bg-white" videoSide="right" fontFamily="TWK" />
 
             <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-navy">
                 <Reveal className="flex flex-col items-center gap-8">
@@ -185,9 +218,9 @@ export default function UnionChannel() {
                         </Link>
                     </>
                 </Reveal>
-                <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                <Carousel setApi={setApi2} className="w-full" opts={{ loop: true, align: 'center' }}>
                     <CarouselContent>
-                        {dataTheClub && dataTheClub[0].acf_medias.list_images.map((item, index) => (
+                        {dataTheClub && dataTheClub[0]?.acf_medias?.list_images?.map((item, index) => (
                             <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                 <div className="md:p-1">
                                     <Card className="rounded-none border-none">
@@ -196,17 +229,19 @@ export default function UnionChannel() {
                                         </CardContent>
                                     </Card>
                                 </div>
-                                <span className="body2 text-navy text-center self-center">
-                                    {item.text}
-                                </span>
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+                    <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                        <span className="body2 text-navy text-center max-w-screen-lg">
+                            {dataTheClub && dataTheClub[0]?.acf_medias.list_images[current2]?.text}
+                        </span>
+                    </div>
                     <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                     <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                 </Carousel>
             </section>
-            <Services />
+            <Services fontFamily="TWK" />
             <GowanusWharf />
             <div className="h-20" />
             <AvailableApartments />

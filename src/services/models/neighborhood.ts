@@ -13,6 +13,8 @@ interface AcfMedias {
   second_image: string;
   second_image_gif: string;
   list_images: Image[];
+  list_images_2: Image[];
+  list_images_3: Image[];
 }
 
 export interface NeighborhoodItem {

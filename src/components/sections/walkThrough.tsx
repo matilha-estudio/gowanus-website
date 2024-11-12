@@ -11,9 +11,11 @@ import Link from "next/link"
 
 interface IWalkThrough {
     className?: string
+    videoSide?: "left" | "right";
+    fontFamily?: "TWK" | "Freight"
 }
 
-export default function WalkThrough({ className }: IWalkThrough) {
+export default function WalkThrough({ className, videoSide = "left", fontFamily = 'Freight' }: IWalkThrough) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
@@ -55,20 +57,30 @@ export default function WalkThrough({ className }: IWalkThrough) {
                 >
                     walk-through
                 </video>
-                <div className="flex w-full items-center justify-center px-4">
 
-                    <video
-                        src={data?.acf_medias.video_url}
-                        height={482}
-                        width={592}
-                        autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
-                        className="aspect-square hidden md:flex object-contain h-[482px]"
-                    >walk-through</video>
-                </div>
+                {
+                    videoSide === 'left' && (
+                        <div className="flex w-full items-center justify-center px-4">
+
+                            <video
+                                src={data?.acf_medias.video_url}
+                                height={482}
+                                width={592}
+                                autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
+                                className="aspect-square hidden md:flex object-contain w-full h-[482px]"
+                            >walk-through</video>
+                        </div>
+                    )
+                }
 
                 <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-16">
                     <>
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1 max-w-[350px] text-center", "leading-none")}>WALK THROUGH</h1>
+                        {
+                            fontFamily === 'TWK' ?
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2 max-w-[350px] text-center", "leading-none")}>WALK THROUGH</h1>
+                                :
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1 max-w-[350px] text-center", "leading-none")}>WALK THROUGH</h1>
+                        }
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
                             {data?.acf_medias.description}
                         </span>
@@ -77,6 +89,21 @@ export default function WalkThrough({ className }: IWalkThrough) {
                         </Link>
                     </>
                 </Reveal>
+
+                {
+                    videoSide === 'right' && (
+                        <div className="flex w-full items-center justify-center px-4">
+
+                            <video
+                                src={data?.acf_medias.video_url}
+                                height={482}
+                                width={592}
+                                autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
+                                className="aspect-square hidden md:flex object-contain w-full h-[482px]"
+                            >walk-through</video>
+                        </div>
+                    )
+                }
 
             </div>
         </section>

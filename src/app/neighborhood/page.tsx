@@ -17,6 +17,8 @@ import Reveal from "@/components/animations/reveal";
 import { useEffect, useState } from "react";
 import { getNeighborhood } from "@/services/neighborhood";
 import { NeighborhoodResponse } from "@/services/models/neighborhood";
+import { type CarouselApi } from "@/components/ui/carousel"
+
 
 export default function Neighborhood() {
     const scrollByVh = useScrollByVh();
@@ -27,6 +29,51 @@ export default function Neighborhood() {
     const [data, setData] = useState<NeighborhoodResponse | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
+
+    const [api, setApi] = useState<CarouselApi>()
+    const [current, setCurrent] = useState(0)
+
+    const [api2, setApi2] = useState<CarouselApi>()
+    const [current2, setCurrent2] = useState(0)
+
+    const [api3, setApi3] = useState<CarouselApi>()
+    const [current3, setCurrent3] = useState(0)
+
+    useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCurrent(api.selectedScrollSnap())
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap())
+        })
+    }, [api])
+
+    useEffect(() => {
+        if (!api2) {
+            return
+        }
+
+        setCurrent2(api2.selectedScrollSnap())
+
+        api2.on("select", () => {
+            setCurrent2(api2.selectedScrollSnap())
+        })
+    }, [api])
+
+    useEffect(() => {
+        if (!api3) {
+            return
+        }
+
+        setCurrent3(api3.selectedScrollSnap())
+
+        api3.on("select", () => {
+            setCurrent3(api3.selectedScrollSnap())
+        })
+    }, [api])
 
     async function handleData() {
         try {
@@ -70,13 +117,15 @@ export default function Neighborhood() {
                 <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="relative flex flex-col items-center bg-teal text-navy w-full">
-                    <Image src="/logos/waveicon-navy.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
+                    <Image src="/logos/waveicon-white.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
                     <Reveal>
-                        <div className="flex flex-col text-center text-white gap-16 items-center">
+                        <div className="flex flex-col text-center text-navy gap-16 items-center">
 
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Welcome to the neighborhood' />
+                                    <div className="w-full max-w-screen-lg">
+                                        <TextReveal text='Welcome to the neighborhood' />
+                                    </div>
                                 )
                             }
 
@@ -84,7 +133,7 @@ export default function Neighborhood() {
                                 Welcome to the neighborhood
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-screen-sm")}>
                                 Pick up on the inimitable blend of people and experiences that energize our living locale.
                             </span>
                         </div>
@@ -127,8 +176,8 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-56 leading-none">Life Out Loud</h1>
-                                <span className="body1 max-w-lg">
+                                <h1 className="header1 max-w-md leading-none">Life Out Loud</h1>
+                                <span className="body1 max-w-md">
                                     Artful invention. Personal expression. Makers, doers, and dreamers collide and create culture.
                                 </span>
                             </div>
@@ -169,7 +218,7 @@ export default function Neighborhood() {
 
                 <section className="w-full flex justify-center md:py-16 relative bg-white">
                     <div className="absolute w-full h-1/5 bg-white top-0" />
-                    <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                    <Carousel setApi={setApi} className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
                             {data && data[0].acf_medias.list_images.map((item, index) => (
                                 <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
@@ -180,12 +229,14 @@ export default function Neighborhood() {
                                             </CardContent>
                                         </Card>
                                     </div>
-                                    <span className="body2 text-navy text-center self-center">
-                                        {item.description}
-                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+                        <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                            <span className="body2 text-navy text-center max-w-screen-lg">
+                                {data && data[0]?.acf_medias.list_images[current]?.description}
+                            </span>
+                        </div>
                         <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                         <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                     </Carousel>
@@ -227,7 +278,7 @@ export default function Neighborhood() {
 
                             {/* Desktop */}
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex  mx-auto hidden">
-                                <div className="absolute bottom-0 left-0 w-[221px] h-[147px] md:h-[250px] md:w-[378px] overflow-hidden group z-10">
+                                <div className="absolute bottom-0 left-24 w-[221px] h-[147px] md:h-[250px] md:w-[378px] overflow-hidden group z-10">
                                     <img
                                         src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
                                         alt="services"
@@ -258,8 +309,8 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">Eats and Afters</h1>
-                                <span className="body1 max-w-lg">
+                                <h1 className="header1 max-w-md leading-none">Eats and Afters</h1>
+                                <span className="body1 max-w-sm">
                                     A feast for the senses around every corner. The bites are bumping. The beats go boom.
                                 </span>
                             </div>
@@ -269,24 +320,25 @@ export default function Neighborhood() {
 
                 <section className="w-full flex justify-center md:py-16 relative bg-green">
                     <div className="absolute w-full h-1/5 bg-green top-0" />
-                    <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                    <Carousel setApi={setApi2} className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
-                            {Array.from({ length: 5 }).map((_, index) => (
+                            {data && data[0].acf_medias.list_images_2?.map((item, index) => (
                                 <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                     <div className="md:p-1">
                                         <Card className="rounded-none">
                                             <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
-                                                <Image src={"/medias/MasterBrandFilm.png"} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
+                                                <Image src={item.image} alt={"list_images_2"} width={1088} height={608} className="w-full h-full object-cover" />
                                             </CardContent>
                                         </Card>
                                     </div>
-                                    <span className="body2 text-center self-center text-white">
-                                        {/* {item.description} */}
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+                        <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                            <span className="body2 text-white text-center max-w-screen-lg">
+                                {data && data[0]?.acf_medias.list_images_2 && data[0]?.acf_medias?.list_images_2[current2]?.description}
+                            </span>
+                        </div>
                         <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                         <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                     </Carousel>
@@ -328,7 +380,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1">Greater Goods</h1>
+                                <h1 className="header1 max-w-lg leading-none">Greater Goods</h1>
                                 <span className="body1 max-w-lg">
                                     Shop into an eclectic mix of brands you'll love, curated provisions, and locally-owned businesses.
                                 </span>
@@ -370,24 +422,25 @@ export default function Neighborhood() {
 
                 <section className="w-full flex justify-center md:py-16 relative bg-white">
                     <div className="absolute w-full h-1/5 bg-white top-0" />
-                    <Carousel className="w-full" opts={{ loop: true, align: 'center' }}>
+                    <Carousel setApi={setApi3} className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>
-                            {Array.from({ length: 5 }).map((_, index) => (
+                            {data && data[0].acf_medias.list_images_3?.map((item, index) => (
                                 <CarouselItem key={index} className="max-w-[1000px] flex flex-col gap-8">
                                     <div className="md:p-1">
                                         <Card className="rounded-none">
                                             <CardContent className="flex aspect-square md:aspect-video items-center justify-center max-h-[600px] p-0">
-                                                <Image src={"/medias/MasterBrandFilm.png"} alt={"MasterBrandFilm"} width={1088} height={608} className="w-full h-full object-cover" />
+                                                <Image src={item.image} alt={"list_images_3"} width={1088} height={608} className="w-full h-full object-cover" />
                                             </CardContent>
                                         </Card>
                                     </div>
-                                    <span className="body2 text-navy text-center self-center">
-                                        {/* {item.description} */}
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    </span>
                                 </CarouselItem>
                             ))}
                         </CarouselContent>
+                        <div className="w-full flex justify-center mt-8 flex-wrap px-8">
+                            <span className="body2 text-navy text-center max-w-screen-lg">
+                                {data && data[0]?.acf_medias.list_images_3 && data[0]?.acf_medias?.list_images_3[current3]?.description}
+                            </span>
+                        </div>
                         <CarouselPrevious className="bg-navy active:bg-marigold rounded-none md:bg-transparent" />
                         <CarouselNext className="bg-navy active:bg-marigold rounded-none md:bg-transparent -mr-3" />
                     </Carousel>

@@ -56,7 +56,7 @@ export default function VennServices() {
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white text-center md:w-full z-10 absolute left-1/2 transform -translate-x-1/2 self-center")}>
                     Resident Services
                 </h1>
-                <Image src={"/medias/services-1.png"} alt={"services"} width={1440} height={810} className="w-full md:h-screen object-cover" />
+                <Image src={"/medias/services-banner.png"} alt={"services-banner"} width={1440} height={810} className="w-full md:h-screen object-cover" />
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button
                     variant="icon"
@@ -69,8 +69,8 @@ export default function VennServices() {
             <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="services" pagePath="/venn-services" />
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
-                {/* <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' /> */}
-                <Reveal className="flex flex-col text-center text-white gap-10 items-center py-28">
+                <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
+                <Reveal className="flex flex-col text-center text-white gap-10 items-center ">
                     <>
                         {
                             SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -130,13 +130,13 @@ export default function VennServices() {
                             {data?.acf.resident_programming.title}
                         </h1>
 
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-3xl")}>
                             {data?.acf.resident_programming.text}
                         </span>
                     </>
                 </Reveal>
 
-                <div className="h-10" />
+                <div className="h-20" />
                 <CustomCarousel3 data={data} />
                 <div className="h-10" />
                 <div>

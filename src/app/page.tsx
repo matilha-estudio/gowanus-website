@@ -108,13 +108,13 @@ export default function Home() {
             </span>
           </>
         </Reveal>
-        <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8">
+        <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8 md:max-w-[1376px] w-full">
           <div className="relative group flex md:flex-col flex-row gap-10 items-center md:max-w-[1376px] md:w-full">
             <Link href="/union-channel" className="relative flex md:max-w-[1376px] md:w-full">
               <Image
                 src={data?.acf_medias.union_channel_image_url ?? ''}
                 alt="UnionChannelBanner"
-                className="object-cover h-[205px] w-[175px] md:h-[514px]  md:w-full"
+                className="object-cover h-[205px] w-[175px] md:h-[514px]  md:max-w-[1376px] md:w-full"
                 height={514}
                 width={1376}
               />
@@ -137,8 +137,9 @@ export default function Home() {
 
               <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
 
-              <span className="subheader4 text-white absolute md:group-hover:hidden md:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Now pre-leasing</span>
+              <span className="body1 text-white absolute md:group-hover:hidden md:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
             </Link>
+
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
               <Button variant="marigold" label="explore" icon={<ArrowUpRight />} size="mobile" />
@@ -151,7 +152,7 @@ export default function Home() {
               <Image
                 src="/logos/douglass-port.svg"
                 alt="douglass-port"
-                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px8"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px-8"
                 width={374}
                 height={84}
               />
@@ -161,7 +162,7 @@ export default function Home() {
               <Image
                 src="/logos/nevins-lading.svg"
                 alt="nevins-lading"
-                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px8"
+                className="absolute left-1/2 transform -translate-x-1/2 self-center -mt-8 md:max-w-[374px] md:w-full md:px-8"
                 width={374}
                 height={84}
               />
@@ -169,6 +170,7 @@ export default function Home() {
             </div>
           </div>
 
+          {/* MOBILE */}
           <div className="relative md:flex-col flex-row gap-10 items-center flex md:hidden">
             <div className="md:hidden flex flex-col items-center gap-6">
               <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
@@ -221,7 +223,7 @@ export default function Home() {
         </div>
       </section>
 
-      <GowanusWharf />
+      <GowanusWharf fontFamily='Freight' />
 
       <MapComponent showButton />
 

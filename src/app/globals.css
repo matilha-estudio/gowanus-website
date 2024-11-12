@@ -165,3 +165,85 @@
   font-family: "TWKEverettMedium", sans-serif;
   font-size: 0.75rem; /* 12px */
 }
+
+/* hubspot */
+
+/* CSS personalizado para Tailwind */
+@layer components {
+  .hubspot-custom-container {
+    @apply flex flex-col w-full;
+  }
+
+  .hubspot-custom-container .submitted-message {
+    @apply header1;
+  }
+
+  .hubspot-custom-container fieldset .hs-richtext {
+    @apply header1;
+  }
+
+  .hubspot-custom-container .hs-richtext {
+    @apply header1;
+  }
+
+  .hubspot-custom-container form fieldset {
+    @apply w-full max-w-full gap-8 flex;
+  }
+
+  .hubspot-custom-container form fieldset .hs-form-field .input .hs-input {
+    @apply w-full;
+  }
+
+  .hubspot-custom-container
+    form
+    fieldset
+    .field
+    .hs-error-msgs
+    li
+    .hs-error-msg {
+    @apply accent3 text-left;
+  }
+
+  .hubspot-custom-container form fieldset .field .hs-error-msgs li {
+    @apply text-left;
+  }
+
+  .hubspot-custom-container .title {
+    @apply body2 text-navy text-start;
+  }
+
+  .hubspot-custom-container form {
+    @apply flex flex-col justify-center w-full gap-4;
+  }
+
+  .hubspot-custom-container form div {
+    @apply flex flex-col w-full;
+  }
+
+  .hubspot-custom-container form span {
+    @apply body2 text-navy text-start;
+  }
+
+  .hubspot-custom-container form label {
+    @apply body2 text-navy text-start;
+  }
+
+  .hubspot-custom-container form .hs-input,
+  .hubspot-custom-container form .hs-select {
+    @apply flex h-12 w-full border border-gray-200 bg-white px-3 body2 ring-offset-eggCream placeholder:text-clay focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .hubspot-custom-container form .hs_submit .actions .hs-button {
+    @apply bg-navy text-white hover:bg-marigold hover:text-navy subheader5 w-fit py-3 px-6 cursor-pointer transition-colors;
+  }
+
+  @media (min-width: 1025px) {
+    .hubspot-custom-container .title {
+      @apply body2 text-navy text-start;
+    }
+
+    .hubspot-custom-container .hs-form .hs-input[type="submit"] {
+      @apply w-full;
+    }
+  }
+}

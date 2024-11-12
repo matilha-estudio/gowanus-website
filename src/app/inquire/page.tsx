@@ -1,13 +1,11 @@
 'use client'
 import NavBar from "@/components/navbar";
 import Footer from "@/components/sections/footer";
-import { Button } from "@/components/ui/button";
-import { InputWithLabel } from "@/components/ui/inputWithLabel";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "../lib/utils";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import HubspotApplyNowForm from '@/hubspot/HubspotApplyNowForm'
 
 export default function Inquire() {
     const windowWidth = useWindowWidth()
@@ -30,30 +28,10 @@ export default function Inquire() {
                 />
             </section>
 
-            <section className="flex flex-col items-center justify-center gap-10 w-full md:py-24 py-12 text-navy bg-white px-8 md:px-16">
+            <section className="hubspot-custom-container flex flex-col items-center justify-center gap-10 w-full md:py-24 py-12 text-navy bg-white px-8 md:px-16">
                 <h1 className="header1 leading-none text-center">LEASING INTEREST</h1>
-
-                <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl">
-                    <InputWithLabel label="First Name" placeholder="First" />
-                    <InputWithLabel label="Last Name" placeholder="Last" />
-                    <InputWithLabel label="Email" placeholder="email@email.com" />
-                    <InputWithLabel label="Zip Code" placeholder="XXXXX" />
-                </div>
-                <div className="grid grid-cols-1 gap-6 w-full max-w-4xl">
-                    <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
-                    <InputWithLabel label="Apartment Type" placeholder="Select preferred apartment type" />
-                </div>
-                <div className="grid md:grid-cols-2 gap-6 w-full max-w-4xl">
-                    <InputWithLabel label="First Name" placeholder="First" />
-                    <InputWithLabel label="Last Name" placeholder="Last" />
-                </div>
-                <div className="grid grid-cols-1 gap-6 w-full max-w-4xl">
-                    <InputWithLabel label="Last Name" placeholder="Last" />
-                </div>
-
-                <div className="flex flex-col md:flex-row items-center gap-6">
-                    <Button label="submit" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
-                    <Button label="schedule a tour" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+                <div className="hubspot-custom-container flex gap-4 text-navy w-full max-w-4xl self-center">
+                    <HubspotApplyNowForm />
                 </div>
             </section>
 
