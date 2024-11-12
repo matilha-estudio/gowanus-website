@@ -6,6 +6,7 @@ import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { useEffect, useState } from "react";
 import { ApiResponseHomePage } from "@/services/models/home";
 import { getHomePage } from "@/services/home";
+import Link from "next/link";
 
 interface IGowanusWharf {
     fontFamily?: "Freight" | "TWK"
@@ -144,9 +145,9 @@ export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
                     <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
                         {data?.acf_medias.gowanus_is_calling.text}
                     </span>
-                    <div className="z-10">
+                    <Link href={'/neighborhood'} className="z-10">
                         <Button variant='marigold' label="learn more" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "mobile" : "default"} />
-                    </div>
+                    </Link>
                 </div>
             </div>
         </section>

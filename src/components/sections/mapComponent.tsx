@@ -7,6 +7,7 @@ import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { ArrowUpRight } from "lucide-react";
 import { SetStateAction, useState } from "react";
 import Pins from "../svg/pins";
+import Link from "next/link";
 
 interface IMapComponent {
     showButton?: boolean
@@ -127,9 +128,9 @@ export default function MapComponent(props: IMapComponent) {
 
             {
                 props.showButton && (
-                    <div className="w-full bg-navy py-4 md:py-8 flex justify-center">
+                    <Link href={'/neighborhood'} className="w-full bg-navy py-4 md:py-8 flex justify-center">
                         <Button label="explore campus" variant='white' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                    </div>
+                    </Link>
                 )
             }
         </section>
