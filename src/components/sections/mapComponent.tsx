@@ -55,7 +55,7 @@ export default function MapComponent(props: IMapComponent) {
             description: '',
             address: '585 Union Channel, Gowanus, Brooklyn',
             cardImageUrl: '/logos/union-channel-GA-logo-white.svg',
-            mapImageUrl: '/medias/MapIntegration.png',
+            mapImageUrl: '/medias/MapIntegrationUC.png',
             backgroudImage: "/medias/union_card_bg.png",
             altText: 'Union',
         },
@@ -64,7 +64,7 @@ export default function MapComponent(props: IMapComponent) {
             description: '',
             address: '251 Douglass Port, Gowanus, Brooklyn',
             cardImageUrl: '/logos/douglass-port-GA-white.svg',
-            mapImageUrl: '/medias/MapIntegration.png',
+            mapImageUrl: '/medias/MapIntegrationDP.png',
             backgroudImage: "/medias/douglass_card_bg.png",
             altText: 'Douglass',
         },
@@ -73,7 +73,7 @@ export default function MapComponent(props: IMapComponent) {
             description: '',
             address: '310 Nevins North, Gowanus, Brooklyn',
             cardImageUrl: '/logos/nevins-lading-GA.svg',
-            mapImageUrl: '/medias/MapIntegration.png',
+            mapImageUrl: '/medias/MapIntegrationNL.png',
             backgroudImage: "/medias/nevis_card_bg.png",
             altText: 'Nevins',
         },
@@ -88,11 +88,11 @@ export default function MapComponent(props: IMapComponent) {
         <section className="relative flex flex-col md:h-auto items-center w-full bg-navy text-navy">
             <div className="relative items-center max-w-[1440px] max-h-[810px] w-full h-full flex flex-col">
                 <Image
-                    src="/medias/MapIntegration.png"
+                    src={cardIndex !== null && cardData[cardIndex] ? cardData[cardIndex].mapImageUrl : ''}
                     alt="MapIntegration"
                     width={1440}
                     height={810}
-                    className="w-full h-full max-w-[1440px] object-cover hidden md:flex"
+                    className="w-full h-full max-w-[1440px] object-cover hidden md:flex transition-all"
                     onClick={() => setCardIndex(null)}
                 />
 

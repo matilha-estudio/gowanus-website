@@ -52,12 +52,12 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                     </DrawerTrigger>
                     {
                         hasHomeButton &&
-                        <Link href={pagePath}>
-                            <Button variant={variant} size='md' label={pageName} className="h-10 w-fit" />
-                        </Link>
+                        // <Link href={pagePath}>
+                        <Button variant={variant} size='md' label={pageName} className="h-10 w-fit bg-sand border-l-0 hover:bg-sand hover:text-navy hover:cursor-default" />
+                        // </Link>
                     }
                 </div>
-                <div className="flex gap-4 md:gap-8">
+                <div className="flex gap-2 md:gap-8">
                     <Link href='/inquire'>
                         <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
                     </Link>
