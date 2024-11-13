@@ -6,6 +6,8 @@ import Link from "next/link";
 import { cn } from "../lib/utils";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import HubspotApplyNowForm from '@/hubspot/HubspotApplyNowForm'
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Inquire() {
     const windowWidth = useWindowWidth()
@@ -32,6 +34,15 @@ export default function Inquire() {
                 <h1 className="header1 leading-none text-center">LEASING INTEREST</h1>
                 <div className="hubspot-custom-container flex gap-4 text-navy w-full max-w-4xl self-center">
                     <HubspotApplyNowForm />
+                    <div className="flex gap-4 items-end mb-[2px]">
+                        <Button
+                            variant='navy'
+                            label="schedule a tour"
+                            size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'}
+                            icon={<ArrowUpRight />}
+                            className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT && 'subheader5')}
+                        />
+                    </div>
                 </div>
             </section>
 

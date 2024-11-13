@@ -197,6 +197,29 @@
   .hubspot-custom-container
     form
     fieldset
+    .hs-form-field
+    .input
+    .inputs-list
+    .hs-form-booleancheckbox
+    label
+    input {
+    @apply w-5 flex rounded-lg border-navy checked:bg-navy;
+  }
+
+  .hubspot-custom-container
+    form
+    fieldset
+    .hs-form-field
+    .input
+    .inputs-list
+    .hs-form-booleancheckbox
+    .hs-form-booleancheckbox-display {
+    @apply flex items-center justify-center gap-3;
+  }
+
+  .hubspot-custom-container
+    form
+    fieldset
     .field
     .hs-error-msgs
     li
