@@ -118,7 +118,15 @@ export default function UnionChannel() {
                     onClick={scrollByVh}
                 />
             </section>
-
+            <NavBar
+                variant="navyOutline"
+                hasBackground={true}
+                hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
+                position="sticky"
+                className="top-0"
+                pageName="union channel"
+                pagePath="/union-channel"
+            />
             <section className="flex flex-col items-center bg-sand w-full py-24 gap-16">
                 <Image src="/logos/waveicon-teal.svg" alt="waveicon-navy" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>

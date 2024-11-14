@@ -179,7 +179,32 @@
   }
 
   .hubspot-custom-container fieldset .hs-richtext {
-    @apply header1;
+    @apply header1; /* Aplica header1 para desktop */
+  }
+
+  .hubspot-custom-container form .hs_submit .actions .hs-button {
+    @apply bg-navy text-white hover:bg-marigold hover:text-navy subheader5 w-fit py-3 px-6 cursor-pointer transition-colors;
+  }
+
+  @media (max-width: 767px) {
+    /* Mobile */
+    .hubspot-custom-container fieldset .hs-richtext {
+      @apply header1MD;
+    }
+
+    .hubspot-custom-container form fieldset {
+      @apply flex-col;
+    }
+    .hubspot-custom-container form .hs_submit .actions .hs-button {
+      @apply bg-navy text-white hover:bg-marigold hover:text-navy accent4 w-fit h-fit py-2 px-4 cursor-pointer transition-colors;
+    }
+  }
+
+  @media (min-width: 768px) {
+    /* Tablet para cima */
+    .hubspot-custom-container fieldset .hs-richtext {
+      @apply header1;
+    }
   }
 
   .hubspot-custom-container .hs-richtext {
@@ -254,10 +279,6 @@
   .hubspot-custom-container form .hs-input,
   .hubspot-custom-container form .hs-select {
     @apply flex h-12 w-full border border-gray-200 bg-white px-3 body2 ring-offset-eggCream placeholder:text-clay focus-visible:outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50;
-  }
-
-  .hubspot-custom-container form .hs_submit .actions .hs-button {
-    @apply bg-navy text-white hover:bg-marigold hover:text-navy subheader5 w-fit py-3 px-6 cursor-pointer transition-colors;
   }
 
   @media (min-width: 1025px) {

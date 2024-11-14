@@ -57,12 +57,13 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                         // </Link>
                     }
                 </div>
-                <div className="flex gap-2 md:gap-8">
-                    <Link href='/inquire'>
-                        <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="h-10 w-fit" />
+                <div className="flex gap-2 md:gap-8 px-3">
+
+                    <Link href='/inquire' className="w-full py-4 md:py-8 flex justify-center">
+                        <Button variant={variant} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'md'} label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="min-h-7 md:h-10 md:w-fit" />
                     </Link>
-                    <Link href='/availability'>
-                        <Button variant={variant} size='md' label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="h-10 w-fit" />
+                    <Link href='/availability' className="w-full py-4 md:py-8 flex justify-center">
+                        <Button variant={variant} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'md'} label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="min-h-7  md:h-10 md:w-fit" />
                     </Link>
                 </div>
 

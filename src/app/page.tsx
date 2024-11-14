@@ -74,14 +74,31 @@ export default function Home() {
           className="pt-24"
         />
         <Reveal className='flex flex-col items-center w-full'>
-          <div className="flex flex-col text-center items-center text-navy gap-16">
-            <TextReveal text="Wake up at The Wharf" />
-            <span className="body1 max-w-3xl px-5">
+          <div className="flex flex-col text-center items-center text-navy mt-16 md:mt-0 gap-8 md:gap-16">
+            {
+              SCREEN_WIDTH > MOBILE_BREAKPOINT && (
+                <TextReveal text='Wake up at The Wharf' />
+              )
+            }
+
+            <h1 className={'header1MD md:hidden leading-none'}>
+              Wake up at The Wharf
+            </h1>
+
+            <span className="body1 max-w-3xl px-5 hidden md:block">
               Three residential experiences. Endless connected amenities. A multimodal homebase built for the ebb and flow of urban living. Be one with the local lifestyle in a place of arts and creation.
             </span>
-            <span className="body1 max-w-3xl">
+            <span className="body2 max-w-3xl px-5 block md:hidden">
+              Three residential experiences. Endless connected amenities. A multimodal homebase built for the ebb and flow of urban living. Be one with the local lifestyle in a place of arts and creation.
+            </span>
+
+            <span className="body1 max-w-3xl hidden md:block">
               Gowanus, Brooklyn. 2025.
             </span>
+            <span className="body2 max-w-3xl md:hidden block">
+              Gowanus, Brooklyn. 2025.
+            </span>
+
           </div>
         </Reveal>
         <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10">
@@ -91,7 +108,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative pt-56 flex flex-col items-center w-full py-24 bg-white">
+      <section className="relative pt-40 md:pt-56 flex flex-col items-center w-full py-12 md:py-24 bg-sand md:bg-white">
         <Reveal className="flex flex-col text-center text-navy gap-8">
           <>
             {
@@ -100,16 +117,21 @@ export default function Home() {
               )
             }
 
-            <h1 className={'header1MD md:hidden'}>
+            <h1 className={'header1MD md:hidden leading-none'}>
               Rental properties
             </h1>
-            <span className="body1 max-w-3xl px-8 mt-8">
+
+            <span className="body1 max-w-3xl px-8 mt-8 hidden md:block">
               {data?.acf.rental_properties.text}
             </span>
+            <span className="body2 max-w-3xl px-8 md:mt-8 md:hidden block">
+              {data?.acf.rental_properties.text}
+            </span>
+
           </>
         </Reveal>
-        <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8 md:max-w-[1376px] w-full">
-          <div className="relative group flex md:flex-col flex-row gap-10 items-center md:max-w-[1376px] md:w-full">
+        <div className="flex flex-col mt-16 gap-16 md:gap-3 justify-center items-center px-8 md:max-w-[1376px] w-full max-md:bg-white">
+          <div className="relative group flex md:flex-col flex-row gap-10 items-center md:max-w-[1376px] md:w-full max-md:-mt-5">
             <Link href="/union-channel" className="relative flex md:max-w-[1376px] md:w-full">
               <Image
                 src={data?.acf_medias.union_channel_image_url ?? ''}
@@ -140,8 +162,8 @@ export default function Home() {
               <span className="body1 text-white absolute md:group-hover:hidden md:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
             </Link>
 
-            <div className="md:hidden flex flex-col items-center gap-6">
-              <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
+            <div className="md:hidden flex flex-col items-center gap-3">
+              <span className="accent3 max-w-[151px] text-center leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
               <Button variant="marigold" label="explore" icon={<ArrowUpRight />} size="mobile" />
             </div>
           </div>
@@ -178,7 +200,7 @@ export default function Home() {
             </div>
             <Link href="/union-channel" className="relative flex">
               <Image
-                src="/medias/cardExemple/2024_GW_MVP_4_Yoga.jpg"
+                src="/medias/douglass_banner_home.png"
                 alt="douglass-port"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
@@ -196,11 +218,11 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="relative w-full md:flex-col flex-row gap-10 items-center flex md:hidden">
+          <div className="relative w-full md:flex-col flex-row gap-10 items-center flex md:hidden z-10">
             <Link href="/union-channel" className="relative flex">
               <Image
-                src="/medias/MasterBrandFilm2.png"
-                alt="douglass-port"
+                src="/medias/nevis_banner_home.png"
+                alt="nevis"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
                 width={1376}
@@ -215,11 +237,12 @@ export default function Home() {
               />
               <span className="subheader4 text-white absolute md:block hidden left-1/2 transform -translate-x-1/2 self-end mb-8">Now pre-leasing</span>
             </Link>
-            <div className="md:hidden flex flex-col items-center gap-6">
-              <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
+            <div className="md:hidden flex flex-col items-center gap-6 text-white">
+              <span className="accent3 max-w-[151px] text-center leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
               <span className="accent4 max-w-[151px] text-center">Coming Soon</span>
             </div>
           </div>
+          <div className='absolute bg-navy h-[19%] bottom-0 w-full md:hidden' />
         </div>
       </section>
 
@@ -227,15 +250,15 @@ export default function Home() {
 
       <MapComponent showButton />
 
-      <section className="flex relative flex-col items-center justify-center w-full py-24 text-navy bg-white">
+      <section className="flex relative flex-col items-center justify-center w-full py-5 md:py-24 text-navy bg-white">
         <Reveal className='z-10'>
           <div className="grid md:grid-cols-2 grid-cols-1">
             <video src={data?.acf_medias.the_club_video_url} autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">{data?.acf.the_club.title}</video>
-            <div className="flex flex-col text-center items-center gap-16 pt-10">
+            <div className="flex flex-col text-center items-center gap-8 md:gap-16 pt-10">
 
               <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1", "leading-none")}>{data?.acf.the_club.title}</h1>
 
-              <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+              <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2 px-4" : "body1 max-w-lg")}>
                 {data?.acf.the_club.text}
               </span>
 
@@ -247,6 +270,7 @@ export default function Home() {
                   icon={<ArrowUpRight />}
                 />
               </Link>
+              <div className='absolute bg-sand bottom-0 h-[65%] w-full -z-10 md:hidden' />
             </div>
 
             <div className='h-[618px] max-w-[672px] hidden md:flex '>
@@ -279,6 +303,7 @@ export default function Home() {
         <Link href='the-wharf-dispatch'>
           <Button variant='marigold' label="read more" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
         </Link>
+        <div className='h-16 md:hidden' />
       </section>
 
       <AvailableApartments />

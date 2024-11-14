@@ -102,6 +102,11 @@ export default function MapComponent(props: IMapComponent) {
                     handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
                 />
 
+                <Pins
+                    className="absolute block md:hidden left-0 bottom-[31%] w-[99vw] h-[57.41vh] max-w-[529.62px] max-h-[465px] z-10"
+                    handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
+                />
+
                 {cardData.map((item, index) => (
                     <MapCard
                         key={index}

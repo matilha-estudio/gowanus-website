@@ -96,13 +96,6 @@ export function CustomCarousel() {
         <Carousel
             className="w-full"
             opts={{ loop: true, align: 'center' }}
-            plugins={[
-                AutoScroll({
-                    stopOnMouseEnter: true,
-                    speed: 1,
-                    stopOnInteraction: SCREEN_WIDTH < MOBILE_BREAKPOINT ? true : false
-                }),
-            ]}
         >
             <CarouselContent className="-ml-1">
                 {data && data.map((item, index) => (

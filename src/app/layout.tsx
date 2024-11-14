@@ -1,10 +1,14 @@
+
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
+// import { useEffect, useState } from "react";
+// import { getPromos } from "@/services/promos";
 
 export const metadata: Metadata = {
   title: "Gowanus Wharf",
-  description: 'Anchored on the northern point of the Gowanus Canal Esplanade, The Wharf is a residential, arts, and retail locale set to unfold across 4 residential towers.',
+  description:
+    "Anchored on the northern point of the Gowanus Canal Esplanade, The Wharf is a residential, arts, and retail locale set to unfold across 4 residential towers.",
 };
 
 export default function RootLayout({
@@ -12,6 +16,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const [data, setData] = useState<string[] | null>(null);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
+
+  // async function handleData() {
+  //   try {
+  //     const response = await getPromos();
+  //     setData(response);
+  //   } catch (err) {
+  //     setError("Failed to fetch data");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   handleData();
+  // }, []);
+
+  // if (loading)
+  //   return <div className="w-screen h-screen bg-navy flex items-center justify-center">Carregando...</div>;
+
+  // if (error) return <p className="text-red-500">{error}</p>;
+
   return (
     <html lang="en">
       <body>
@@ -24,6 +52,14 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           ></iframe>
         </noscript>
+
+        {/* {data && data?.length > 0 && (
+          <div className="absolute top-0 w-full flex justify-center z-50 leading-none bg-marigold">
+            <div className="w-[95%] h-full bg-navy text-navy flex justify-center text-center px-4 py-4">
+              <span className="accent4 text-white">TESTESTESTE</span>
+            </div>
+          </div>
+        )} */}
 
         {children}
 

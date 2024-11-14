@@ -20,6 +20,7 @@ export default function AvailableApartments() {
                     <Button variant='marigold' label="view all" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                 </div>
             </div>
+            <div className='h-16 md:hidden' />
         </section>
     )
 }

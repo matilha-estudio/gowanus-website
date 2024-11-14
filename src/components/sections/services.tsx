@@ -47,7 +47,7 @@ export default function Services({ fontFamily = "Freight" }: IServices) {
 
             <Reveal className="grid md:grid-cols-2 grid-cols-1 px-4">
                 <>
-                    <div className="relative w-full overflow-hidden group max-w-[662px] max-h-[608px]">
+                    <div className="aspect-square relative w-full overflow-hidden group max-w-[662px] max-h-[608px]">
                         <Image
                             src={data?.acf_medias.services_image_1 ?? ''}
                             alt="services"
@@ -63,15 +63,15 @@ export default function Services({ fontFamily = "Freight" }: IServices) {
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <div className="flex flex-col text-center justify-center items-center gap-16">
+                    <div className="flex flex-col text-center justify-center items-center gap-8 md:gap-16">
                         {
                             fontFamily === "TWK" ? (
-                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2", "md:leading-none md:max-w-screen-sm")}>{data?.acf.services.title}</h1>
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2", "leading-none md:max-w-screen-sm")}>{data?.acf.services.title}</h1>
                             ) : (
-                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1", "md:leading-none md:max-w-screen-sm")}>{data?.acf.services.title}</h1>
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD mt-10" : "header1", "leading-none md:max-w-screen-sm")}>{data?.acf.services.title}</h1>
                             )
                         }
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2 px-4" : "body1 max-w-lg")}>
                             {data?.acf.services.text}
                         </span>
                         <Link href='/venn-services'>

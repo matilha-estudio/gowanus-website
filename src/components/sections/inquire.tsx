@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { ArrowUpRight } from "lucide-react"
 import HubspotInquireForm from "@/hubspot/HubspotInquireForm"
+import Image from "next/image"
 
 interface IInquireComponent {
     fontFamily?: "TWK" | "Freight"
@@ -13,10 +14,23 @@ export default function InquireComponent({ fontFamily = 'Freight' }: IInquireCom
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
     return (
-        <section className="relative flex flex-col items-center justify-center w-full py-24 text-navy bg-navy px-8 md:px-16">
+        <section className="relative flex flex-col items-center justify-center w-full py-8 md:py-24 text-navy bg-navy px-8 md:px-16">
 
-            <img src="/backgrounds/GraphicTreatment.svg" alt="GraphicTreatment" className="object-cover w-full h-full max-h-[800px] md:max-h-[600px] absolute overflow-y-visible" />
+            <Image
+                src="/backgrounds/GraphicTreatment.svg"
+                alt="GraphicTreatment"
+                className="object-cover w-full h-full max-h-[800px] hidden md:block absolute overflow-y-visible z-10 -mt-5"
+                width={1440}
+                height={566}
+            />
 
+            <Image
+                src="/backgrounds/GraphicTreatment.svg"
+                className="object-cover w-full h-full md:hidden absolute overflow-y-visible z-10 -mt-10"
+                alt="GraphicTreatments_Mobile"
+                width={1074}
+                height={841.42}
+            />
             <div className="flex flex-col text-center text-navy gap-8 bg-sand px-10 md:px-20 py-16 w-full h-full mt-10 md:mt-0 z-10">
                 {/* {
                     fontFamily === 'TWK' ? (

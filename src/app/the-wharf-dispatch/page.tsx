@@ -76,6 +76,14 @@ export default function TheWharfDispatch() {
                 />
             </section>
 
+            <NavBar
+                variant="navyOutline"
+                hasBackground={true}
+                hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
+                position="sticky"
+                className="top-0"
+                pageName={"the drift"} pagePath="/the-wharf-dispatch"
+            />
             <section className="flex flex-col items-center bg-white w-full py-24 gap-16">
                 <Image src="/logos/waveicon-orangesicle.svg" alt="waveicon-orangesicle" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>

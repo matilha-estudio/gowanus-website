@@ -84,7 +84,7 @@ export default function TheClub() {
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 text-center self-center w-full")}>
-                    THE drift CLUB
+                    {dataTheClub && dataTheClub[0].title.rendered}
                 </h1>
                 <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
@@ -107,15 +107,15 @@ export default function TheClub() {
                                 <>
                                     <TextReveal text={dataTheClub[0].acf_medias.title} />
 
-                                    <h1 className={'header1MD leading-none md:hidden'}>
-                                        {dataTheClub[0].acf_medias.title}
-                                    </h1>
-                                    <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                        {dataTheClub[0].acf_medias.description}
-                                    </span>
                                 </>
                             )
                         }
+                        <h1 className={'header1MD leading-none md:hidden'}>
+                            {dataTheClub && dataTheClub[0].acf_medias.title}
+                        </h1>
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
+                            {dataTheClub && dataTheClub[0].acf_medias.description}
+                        </span>
                     </>
                 </Reveal>
             </section>
@@ -139,7 +139,7 @@ export default function TheClub() {
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-12">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-8 md:gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -180,7 +180,7 @@ export default function TheClub() {
                             className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-12">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-8 md:gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -220,10 +220,11 @@ export default function TheClub() {
                         />
                     </div>
                 </div>
-                <div className="absolute w-full h-1/6 bottom-0 bg-lavenderLake" />
+                <div className="absolute w-full h-1/6 bottom-0 bg-lavenderLake max-md:hidden" />
             </section>
 
             <section className="relative flex flex-col items-center justify-center w-full pb-24 text-navy bg-lavenderLake">
+                <div className="absolute w-full h-[5%] top-0 bg-white md:hidden" />
                 <div className="grid md:grid-cols-2 mx-auto md:pt-20">
                     <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
                         <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
@@ -253,7 +254,7 @@ export default function TheClub() {
                         </div>
                     </div>
 
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-8 md:gap-12 mx-auto">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -292,7 +293,7 @@ export default function TheClub() {
                             className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center  items-center gap-12">
+                    <Reveal className="flex flex-col text-center justify-center  items-center gap-8 md:gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -353,7 +354,7 @@ export default function TheClub() {
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-12">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
@@ -408,7 +409,7 @@ export default function TheClub() {
                         </div>
                     </div>
 
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-12 mx-auto">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (

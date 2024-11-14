@@ -215,7 +215,7 @@ const CarouselPrevious = React.forwardRef<
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
-      icon={<ArrowLeft className="h-5 w-5 text-marigold" />}
+      icon={<ArrowLeft className="h-5 w-5 text-marigold hover:text-navy" />}
       {...props}
     >
     </Button>
@@ -243,7 +243,7 @@ const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
-      icon={<ArrowRight className="h-5 w-5 text-marigold" />}
+      icon={<ArrowRight className="h-5 w-5 text-marigold hover:text-navy" />}
       {...props}
     >
     </Button>

@@ -56,7 +56,18 @@ export default function VennServices() {
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white text-center md:w-full z-10 absolute left-1/2 transform -translate-x-1/2 self-center")}>
                     Resident Services
                 </h1>
-                <Image src={"/medias/services-banner.png"} alt={"services-banner"} width={1440} height={810} className="w-full md:h-screen object-cover" />
+                <Image
+                    src={"/medias/services-banner.png"}
+                    alt={"services-banner"}
+                    width={1440} height={810}
+                    className="w-full hidden md:block md:h-screen object-cover"
+                />
+                <Image
+                    src={"/medias/services-banner.png"}
+                    alt={"services-banner"}
+                    width={1440} height={810}
+                    className="w-full md:hidden aspect-square object-cover"
+                />
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button
                     variant="icon"
@@ -69,7 +80,7 @@ export default function VennServices() {
             <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="services" pagePath="/venn-services" />
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
-                <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
+                <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24 max-md:max-w-[153px]' />
                 <Reveal className="flex flex-col text-center text-white gap-10 items-center ">
                     <>
                         {
@@ -90,11 +101,12 @@ export default function VennServices() {
                 </Reveal>
 
                 <div className="flex flex-col items-center justify-center gap-16 mt-24 bg-white w-full h-full pb-24">
-                    <div className="relative flex flex-col md:flex-row px-8 justify-center gap-16 max-h-[650px]">
-                        <Image src={data?.acf_medias.image_url_1 ?? ''} alt="services-3" width={672} height={650} className="object-cover -mt-6" />
+                    <div className="relative flex flex-col md:flex-row px-8 justify-center gap-16 max-h-[650px] ">
+                        <Image src={data?.acf_medias.image_url_1 ?? ''} alt="services-3" width={672} height={650} className="object-cover -mt-6 aspect-square" />
+
                         <span className="body2 px-5 text-center md:hidden flex -mt-6">{data?.acf.subtitle}</span>
 
-                        <Image src={data?.acf_medias.image_url_2 ?? ''} alt="services-2" width={408} height={650} className="object-cover -mt-6" />
+                        <Image src={data?.acf_medias.image_url_2 ?? ''} alt="services-2" width={408} height={650} className="object-cover -mt-6 max-md:aspect-square" />
                     </div>
                     <span className="body2 max-w-3xl text-center hidden md:flex">{data?.acf.images_subtitle}</span>
                 </div>
@@ -144,7 +156,7 @@ export default function VennServices() {
                 </div>
             </section>
 
-            <div className="h-20 md:h-0 z-10" />
+            <div className="h-20 md:h-0 z-10 max-md:hidden" />
 
             <InquireComponent />
 

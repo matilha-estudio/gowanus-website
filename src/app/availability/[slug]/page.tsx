@@ -14,10 +14,11 @@ import { useEffect, useMemo, useState } from "react";
 import Reveal from "@/components/animations/reveal";
 import TextReveal from "@/components/textReveal";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpLeft, ArrowUpRight } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import Link from "next/link";
 
 export default function AvailabilityDetails({ params }: { params: { slug: string } }) {
     const scrollByVh = useScrollByVh();
@@ -82,7 +83,16 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                     {filteredData && filteredData[0]?.apartment_type}
                 </h1>
-                <Image src={(filteredData && filteredData[0]?.image) ?? ''} alt={"banner"} width={1440} height={810} className="w-full h-full object-cover" />
+                <Image
+                    src={(filteredData && filteredData[0]?.image) ?? ''}
+                    alt={"banner"}
+                    width={1440} height={810}
+                    className="w-full h-full object-cover max-md:aspect-square"
+                />
+                <Link href={"/availability"} className="flex items-center gap-4 hover:cursor-pointer absolute bottom-4 z-10 text-sand">
+                    <ArrowUpLeft />
+                    <span className="body2">Back to Availabilities</span>
+                </Link>
                 <div className={cn("absolute inset-0 bg-black/30")} />
             </section>
 
@@ -118,13 +128,13 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
                                 label="Floorplan"
                                 variant="navy"
                                 size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'}
-                                className="h-[48px]"
+                                className="md:h-[48px]"
                             />
                             <Button
                                 label="inquire"
                                 variant="navy"
                                 size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'}
-                                className="h-[48px]"
+                                className="md:h-[48px]"
                             />
                             <Button
                                 label="apply now"
@@ -164,7 +174,7 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
                 </Carousel>
             </section>
 
-            <section className="w-full flex flex-col items-center justify-center md:py-16 md:px-8 relative bg-white">
+            <section className="w-full flex flex-col items-center justify-center md:py-16 md:px-8 px-4 relative bg-white">
                 <Accordion type="single" collapsible className="w-full max-w-5xl">
                     <AccordionItem value="detail" className="w-full">
                         <AccordionTrigger className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader4' : 'subheader2')}>Details</AccordionTrigger>
@@ -188,7 +198,7 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
                 </Accordion>
             </section>
 
-            <WalkThrough videoSide="right" className="bg-white z-10" />
+            <WalkThrough videoSide="right" className="bg-white z-20" />
 
             <InquireComponent />
 
