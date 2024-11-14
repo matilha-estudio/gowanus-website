@@ -245,7 +245,7 @@ export default function Article({ params }: { params: { slug: string } }) {
                                             const HEIGHT = SCREEN_WIDTH < MOBILE_BREAKPOINT ? mobileHeight[0] : heights[index % heights.length];
 
                                             return (
-                                                <div key={index} className={cn("w-[341px]", "relative flex flex-col")}>
+                                                <div key={index} className={cn("w-[341px]", "relative flex flex-col bg-white")}>
                                                     <Card
                                                         className={cn("w-[341px]", "flex flex-col items-center rounded-none justify-self-center cursor-pointer")}
                                                         style={{ height: `${HEIGHT}px`, minHeight: mobileHeight[0] }} // Altura mínima para evitar sobreposição
