@@ -81,7 +81,7 @@ export default function VennServices() {
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
                 <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24 max-md:max-w-[153px]' />
-                <Reveal className="flex flex-col text-center text-white gap-10 items-center ">
+                <Reveal className="flex flex-col text-center text-white gap-10 items-center max-w-[1152px]">
                     <>
                         {
                             SCREEN_WIDTH > MOBILE_BREAKPOINT && (
