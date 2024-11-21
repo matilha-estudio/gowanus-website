@@ -56,8 +56,8 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
                             "relative flex flex-col md:flex-row items-center h-full p-0 w-full transition-all duration-1000 ease-in-out"
                         )}
                     >
-                        <div className="relative flex-grow max-w-[304px] h-full" onClick={() => toggleExpand(index)}>
-                            <div className={cn("absolute inset-0 bg-gradient-to-t from-black/30 to-black/0 hover:bg-marigold/80 transition-colors", expanded && "md:hidden h-[238px] md:h-full bg-marigold/80")} />
+                        <div className="relative flex-grow w-full max-w-[304px] h-full group" onClick={() => toggleExpand(index)}>
+                            <div className={cn("absolute inset-0 bg-gradient-to-t from-black/30 to-black/0 group-hover:bg-marigold/80 transition-colors", expanded && "md:hidden h-[238px] md:h-full bg-marigold/80")} />
                             <X className={cn("absolute top-2 left-2 text-white", !expanded && "hidden")} />
                             <Image
                                 src={item.image}
@@ -66,7 +66,7 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
                                 height={386}
                                 className={cn("object-cover h-full", expanded && "h-[238px] md:w-full md:h-full")}
                             />
-                            <span className={cn("absolute top-1/2 -translate-y-1/2 py-2 px-4 text-white z-10 text-center flex-wrap flex w-full subheader1 self-center leading-none",
+                            <span className={cn("absolute group-hover:text-navy top-1/2 -translate-y-1/2 py-2 px-4 text-white z-10 text-center flex-wrap flex w-full subheader1 self-center leading-none",
                                 expanded && "md:hidden"
                             )}>
                                 {item.title}

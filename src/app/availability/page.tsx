@@ -53,7 +53,7 @@ export default function Availability() {
     const [availableOptions, setAvailableOptions] = useState<Set<OptionType>>(new Set());
 
     const [selected, setSelected] = useState<FilterOption>('ALL');
-    const [selectedView, setSelectedView] = useState<ViewOption>('grid');
+    const [selectedView, setSelectedView] = useState<ViewOption>('render');
     const [selectedAvailableNow, setSelectedAvailableNow] = useState<boolean>(false);
 
     const [data, setData] = useState<PropertiesResponse[] | null>(null)
@@ -349,7 +349,7 @@ export default function Availability() {
 
                 <Reveal>
                     <section id="availability-section" className="relative w-full bg-white z-10">
-                        <div className="bg-white py-[144px] px-[32px] md:px-[94px] flex items-center justify-center gap-20 flex-wrap">
+                        {/* <div className="bg-white py-[144px] px-[32px] md:px-[94px] flex items-center justify-center gap-20 flex-wrap">
 
                             <FilterButton />
 
@@ -382,10 +382,10 @@ export default function Availability() {
                                 ))}
                             </div>
 
-                        </div>
+                        </div> */}
 
                         <Reveal>
-                            <div className="md:p-16 p-8 bg-sand">
+                            <div className="p-8 bg-white">
 
                                 {
                                     selectedView === 'grid' && (

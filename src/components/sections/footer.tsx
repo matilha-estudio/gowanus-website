@@ -43,7 +43,7 @@ export default function Footer() {
                             <a href="/neighborhood" className="subheader4 hover:text-marigold">explore gowanus</a>
                             <a href="/the-wharf-dispatch" className="subheader4 hover:text-marigold">wharf happenings</a>
                             <a href="/availability" className="subheader4 hover:text-marigold">availabilities</a>
-                            {/* <a href="/virtual-tours" className="subheader4 hover:text-marigold">Virtual Tours</a> */}
+                            <a href="/virtual-tours" className="subheader4 hover:text-marigold">Virtual Tours</a>
                         </div>
                         <div className="flex flex-col gap-2">
                             <a href="/inquire" className="subheader4 hover:text-marigold">contact</a>

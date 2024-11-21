@@ -125,15 +125,15 @@ export default function TheClub() {
                 <div className="grid px-6 md:grid-cols-2 w-full">
                     <div className="relative w-full overflow-hidden group gap-8 max-w-[672px]">
                         <Image
-                            src="/medias/the-club-exemple1.png"
-                            alt="services"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.image_1 : ""}
+                            alt="section_1"
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover"
                             width={672}
                             height={618}
                         />
                         <Image
-                            src="/medias/the-club-exemple2.png"
-                            alt="services"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.image_2 : ""}
+                            alt="section_1"
                             width={672}
                             height={618}
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
@@ -144,21 +144,21 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px]">
-                                        <TextReveal text='A dose of zen' />
+                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.title : ""} />
                                     </div>
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                A dose of zen
+                                {dataTheClub && dataTheClub[0].acf_medias.section_1[0]?.title}
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg md:mt-4")}>
-                                Yoga Room | Garden Lounge
+                                {dataTheClub && dataTheClub[0].acf_medias.section_1[0]?.subtitle}
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                Engage your inner ohm at our residents' spa. Schvitz it out in the sauna. Book a private treatment room for a needed Swedish. Stoke your senses with an aroma therapy shower. Ride a blissful wave in the relaxation lounge.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_1[0]?.description}
                             </span>
                         </>
                     </Reveal>
@@ -170,13 +170,13 @@ export default function TheClub() {
                 <div className="grid px-6 md:grid-cols-2 gap-8 z-10 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
                         <img
-                            src="/medias/the-club-exemple1.png"
-                            alt="services"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].image_1 : ""}
+                            alt="section_2"
                             className="w-full"
                         />
                         <img
-                            src="/medias/the-club-exemple2.png"
-                            alt="services"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].image_2 : ""}
+                            alt="section_2"
                             className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
@@ -185,34 +185,34 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px] -mt-20">
-                                        <TextReveal text='Places for Play' />
+                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].title : ""} />
                                     </div>
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Places for Play
+                                {dataTheClub && dataTheClub[0].acf_medias.section_2[0].title}
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg md:mt-4")}>
-                                Basketball Court  |  mini golf | Golf SIMULAtor
+                                {dataTheClub && dataTheClub[0].acf_medias.section_2[0].subtitle}
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg md:-mt-4")}>
-                                Hit the court for a game of pickup. Finesse your drives and putts. Whether competitive at heart, or craving some play, it's easy to get in the game on your home turf.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_2[0].description}
                             </span>
                         </>
                     </Reveal>
                     <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px]">
                         <Image
-                            src="/medias/the-club-exemple1.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].image_1 : ""}
                             alt="services"
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover"
                             width={672}
                             height={618}
                         />
                         <Image
-                            src="/medias/the-club-exemple2.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].image_2 : ""}
                             alt="services"
                             width={672}
                             height={618}
@@ -229,12 +229,12 @@ export default function TheClub() {
                     <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
                         <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_2 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -242,12 +242,12 @@ export default function TheClub() {
 
                         <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_3 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_4 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -259,19 +259,19 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[430px]">
-                                        <TextReveal text='Ready set sweat' />
+                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].title : ""} />
                                     </div>
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Ready set sweat
+                                {dataTheClub && dataTheClub[0].acf_medias.section_3[0].title}
                             </h1>
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                Premiere Gym | Mirror Fitness Room
+                                {dataTheClub && dataTheClub[0].acf_medias.section_3[0].subtitle}
                             </span>
                             <span className="body1 max-w-lg">
-                                Work your body in any and every way you see fit. Whatever your machine, method, or routine, our premier gym is a go for your fitness needs.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_3[0].description}
                             </span>
                         </>
                     </Reveal>
@@ -283,12 +283,12 @@ export default function TheClub() {
                 <div className="grid px-6 md:grid-cols-2 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
                         <img
-                            src="/medias/the-club-exemple1.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].image_1 : ""}
                             alt="services"
                             className="w-full"
                         />
                         <img
-                            src="/medias/the-club-exemple2.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].image_2 : ""}
                             alt="services"
                             className="w-full absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
@@ -298,34 +298,34 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px]">
-                                        <TextReveal text='A splash of awe' />
+                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].title : ""} />
                                     </div>
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                A splash of awe
+                                {dataTheClub && dataTheClub[0].acf_medias.section_4[0].title}
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg md:mt-4")}>
-                                Rooftop Pool | Sundeck
+                                {dataTheClub && dataTheClub[0].acf_medias.section_4[0].subtitle}
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                City-top swimming speaks for itself. Pair it with a lounge chair and easy read on the sundeck and your private pool club experience is complete.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_4[0].description}
                             </span>
                         </>
                     </Reveal>
                     <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px]">
                         <Image
-                            src="/medias/the-club-exemple1.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].image_1 : ""}
                             alt="services"
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover"
                             width={672}
                             height={618}
                         />
                         <Image
-                            src="/medias/the-club-exemple2.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].image_2 : ""}
                             alt="services"
                             width={672}
                             height={618}
@@ -340,14 +340,14 @@ export default function TheClub() {
                 <div className="grid px-6 md:grid-cols-2 gap-8 w-full">
                     <div className="relative w-full overflow-hidden group max-w-[672px]">
                         <Image
-                            src="/medias/the-club-exemple1.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].image_1 : ""}
                             alt="services"
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover"
                             width={672}
                             height={618}
                         />
                         <Image
-                            src="/medias/the-club-exemple2.png"
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].image_2 : ""}
                             alt="services"
                             width={672}
                             height={618}
@@ -358,20 +358,20 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text='Entertain & be entertained' />
+                                    <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].title : ""} />
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Entertain & be entertained
+                                {dataTheClub && dataTheClub[0].acf_medias.section_5[0].title}
                             </h1>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                Dining Lounge | Game Lounge | Entertainment Lounge | Kids room
+                                {dataTheClub && dataTheClub[0].acf_medias.section_5[0].subtitle}
                             </span>
 
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                We wouldn't suggest that world outside isn't worth exploring, but Drift Club gives you plenty of reasons to stay. Host a gathering. Take some big swings. Mix it up with your neighbors and expand your community feels.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_5[0].description}
                             </span>
                         </>
                     </Reveal>
@@ -384,12 +384,12 @@ export default function TheClub() {
                     <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
                         <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -397,12 +397,12 @@ export default function TheClub() {
 
                         <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_3 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_4 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -414,19 +414,19 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px]">
-                                        <TextReveal text='Remote on lock' />
+                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].title : ""} />
                                     </div>
                                 )
                             }
 
                             <h1 className={'header1MD md:hidden'}>
-                                Remote on lock
+                                {dataTheClub && dataTheClub[0].acf_medias.section_6[0].title}
                             </h1>
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg")}>
-                                co-working lounge | Library | Podcast & Music Room
+                                {dataTheClub && dataTheClub[0].acf_medias.section_6[0].subtitle}
                             </span>
                             <span className="body1 max-w-lg">
-                                Work from your extended home in one of many coworking spaces. From bookable conference rooms to an in-house podcasting studio, there's a space to match your productivity mode.
+                                {dataTheClub && dataTheClub[0].acf_medias.section_6[0].description}
                             </span>
                         </>
                     </Reveal>
@@ -434,12 +434,12 @@ export default function TheClub() {
                     <div className="relative w-[336px] h-[330px] md:w-full md:h-[618px] md:flex overflow-hidden mx-auto hidden">
                         <div className="absolute bottom-0 md:left-48 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -447,12 +447,12 @@ export default function TheClub() {
 
                         <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
-                                src="/medias/coworking2.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_3 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
                             <img
-                                src="/medias/coworking1.png"
+                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_4 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
@@ -498,55 +498,34 @@ export default function TheClub() {
                 <div>
                     <Button label="brochure" variant="navy" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
                 </div>
-                <div className="relative w-full flex flex-col items-center max-w-4xl gap-16">
+                <div className="relative w-full flex flex-col items-center max-w-4xl gap-16 border-b border-navy">
                     <div
-                        className={`w-full grid grid-cols-3 items-center transition-max-height duration-1000 ease-in-out overflow-hidden ${expanded ? 'max-h-[1000px]' : 'max-h-32'
+                        className={`w-full grid grid-cols-3 transition-max-height duration-1000 ease-in-out overflow-hidden ${expanded ? 'max-h-[1000px]' : 'max-h-32'
                             }`}
                     >
                         <div className="flex flex-col items-center">
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader2", "text-center")}>Union Channel</span>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
+                            {
+                                dataTheClub && dataTheClub[0].acf_medias?.amenitys_union_channel.map((item, index) => (
+                                    <p key={index} className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>{item.amenity}</p>
+                                ))
+                            }
                         </div>
                         <div className="flex flex-col items-center">
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader2", "text-center")}>DOUGLASS PORT</span>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
+                            {
+                                dataTheClub && dataTheClub[0].acf_medias?.amenitys_douglass_port.map((item, index) => (
+                                    <p key={index} className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>{item.amenity}</p>
+                                ))
+                            }
                         </div>
                         <div className="flex flex-col items-center">
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader2", "text-center")}>NEVINS LANDING</span>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
-                            <p className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>Amenity 1</p>
+                            {
+                                dataTheClub && dataTheClub[0].acf_medias?.amenitys_nevins_land.map((item, index) => (
+                                    <p key={index} className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1", "text-center")}>{item.amenity}</p>
+                                ))
+                            }
                         </div>
                     </div>
                     <button
@@ -585,8 +564,7 @@ export default function TheClub() {
                         </h1>
 
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-3xl")}>
-                            {/* {dataCarousel && dataCarousel[0]?.acf_medias.description} */}
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus. Maecenas at convallis lacus.
+                            {dataCarousel && dataCarousel[0]?.acf_medias.description}
                         </span>
                     </>
                 </Reveal>

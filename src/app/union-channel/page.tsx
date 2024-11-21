@@ -103,7 +103,7 @@ export default function UnionChannel() {
                         />
                         :
                         <Image
-                            src={"/logos/union-channel-logo-white.svg"}
+                            src={"/logos/union-channel-GA-logo-white.svg"}
                             alt={"union-channel-logo-white"}
                             width={585}
                             height={171}
