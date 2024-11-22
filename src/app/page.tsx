@@ -22,6 +22,7 @@ import Reveal from '@/components/animations/reveal';
 import { getHomePage } from '@/services/home';
 import { useEffect, useState } from 'react';
 import { ApiResponseHomePage } from '@/services/models/home';
+import NavbarComponent from '@/components/navbarComponent';
 
 export default function Home() {
   const windowWidth = useWindowWidth()
@@ -54,17 +55,13 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-sand">
-      <MainHeader />
 
-      <NavBar
-        variant="navyOutline"
-        hasBackground={true}
-        hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
-        position="sticky"
-        className="top-0"
-        pageName="home" pagePath="/"
+      <NavbarComponent
+        pageName={"home"}
+        pagePath={"/"}
       />
 
+      <MainHeader />
       <section className="relative flex flex-col items-center bg-sand w-full pb-24">
         <Image
           src="/logos/waveicon-navy.svg"

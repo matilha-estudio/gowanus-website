@@ -23,6 +23,7 @@ import { getTheClub } from "@/services/theClub";
 import { TheClubResponse } from "@/services/models/theClub";
 import Link from "next/link";
 import { type CarouselApi } from "@/components/ui/carousel"
+import NavbarComponent from "@/components/navbarComponent";
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -90,7 +91,7 @@ export default function UnionChannel() {
 
     return (
         <main>
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="union channel" pagePath="/union-channel" />
+            <NavbarComponent pageName="union channel" pagePath="/union-channel" />
             <section className="flex">
                 {
                     SCREEN_WIDTH < MOBILE_BREAKPOINT ?
@@ -118,15 +119,7 @@ export default function UnionChannel() {
                     onClick={scrollByVh}
                 />
             </section>
-            <NavBar
-                variant="navyOutline"
-                hasBackground={true}
-                hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
-                position="sticky"
-                className="top-0"
-                pageName="union channel"
-                pagePath="/union-channel"
-            />
+
             <section className="flex flex-col items-center bg-sand w-full py-24 gap-16">
                 <Image src="/logos/waveicon-teal.svg" alt="waveicon-navy" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>

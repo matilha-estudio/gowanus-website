@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import { getNeighborhood } from "@/services/neighborhood";
 import { NeighborhoodResponse } from "@/services/models/neighborhood";
 import { type CarouselApi } from "@/components/ui/carousel"
+import NavbarComponent from "@/components/navbarComponent";
 
 
 export default function Neighborhood() {
@@ -98,7 +99,7 @@ export default function Neighborhood() {
     return (
         <Reveal className="flex min-h-screen flex-col items-center justify-between bg-white">
             <>
-                <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="neighborhood" pagePath="/neighborhood" />
+                <NavbarComponent pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
                     <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
@@ -113,8 +114,6 @@ export default function Neighborhood() {
                         onClick={scrollByVh}
                     />
                 </section>
-
-                <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="relative flex flex-col items-center bg-teal text-navy w-full">
                     <Image src="/logos/waveicon-white.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24' />
@@ -162,12 +161,12 @@ export default function Neighborhood() {
 
                                 <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png" // imagem estática
+                                        src="/medias/cardExemple/ROLLERGIF3.png" // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/ROLLERGIF3.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -176,7 +175,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-md leading-none">Life Out Loud</h1>
+                                <h1 className="header1 max-w-md leading-none" style={{ lineHeight: .8 }}>Life Out Loud</h1>
                                 <span className="body1 max-w-md">
                                     Artful invention. Personal expression. Makers, doers, and dreamers collide and create culture.
                                 </span>
@@ -186,12 +185,12 @@ export default function Neighborhood() {
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex overflow-hidden mx-auto hidden">
                                 <div className="absolute bottom-0 right-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
+                                        src="/medias/cardExemple/ROLLERGIF3.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/ROLLERGIF3.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -251,12 +250,12 @@ export default function Neighborhood() {
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
                                 <div className="absolute bottom-0 right-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
+                                        src="/medias/cardExemple/dinner.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.gif" // gif animado
+                                        src="/medias/cardExemple/dinner.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -264,12 +263,12 @@ export default function Neighborhood() {
 
                                 <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png" // imagem estática
+                                        src="/medias/cardExemple/floor.png" // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/floor.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -280,12 +279,12 @@ export default function Neighborhood() {
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex  mx-auto hidden">
                                 <div className="absolute bottom-0 left-24 w-[221px] h-[147px] md:h-[250px] md:w-[378px] overflow-hidden group z-10">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
+                                        src="/medias/cardExemple/floor.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/floor.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -295,12 +294,12 @@ export default function Neighborhood() {
 
                                 <div className="absolute right-0 size-[336px] overflow-hidden group">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
+                                        src="/medias/cardExemple/dinner.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.gif" // gif animado
+                                        src="/medias/cardExemple/dinner.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -309,7 +308,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-md leading-none">Eats and Afters</h1>
+                                <h1 className="header1 max-w-md leading-none" style={{ lineHeight: .8 }}>Eats and Afters</h1>
                                 <span className="body1 max-w-sm">
                                     A feast for the senses around every corner. The bites are bumping. The beats go boom.
                                 </span>
@@ -353,12 +352,12 @@ export default function Neighborhood() {
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
                                 <div className="absolute bottom-0 right-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
+                                        src="/medias/cardExemple/pr_35mm.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.gif" // gif animado
+                                        src="/medias/cardExemple/pr_35mm.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -366,12 +365,12 @@ export default function Neighborhood() {
 
                                 <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png" // imagem estática
+                                        src="/medias/cardExemple/drumshop.png" // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/drumshop.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -380,7 +379,7 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-lg leading-none">Greater Goods</h1>
+                                <h1 className="header1 max-w-lg leading-none" style={{ lineHeight: .8 }}>Greater Goods</h1>
                                 <span className="body1 max-w-lg">
                                     Shop into an eclectic mix of brands you'll love, curated provisions, and locally-owned businesses.
                                 </span>
@@ -390,12 +389,12 @@ export default function Neighborhood() {
                             <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:flex overflow-hidden mx-auto hidden">
                                 <div className="absolute bottom-0 left-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.png"  // imagem estática
+                                        src="/medias/cardExemple/drumshop.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_19_Andrew.gif" // gif animado
+                                        src="/medias/cardExemple/drumshop.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />
@@ -405,12 +404,12 @@ export default function Neighborhood() {
 
                                 <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.png"  // imagem estática
+                                        src="/medias/cardExemple/pr_35mm.png"  // imagem estática
                                         alt="services"
                                         className="w-full h-full object-cover group-hover:hidden"
                                     />
                                     <img
-                                        src="/medias/cardExemple/2024_GW_MVP_6_JenLewin.gif" // gif animado
+                                        src="/medias/cardExemple/pr_35mm.gif" // gif animado
                                         alt="services"
                                         className="w-full h-full object-cover hidden group-hover:block"
                                     />

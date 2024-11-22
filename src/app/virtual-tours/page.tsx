@@ -11,6 +11,7 @@ import { ArrowDown } from "lucide-react";
 import AvailableApartments from "@/components/sections/availableApartments";
 import Image from "next/image";
 import Link from "next/link";
+import NavbarComponent from "@/components/navbarComponent";
 
 export default function VirtualTours() {
     const scrollByVh = useScrollByVh();
@@ -29,7 +30,7 @@ export default function VirtualTours() {
 
     return (
         <main className="flex flex-col items-center justify-between bg-white">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="virtual tours" pagePath="/virtual-tours" />
+            <NavbarComponent pageName="virtual tours" pagePath="/virtual-tours" />
 
             <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen bg-canalRoyale">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
@@ -65,7 +66,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum unitWalkthrough.
+                            Unit Walkthrough
                         </span>
                     </Link>
 
@@ -82,7 +83,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum gym.
+                            Premier Gym
                         </span>
                     </Link>
 
@@ -99,7 +100,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum outdoorCourtyard.
+                            Outdoor Courtyard
                         </span>
                     </Link>
 
@@ -116,7 +117,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum rooftopPool.
+                            Rooftop Pool
                         </span>
                     </Link>
 
@@ -133,7 +134,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum skyLounge.
+                            Sky Lounge
                         </span>
                     </Link>
 
@@ -150,7 +151,7 @@ export default function VirtualTours() {
                         </div>
 
                         <span className="text-navy flex-wrap flex text-center body2">
-                            Lorem ipsum workFromHomeLounge.
+                            Co-Working Lounge
                         </span>
                     </Link>
 

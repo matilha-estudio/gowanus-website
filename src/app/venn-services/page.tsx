@@ -17,6 +17,10 @@ import Reveal from "@/components/animations/reveal";
 import { useEffect, useState } from "react";
 import { getServicePage } from "@/services/services";
 import { ApiResponseService } from "@/services/models/service";
+import NavbarComponent from "@/components/navbarComponent";
+import Link from "next/link";
+import { getLinks } from "@/services/links";
+import { acf } from "@/services/models/links";
 
 export default function VennServices() {
     const scrollByVh = useScrollByVh();
@@ -25,13 +29,16 @@ export default function VennServices() {
     const MOBILE_BREAKPOINT = 768
 
     const [data, setData] = useState<ApiResponseService | null>(null)
+    const [links, setLinks] = useState<acf | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
     async function handleData() {
         try {
             const response = await getServicePage()
+            const links = await getLinks()
             setData(response)
+            setLinks(links)
         } catch (err) {
             setError('Failed to fetch data')
         } finally {
@@ -50,7 +57,9 @@ export default function VennServices() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-canalRoyale">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="services" pagePath="/venn-services" />
+            <NavbarComponent
+                pageName="services" pagePath="/venn-services"
+            />
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white text-center md:w-full z-10 absolute left-1/2 transform -translate-x-1/2 self-center")}>
@@ -76,8 +85,6 @@ export default function VennServices() {
                     onClick={scrollByVh}
                 />
             </section>
-
-            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="services" pagePath="/venn-services" />
 
             <section className="relative flex flex-col items-center bg-canalRoyale text-navy w-full">
                 <Image src="/logos/waveicon-sand.svg" alt="waveicon-navy" width={242} height={12} className='pb-8 pt-24 max-md:max-w-[153px]' />
@@ -123,9 +130,9 @@ export default function VennServices() {
                         </AccordionItem>
                     ))}
                 </Accordion>
-                <div>
+                <Link href={links?.brochure ?? ""} target="_blank">
                     <Button label="brochure" variant="navy" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
-                </div>
+                </Link>
             </section>
 
             <section className="relative flex flex-col items-center bg-sand w-full pb-24 text-navy z-10">
@@ -151,9 +158,9 @@ export default function VennServices() {
                 <div className="h-20" />
                 <CustomCarousel3 data={data} />
                 <div className="h-10" />
-                <div>
+                <Link href={links?.sampleCalendar ?? ""} target="_blank">
                     <Button label="View sample calendar" variant="navy" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
-                </div>
+                </Link>
             </section>
 
             <div className="h-20 md:h-0 z-10 max-md:hidden" />

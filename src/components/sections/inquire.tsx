@@ -41,7 +41,7 @@ export default function InquireComponent({ fontFamily = 'Freight' }: IInquireCom
                 } */}
                 <div className="hubspot-custom-container flex gap-4 text-navy">
                     <HubspotInquireForm />
-                    <div className="flex gap-4 items-end mb-[2px]">
+                    <div className="flex gap-4 items-end justify-center w-full mb-[2px]">
                         <Button variant='navy' label="schedule a tour" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} className={cn(SCREEN_WIDTH > MOBILE_BREAKPOINT && 'subheader5')} />
                     </div>
                 </div>

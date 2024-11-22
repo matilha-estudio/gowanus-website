@@ -28,6 +28,7 @@ interface Amenity {
 }
 
 interface AcfMedias {
+  video_header: string;
   title: string;
   subtitle: string;
   description: string;

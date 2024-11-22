@@ -47,7 +47,7 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                                     className="ml-3 w-[29px] h-[27px] object-contain"
                                 />
                                 :
-                                <Button variant={variant} size='md' label="menu" className="h-10 w-fit" />
+                                <Button variant={variant} size='md' label="menu" className={cn("h-10 w-fit", variant === "navyOutline" && "hover:bg-sand hover:text-navy")} />
                         }
                     </DrawerTrigger>
                     {

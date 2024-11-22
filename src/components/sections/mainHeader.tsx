@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import NavBar from "../navbar";
 import { Button } from "../ui/button";
@@ -5,6 +6,7 @@ import { ArrowDown } from "lucide-react";
 import { useScrollByVh } from "@/hooks/useScrollByVh";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 export default function MainHeader() {
     const scrollByVh = useScrollByVh();
@@ -12,18 +14,24 @@ export default function MainHeader() {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 50); // Ativar a transição após 50px de scroll
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
     return (
         <section className="relative flex flex-col items-center bg-navy w-full h-screen">
             <div className="absolute inset-0 bg-navy/40 transition-colors z-10" />
-            <NavBar
-                variant="white"
-                hasBackground={false}
-                hasHomeButton={false}
-                position="absolute"
-                className="opacity-0 animate-show"
-                style={{ animationDelay: '10s' }}
-                pageName="home" pagePath="/"
-            />
+
             <div
                 className="flex flex-col items-center w-full h-full justify-center text-marigold z-10 opacity-1 animate-zoomOut"
                 style={{ animationDelay: '6s' }}

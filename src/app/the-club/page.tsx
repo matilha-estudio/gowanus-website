@@ -23,6 +23,9 @@ import { getCarousel } from "@/services/carousel";
 import { getTheClub } from "@/services/theClub";
 import { TheClubResponse } from "@/services/models/theClub";
 import { type CarouselApi } from "@/components/ui/carousel"
+import NavbarComponent from "@/components/navbarComponent";
+import { getLinks } from "@/services/links";
+import { acf } from "@/services/models/links";
 
 export default function TheClub() {
     const scrollByVh = useScrollByVh();
@@ -39,6 +42,7 @@ export default function TheClub() {
 
     const [dataCarousel, setDataCarousel] = useState<CarouselResponse | null>(null)
     const [dataTheClub, setDataTheClub] = useState<TheClubResponse | null>(null)
+    const [links, setLinks] = useState<acf | null>(null)
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
@@ -59,9 +63,11 @@ export default function TheClub() {
         try {
             const responseCarousel = await getCarousel()
             const responseTheClub = await getTheClub()
+            const links = await getLinks()
 
             setDataCarousel(responseCarousel)
             setDataTheClub(responseTheClub)
+            setLinks(links)
         } catch (err) {
             setError('Failed to fetch data')
         } finally {
@@ -80,13 +86,15 @@ export default function TheClub() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between ">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="the club" pagePath="/the-club" />
+            <NavbarComponent
+                pageName="the club" pagePath="/the-club"
+            />
 
             <section className="flex relative text-white justify-center w-full md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 text-center self-center w-full")}>
                     {dataTheClub && dataTheClub[0].title.rendered}
                 </h1>
-                <video src="/medias/the-club.webm" autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
+                <video src={dataTheClub && dataTheClub[0].acf_medias.video_header ? dataTheClub[0]?.acf_medias.video_header : ""} autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">the-club</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button
                     variant="icon"
@@ -95,8 +103,6 @@ export default function TheClub() {
                     onClick={scrollByVh}
                 />
             </section>
-
-            <NavBar variant="navyOutline" hasBackground={true} position='sticky' className='top-0 hidden md:flex' pageName="the club" pagePath="/the-club" />
 
             <section className="relative flex flex-col items-center bg-navy w-full pb-24">
                 <Image src="/logos/waveicon-teal.svg" alt="waveicon-navy" width={182} height={12} className='pt-24' />
@@ -113,17 +119,17 @@ export default function TheClub() {
                         <h1 className={'header1MD leading-none md:hidden'}>
                             {dataTheClub && dataTheClub[0].acf_medias.title}
                         </h1>
-                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                            {dataTheClub && dataTheClub[0].acf_medias.description}
+                        <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-screen-md")}>
+                            {dataTheClub && dataTheClub[0].acf_medias.subtitle}
                         </span>
                     </>
                 </Reveal>
             </section>
 
-            <section className="relative flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
+            <section className="relative flex flex-col items-center justify-center w-full py-24 lg:px-20 text-navy bg-white">
                 <div className="absolute w-full h-1/5 bg-navy top-0" />
-                <div className="grid px-6 md:grid-cols-2 w-full">
-                    <div className="relative w-full overflow-hidden group gap-8 max-w-[672px]">
+                <div className="grid px-6 md:grid-cols-2 w-full h-full">
+                    <div className="relative w-full overflow-hidden group gap-8 max-w-[672px] max-h-[618px] h-full aspect-square">
                         <Image
                             src={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.image_1 : ""}
                             alt="section_1"
@@ -139,12 +145,14 @@ export default function TheClub() {
                             className="w-full h-full max-w-[672px] max-h-[618px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
-                    <Reveal className="flex flex-col text-center justify-center items-center gap-8 md:gap-8 md:gap-12">
+                    <Reveal className="flex flex-col text-center justify-center items-center gap-8  md:gap-12">
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <div className="max-w-[400px]">
-                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.title : ""} />
+                                    <div className="max-w-[400px]" >
+                                        <TextReveal
+                                            style={{ lineHeight: .8 }}
+                                            text={dataTheClub && dataTheClub[0].acf_medias.section_1 ? dataTheClub[0]?.acf_medias.section_1[0]?.title : ""} />
                                     </div>
                                 )
                             }
@@ -153,7 +161,7 @@ export default function TheClub() {
                                 {dataTheClub && dataTheClub[0].acf_medias.section_1[0]?.title}
                             </h1>
 
-                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg md:mt-4")}>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader4" : "subheader5-bold max-w-lg md:mt-4 md:-mb-2")}>
                                 {dataTheClub && dataTheClub[0].acf_medias.section_1[0]?.subtitle}
                             </span>
 
@@ -165,7 +173,7 @@ export default function TheClub() {
                 </div>
             </section>
 
-            <section className="relative flex flex-col items-center justify-center w-full py-12 text-navy bg-white">
+            <section className="relative flex flex-col items-center justify-center w-full py-12 lg:px-20 text-navy bg-white">
                 <div className="absolute w-full h-1/5 top-0" />
                 <div className="grid px-6 md:grid-cols-2 gap-8 z-10 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
@@ -185,7 +193,7 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px] -mt-20">
-                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].title : ""} />
+                                        <TextReveal style={{ lineHeight: .8 }} text={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].title : ""} />
                                     </div>
                                 )
                             }
@@ -203,7 +211,7 @@ export default function TheClub() {
                             </span>
                         </>
                     </Reveal>
-                    <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px]">
+                    <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px] h-full aspect-square">
                         <Image
                             src={dataTheClub && dataTheClub[0].acf_medias.section_2 ? dataTheClub[0]?.acf_medias.section_2[0].image_1 : ""}
                             alt="services"
@@ -223,33 +231,29 @@ export default function TheClub() {
                 <div className="absolute w-full h-1/6 bottom-0 bg-lavenderLake max-md:hidden" />
             </section>
 
-            <section className="relative flex flex-col items-center justify-center w-full pb-24 text-navy bg-lavenderLake">
+            <section className="relative flex flex-col items-center justify-center w-full pb-24 lg:px-20 text-navy bg-lavenderLake">
                 <div className="absolute w-full h-[5%] top-0 bg-white md:hidden" />
                 <div className="grid md:grid-cols-2 mx-auto md:pt-20">
-                    <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
-                        <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                    <div className="relative group w-[336px] h-[330px] md:w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
+                        <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden z-10">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
-                            <img
-                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_2 : ""}
-                                alt="services"
-                                className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-                            />
                         </div>
+
+                        <img
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_2 : ""}
+                            alt="services"
+                            className="w-full h-full z-10 object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                        />
 
                         <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_3 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
-                            />
-                            <img
-                                src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_4 : ""}
-                                alt="services"
-                                className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                             />
                         </div>
                     </div>
@@ -259,7 +263,7 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[430px]">
-                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].title : ""} />
+                                        <TextReveal style={{ lineHeight: .8 }} text={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].title : ""} />
                                     </div>
                                 )
                             }
@@ -278,7 +282,7 @@ export default function TheClub() {
                 </div>
             </section>
 
-            <section className="relative flex flex-col items-center justify-center w-full py-12 text-navy bg-white">
+            <section className="relative flex flex-col items-center justify-center w-full py-12 lg:px-20 text-navy bg-white">
                 <div className="absolute w-full h-1/6 bg-lavenderLake top-0" />
                 <div className="grid px-6 md:grid-cols-2 w-full">
                     <div className="relative w-full overflow-hidden group md:hidden">
@@ -298,7 +302,7 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px]">
-                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].title : ""} />
+                                        <TextReveal style={{ lineHeight: .8 }} text={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].title : ""} />
                                     </div>
                                 )
                             }
@@ -316,7 +320,7 @@ export default function TheClub() {
                             </span>
                         </>
                     </Reveal>
-                    <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px]">
+                    <div className="relative w-full overflow-hidden group md:flex hidden max-w-[672px] h-full aspect-square">
                         <Image
                             src={dataTheClub && dataTheClub[0].acf_medias.section_4 ? dataTheClub[0]?.acf_medias.section_4[0].image_1 : ""}
                             alt="services"
@@ -335,10 +339,10 @@ export default function TheClub() {
                 </div>
             </section>
 
-            <section className="relative flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-                <div className="absolute w-full h-1/6 md:bg-sand bottom-0" />
-                <div className="grid px-6 md:grid-cols-2 gap-8 w-full">
-                    <div className="relative w-full overflow-hidden group max-w-[672px]">
+            <section className="relative flex flex-col items-center justify-center w-full py-24 lg:px-20 text-navy bg-white">
+                <div className="absolute w-full h-1/5 md:bg-sand bottom-0" />
+                <div className="grid px-6 md:grid-cols-2 gap-8 w-full z-10">
+                    <div className="relative w-full overflow-hidden group max-w-[672px] h-full aspect-square">
                         <Image
                             src={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].image_1 : ""}
                             alt="services"
@@ -358,7 +362,7 @@ export default function TheClub() {
                         <>
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
-                                    <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].title : ""} />
+                                    <TextReveal style={{ lineHeight: .8 }} text={dataTheClub && dataTheClub[0].acf_medias.section_5 ? dataTheClub[0]?.acf_medias.section_5[0].title : ""} />
                                 )
                             }
 
@@ -381,31 +385,32 @@ export default function TheClub() {
 
             <section className="relative flex flex-col items-center justify-center w-full pb-24 text-navy bg-sand">
                 <div className="grid md:grid-cols-2 -mt-10 mx-auto w-full px-5">
-                    <div className="relative w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
-                        <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                    <div className="relative group w-[336px] h-[330px] md:w-[672px] md:h-[618px] md:hidden flex overflow-hidden mx-auto">
+                        <div className="absolute bottom-0 right-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden z-10">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
-                            <img
-                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
-                                alt="services"
-                                className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-                            />
                         </div>
 
-                        <div className="absolute right-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
+                        <img
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
+                            alt="services"
+                            className="w-full h-full z-10 object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                        />
+
+                        <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_3 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
-                            <img
+                            {/* <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_4 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-                            />
+                            /> */}
                         </div>
                     </div>
 
@@ -414,7 +419,7 @@ export default function TheClub() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="max-w-[400px]">
-                                        <TextReveal text={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].title : ""} />
+                                        <TextReveal style={{ lineHeight: .8 }} text={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].title : ""} />
                                     </div>
                                 )
                             }
@@ -431,19 +436,20 @@ export default function TheClub() {
                         </>
                     </Reveal>
 
-                    <div className="relative w-[336px] h-[330px] md:w-full md:h-[618px] md:flex overflow-hidden mx-auto hidden">
-                        <div className="absolute bottom-0 md:left-48 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden group z-10">
+                    <div className="relative w-[336px] group h-[330px] md:w-full md:h-[618px] md:flex overflow-hidden mx-auto hidden">
+                        <div className="absolute bottom-0 md:left-48 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden z-10">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_1 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
-                            <img
-                                src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
-                                alt="services"
-                                className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-                            />
                         </div>
+
+                        <img
+                            src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
+                            alt="services"
+                            className="w-full h-full z-10 object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                        />
 
                         <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">
                             <img
@@ -451,11 +457,11 @@ export default function TheClub() {
                                 alt="services"
                                 className="w-full h-full object-cover"
                             />
-                            <img
+                            {/* <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_4 : ""}
                                 alt="services"
                                 className="w-full h-full object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
-                            />
+                            /> */}
                         </div>
                     </div>
                 </div>
@@ -463,7 +469,7 @@ export default function TheClub() {
 
             {
                 dataTheClub && (
-                    <section className="w-full flex justify-center md:py-16 relative">
+                    <section className="w-full flex justify-center pb-16 md:py-16 relative">
                         <div className="absolute w-full h-1/5 bg-sand top-0" />
                         <Carousel setApi={setApi} className="w-full" opts={{ loop: true, align: 'center' }}>
                             <CarouselContent>
@@ -493,11 +499,11 @@ export default function TheClub() {
 
             <section className="relative flex flex-col items-center justify-center w-full md:py-24 text-navy bg-white gap-16">
                 <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4 max-w-lg" : "body1 max-w-screen-lg", "text-center")}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare. Maecenas at convallis lacus.
+                    {dataTheClub && dataTheClub[0].acf_medias.description}
                 </span>
-                <div>
+                <Link href={links?.brochure ?? ""} target="_blank">
                     <Button label="brochure" variant="navy" icon={<ArrowUpRight />} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} />
-                </div>
+                </Link>
                 <div className="relative w-full flex flex-col items-center max-w-4xl gap-16 border-b border-navy">
                     <div
                         className={`w-full grid grid-cols-3 transition-max-height duration-1000 ease-in-out overflow-hidden ${expanded ? 'max-h-[1000px]' : 'max-h-32'

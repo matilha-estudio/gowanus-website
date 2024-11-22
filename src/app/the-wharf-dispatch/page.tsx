@@ -16,6 +16,7 @@ import { PostResponse } from "@/services/models/blog";
 import { getAllPosts } from "@/services/blog";
 import { parse } from "date-fns";
 import NewsletterComponent from "@/components/sections/newsletter";
+import NavbarComponent from "@/components/navbarComponent";
 
 export default function TheWharfDispatch() {
     const scrollByVh = useScrollByVh();
@@ -60,7 +61,7 @@ export default function TheWharfDispatch() {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="the wharf dispatch" pagePath="/the-wharf-dispatch" />
+            <NavbarComponent pageName="the wharf dispatch" pagePath="/the-wharf-dispatch" />
 
             <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
@@ -76,14 +77,6 @@ export default function TheWharfDispatch() {
                 />
             </section>
 
-            <NavBar
-                variant="navyOutline"
-                hasBackground={true}
-                hasHomeButton={SCREEN_WIDTH < MOBILE_BREAKPOINT ? false : true}
-                position="sticky"
-                className="top-0"
-                pageName={"the drift"} pagePath="/the-wharf-dispatch"
-            />
             <section className="flex flex-col items-center bg-white w-full py-24 gap-16">
                 <Image src="/logos/waveicon-orangesicle.svg" alt="waveicon-orangesicle" width={242} height={12} />
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
@@ -133,7 +126,7 @@ export default function TheWharfDispatch() {
                                         ? `${item.acf.section_1.description.slice(0, 115)}...`
                                         : item.acf.section_1.description}
                                 </span>
-                                <span className="py-2 px-4 text-navy flex-wrap flex w-full subheader5">{formatDate(date(item?.acf?.date ?? ''))}</span>
+                                <span className="py-2 px-4 text-navy flex-wrap flex w-full subheader5-bold">{formatDate(date(item?.acf?.date ?? ''))}</span>
                             </div>
                         );
                     })

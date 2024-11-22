@@ -19,6 +19,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Link from "next/link";
+import NavbarComponent from "@/components/navbarComponent";
 
 export default function AvailabilityDetails({ params }: { params: { slug: string } }) {
     const scrollByVh = useScrollByVh();
@@ -77,7 +78,7 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between bg-white">
-            <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="availability" pagePath="/availability" />
+            <NavbarComponent pageName="availability" pagePath="/availability" />
 
             <section className="flex relative text-white justify-center w-full min-h-96 md:h-[50vh] bg-canalRoyale">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>

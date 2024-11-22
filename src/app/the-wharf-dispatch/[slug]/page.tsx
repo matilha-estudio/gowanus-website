@@ -2,6 +2,7 @@
 
 import Reveal from "@/components/animations/reveal";
 import NavBar from "@/components/navbar";
+import NavbarComponent from "@/components/navbarComponent";
 import Footer from "@/components/sections/footer";
 import NewsletterComponent from "@/components/sections/newsletter";
 import TextReveal from "@/components/textReveal";
@@ -24,7 +25,7 @@ export default function Article({ params }: { params: { slug: string } }) {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
-    const heights = [332, 414, 284, 270, 284, 414, 332];
+    const heights = [444, 226, 341];
     const mobileHeight = [319]
 
     const [data, setData] = useState<BlogDetailsProps | null>(null)
@@ -32,7 +33,7 @@ export default function Article({ params }: { params: { slug: string } }) {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
-    function date() {
+    function dateFun() {
         if (data && data[0]?.acf?.date) {
             const formattedDate = parse(data[0]?.acf?.date, 'yyyyMMdd', new Date());
             return formattedDate
@@ -40,6 +41,13 @@ export default function Article({ params }: { params: { slug: string } }) {
         return new Date()
     }
 
+    function date(date: string) {
+        if (date) {
+            const formattedDate = parse(date, 'yyyyMMdd', new Date());
+            return formattedDate
+        }
+        return new Date()
+    }
 
     async function handleData() {
         try {
@@ -80,17 +88,14 @@ export default function Article({ params }: { params: { slug: string } }) {
         data && data[0] && (
             <Reveal className="flex min-h-screen flex-col items-center bg-white">
                 <>
-                    <NavBar
-                        variant="navyOutline"
-                        hasBackground={false}
-                        hasHomeButton={false}
-                        position="absolute"
+                    <NavbarComponent
                         pageName="article"
                         pagePath={`/the-wharf-dispatch/${params.slug}`}
-                        className="bg-sand"
+                        classNameFirstNavbar="bg-sand"
+                        variantFirstNavbar="navyOutline"
                     />
 
-                    <section className="flex flex-col w-full px-8 pt-24 gap-8 text-navy max-w-screen-2xl">
+                    <section className="flex flex-col w-full px-8 lg:px-36 pt-24 gap-8 text-navy max-w-screen-2xl">
 
                         <div className="flex flex-wrap-reverse justify-between items-center gap-8">
                             <Image
@@ -123,14 +128,14 @@ export default function Article({ params }: { params: { slug: string } }) {
                                         {data[0]?.acf?.type}
                                     </span>
                                     <span className={cn("uppercase", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4-bold" : "subheader3-bold")}>
-                                        {formatDate(date())}
+                                        {formatDate(dateFun())}
                                     </span>
                                 </div>
                             </div>
                         </Reveal>
                     </section>
 
-                    <section className="flex flex-col w-full px-8 py-12 gap-8 text-navy items-center max-w-screen-2xl">
+                    <section className="flex flex-col w-full px-8 lg:px-36 py-12 gap-8 text-navy items-center max-w-screen-2xl">
                         <Image src={data[0]?.acf_medias?.section_1 ?? ''} alt="section 1" width={1152} height={624} className="aspect-square object-cover md:aspect-video md:w-full md:max-h-[624px]" />
 
                         <div className="w-full flex flex-col gap-16 mb-8">
@@ -155,7 +160,7 @@ export default function Article({ params }: { params: { slug: string } }) {
 
                     {
                         data[0]?.acf.section_2.description && (
-                            <section className="relative flex flex-col w-full px-8 py-12 gap-8 text-white items-center z-10 max-w-screen-2xl">
+                            <section className="relative flex flex-col w-full px-8 lg:px-36 py-12 gap-8 text-white items-center z-10 max-w-screen-2xl">
                                 <div className="relative flex w-full flex-wrap gap-8 justify-center md:h-[544px] lg:h-[644px]">
                                     <Image
                                         src={data[0]?.acf_medias?.section_2_image_1 ?? ''}
@@ -202,7 +207,7 @@ export default function Article({ params }: { params: { slug: string } }) {
 
                     {
                         data[0]?.acf.section_3.description && (
-                            <section className="relative flex flex-col w-full px-8 py-12 gap-8 text-navy items-center bg-white z-10 max-w-screen-2xl">
+                            <section className="relative flex flex-col w-full px-8 py-12 lg:px-36 gap-8 text-navy items-center bg-white z-10 max-w-screen-2xl">
                                 <div
                                     className="absolute h-[10%] w-full top-0 -z-10"
                                     style={{ backgroundColor: data[0]?.acf.color }}
@@ -278,7 +283,7 @@ export default function Article({ params }: { params: { slug: string } }) {
                                                             ? `${item.acf.section_1.description.slice(0, 115)}...`
                                                             : item.acf.section_1.description}
                                                     </span>
-                                                    {/* <span className="py-2 px-4 text-navy flex-wrap flex w-full subheader5">{formatDate(date(item?.acf?.date ?? ''))}</span> */}
+                                                    <span className="py-2 px-4 text-navy flex-wrap flex w-full subheader5-bold">{formatDate(date(item?.acf?.date ?? ''))}</span>
                                                 </div>
                                             );
                                         })

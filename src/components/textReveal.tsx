@@ -1,10 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { CSSProperties, useEffect, useRef, useState } from 'react';
 
 interface ITextReveal {
     text: string
+    style?: CSSProperties
 }
 
-const TextReveal = ({ text }: ITextReveal) => {
+const TextReveal = ({ text, style }: ITextReveal) => {
     const [isRevealed, setIsRevealed] = useState(false);
     const textRef = useRef<HTMLParagraphElement>(null);
 
@@ -35,6 +36,7 @@ const TextReveal = ({ text }: ITextReveal) => {
     return (
         <h1
             ref={textRef}
+            style={style}
             className={`header1 leading-none transform transition-transform duration-[2000ms] ease-in-out ${isRevealed ? 'translate-y-8 opacity-1' : 'translate-y-16 opacity-0'
                 }`}
         >

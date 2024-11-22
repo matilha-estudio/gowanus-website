@@ -2,6 +2,7 @@ export type acf = {
     instagram: string
     facebook: string
     brochure: string
+    sampleCalendar: string
     team: string
     legal_disclaimer: string
     fair_housing: string

@@ -31,43 +31,28 @@ export function CustomCarousel3({ data }: ICustomCarousel3) {
     const events = [
         {
             title: 'community',
-            date: new Date('2024-09-01'),
-            location: "San Francisco, CA",
-            image: "/medias/cardExemple/2024_GW_MVP_4_Yoga.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare.",
-            color: "#006182" // canalRoyale
+            image: "/medias/services/240926_DogSelects_032.jpg",
+            description: "Connect with neighbors via community feed, interest groups, and marketplace.",
         },
         {
             title: 'culture',
-            date: new Date('2024-07-20'),
-            location: "Los Angeles, CA",
-            image: "/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare.",
-            color: "#F28F66" // orangesicle
+            image: "/medias/services/ROLLERSKATING_GIFS_013.jpg",
+            description: "Get special invites to art shows, concerts, and restaurant openings.",
         },
         {
             title: 'amusement',
-            date: new Date('2024-11-10'),
-            location: "Sedona, AZ",
-            image: "/medias/cardExemple/2024_GW_MVP_17_JenLewin.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare.",
-            color: "#3BABA3" // teal
+            image: "/medias/services/240926_KaraokeSelects_004.jpg",
+            description: "See exclusive resdident parties and events hosted in community spaces.",
         },
         {
             title: 'environment',
-            date: new Date('2024-12-15'),
-            location: "Boston, MA",
-            image: "/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare.",
-            color: "#F28F66" // navy
+            image: "/medias/services/Canal_Reflection_lowres.png",
+            description: "Find local vendors and service providers to help lighten your daily lift.",
         },
         {
             title: 'wellness',
-            date: new Date('2024-12-15'),
-            location: "Boston, MA",
-            image: "/medias/cardExemple/2024_GW_MVP_12_Moonkata.jpg",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum accumsan justo quis interdum ornare.",
-            color: "#F28F66" // navy
+            image: "/medias/services/LaurenFilm_008 copy.jpg",
+            description: "Book spa treatments and RSVP for special wellness offerings and classes..",
         }
     ];
 
@@ -122,7 +107,7 @@ export function CustomCarousel3({ data }: ICustomCarousel3) {
             className="w-full lg:max-w-screen-2xl"
             opts={{ loop: true, align: 'center' }}
         >
-            <CarouselContent className="-ml-1">
+            <CarouselContent className="ml-5">
                 {events.map((item, index) => (
                     <MemoizedCarouselItem3
                         key={item.title}

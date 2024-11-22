@@ -19,6 +19,7 @@ import Reveal from "@/components/animations/reveal";
 import { debounce } from 'lodash';
 import { useRouter } from "next/navigation";
 import { HubspotProvider } from 'next-hubspot';
+import NavbarComponent from "@/components/navbarComponent";
 
 type FilterOption = 'ALL' | 'studio' | '1-BR' | '2-BR' | '3-BR' | 'PENTHOUSE';
 
@@ -339,7 +340,7 @@ export default function Availability() {
     return (
         <HubspotProvider>
             <main className="flex min-h-screen flex-col items-center justify-between bg-white">
-                <NavBar variant="white" hasBackground={false} hasHomeButton={false} position="absolute" pageName="availability" pagePath="/availability" />
+                <NavbarComponent pageName="availability" pagePath="/availability" />
 
                 <section className="flex relative text-white justify-center w-full min-h-96 md:h-1/2 bg-canalRoyale">
                     <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
