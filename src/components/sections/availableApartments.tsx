@@ -12,7 +12,7 @@ export default function AvailableApartments() {
     return (
         <section className="flex flex-col items-center justify-center w-full pt-6 md:py-16 text-navy bg-white">
             <img
-                src="/medias/apartments/FrameBanner.png"
+                src="/medias/apartments/13-585 Union St-Unit H - Master Bedroom-R07_CROPPED.jpg"
                 alt="Availabilities"
                 className="object-cover w-full h-full max-h-[455px] absolute"
             />
