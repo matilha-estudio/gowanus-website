@@ -93,7 +93,7 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                 </div>
 
 
-                <div className={cn(`relative w-full z-10 flex overflow-hidden md:absolute justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4`,
+                <div className={cn(`relative w-full z-10 flex overflow-hidden md:absolute justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4 min-h-[258px]`,
                     'transition-opacity duration-1000 ease-in-out', "md:right-0 md:top-0 md:h-full md:max-w-[33%] md:w-full", index < 3 && styles.container,
                     cardIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none sr-only', index > 2 && "md:items-end md:pt-[70px]")}>
 
@@ -120,11 +120,11 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
 
                     {
                         index > 2 && (
-                            <div className='md:relative bg-navy h-[200px] w-full flex justify-center z-10 mx-4 p-8'>
+                            <div className='md:relative bg-navy h-[211px] w-full flex justify-center z-10 mx-4 p-8'>
                                 <Image
                                     src={cardImageUrl}
                                     alt="cardImageUrl"
-                                    className="absolute left-1/2 transform -translate-x-1/2 self-center w-[259px] md:w-full py-14 px-8"
+                                    className="absolute left-1/2 h-[211px] transform -translate-x-1/2 self-center w-[259px] md:w-full py-14 px-8"
                                     width={374}
                                     height={84}
                                 />

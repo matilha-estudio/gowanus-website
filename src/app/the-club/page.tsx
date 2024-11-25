@@ -234,7 +234,7 @@ export default function TheClub() {
             <section className="relative flex flex-col items-center justify-center w-full pb-24 lg:px-20 text-navy bg-lavenderLake">
                 <div className="absolute w-full h-[5%] top-0 bg-white md:hidden" />
                 <div className="grid md:grid-cols-2 mx-auto md:pt-20">
-                    <div className="relative group w-[336px] h-[330px] md:w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
+                    <div className="relative group w-[336px] h-[330px] md:w-[672px] md:max-w-[672px] md:h-[618px] flex overflow-hidden mx-auto">
                         <div className="absolute bottom-0 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden z-10">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_3 ? dataTheClub[0]?.acf_medias.section_3[0].image_1 : ""}
@@ -436,7 +436,7 @@ export default function TheClub() {
                         </>
                     </Reveal>
 
-                    <div className="relative w-[336px] group h-[330px] md:w-full md:h-[618px] md:flex overflow-hidden mx-auto hidden">
+                    <div className="relative w-[336px] group h-[330px] md:w-full md:h-[618px] md:max-w-[672px] md:flex overflow-hidden mx-auto hidden">
                         <div className="absolute bottom-0 md:left-48 w-[221px] h-[147px] md:h-[276px] md:w-[415px] overflow-hidden z-10">
                             <img
                                 src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_1 : ""}
@@ -448,7 +448,7 @@ export default function TheClub() {
                         <img
                             src={dataTheClub && dataTheClub[0].acf_medias.section_6 ? dataTheClub[0]?.acf_medias.section_6[0].image_2 : ""}
                             alt="services"
-                            className="w-full h-full z-10 object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                            className="w-full max-w-[672px] h-full z-10 object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
 
                         <div className="absolute left-0 w-[196px] h-[256px] md:h-[481px] md:w-[368px] overflow-hidden group">

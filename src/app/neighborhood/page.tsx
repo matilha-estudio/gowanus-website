@@ -102,7 +102,7 @@ export default function Neighborhood() {
                 <NavbarComponent pageName="neighborhood" pagePath="/neighborhood" />
 
                 <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
-                    <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
+                    <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 leading-none absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                         gowanus is calling
                     </h1>
                     <Image src={"/medias/gowanusiscalling.png"} alt={"gowanusiscalling"} width={1440} height={810} className="w-full md:h-screen object-cover" />
@@ -123,7 +123,7 @@ export default function Neighborhood() {
                             {
                                 SCREEN_WIDTH > MOBILE_BREAKPOINT && (
                                     <div className="w-full max-w-screen-lg">
-                                        <TextReveal text='Welcome to the neighborhood' />
+                                        <TextReveal text='Welcome to the neighborhood' style={{ lineHeight: .9 }} />
                                     </div>
                                 )
                             }

@@ -152,7 +152,7 @@ export default function Home() {
                 width={374}
                 height={84}
               />
-              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy text-center">Explore living at The Wharf's anchor residence.</span>
+              <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-28 group-hover:text-navy text-center">{data?.acf.rental_properties.union_channel.text}</span>
 
               <span className="body1 text-white absolute md:group-hover:block hidden left-1/2 transform z-10 -translate-x-1/2 self-end mb-8 group-hover:text-navy">Pre-leasing now</span>
 
@@ -160,7 +160,7 @@ export default function Home() {
             </Link>
 
             <div className="md:hidden flex flex-col items-center gap-3">
-              <span className="accent3 max-w-[151px] text-center leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
+              <span className="accent3 max-w-[151px] text-center leading-4">{data?.acf.rental_properties.union_channel.text}</span>
               <Button variant="marigold" label="explore" icon={<ArrowUpRight />} size="mobile" />
             </div>
           </div>
@@ -192,12 +192,12 @@ export default function Home() {
           {/* MOBILE */}
           <div className="relative md:flex-col flex-row gap-10 items-center flex md:hidden">
             <div className="md:hidden flex flex-col items-center gap-6">
-              <span className="accent3 max-w-[151px] text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
+              <span className="accent3 max-w-[151px] text-center">{data?.acf.rental_properties.douglass_port.text}</span>
               <span className="accent4 max-w-[151px] text-center">Coming Soon</span>
             </div>
-            <Link href="/union-channel" className="relative flex">
+            <div className="relative flex">
               <Image
-                src="/medias/douglass_banner_home.png"
+                src={data?.acf_medias.douglass_port_image_url ?? ""}
                 alt="douglass-port"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
@@ -212,13 +212,13 @@ export default function Home() {
                 height={84}
               />
               <span className="subheader4 text-white absolute md:block hidden left-1/2 transform -translate-x-1/2 self-end mb-8">Now pre-leasing</span>
-            </Link>
+            </div>
           </div>
 
           <div className="relative w-full md:flex-col flex-row gap-10 items-center flex md:hidden z-10">
-            <Link href="/union-channel" className="relative flex">
+            <div className="relative flex">
               <Image
-                src="/medias/nevis_banner_home.png"
+                src={data?.acf_medias.nevins_landing_image_url ?? ""}
                 alt="nevis"
                 className="object-cover h-[205px] w-[175px] md:h-[514px] md:w-full"
                 height={514}
@@ -233,9 +233,9 @@ export default function Home() {
                 height={84}
               />
               <span className="subheader4 text-white absolute md:block hidden left-1/2 transform -translate-x-1/2 self-end mb-8">Now pre-leasing</span>
-            </Link>
+            </div>
             <div className="md:hidden flex flex-col items-center gap-6 text-white">
-              <span className="accent3 max-w-[151px] text-center leading-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien, est felis, sagittis viverra nulla mattis scelerisque. Eget cras integer.</span>
+              <span className="accent3 max-w-[151px] text-center leading-4">{data?.acf.rental_properties.nevins_landing.text}</span>
               <span className="accent4 max-w-[151px] text-center">Coming Soon</span>
             </div>
           </div>

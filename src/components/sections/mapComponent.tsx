@@ -87,7 +87,7 @@ export default function MapComponent(props: IMapComponent) {
 
     return (
         <section className="relative flex flex-col md:h-auto items-center w-full bg-navy text-navy">
-            <div className="relative items-center max-w-[1440px] max-h-[810px] w-full h-full flex flex-col">
+            <div className="relative max-h-[810px] w-full h-full flex flex-col">
                 <Image
                     src={cardIndex !== null && cardData[cardIndex] ? cardData[cardIndex].mapImageUrl : ''}
                     alt="MapIntegration"
@@ -97,11 +97,13 @@ export default function MapComponent(props: IMapComponent) {
                     onClick={() => setCardIndex(null)}
                 />
 
+                {/* desktop */}
                 <Pins
-                    className="absolute hidden md:block xl:top-[27.41%] lg:top-[17%] md:top-[3%] left-[30.83%] w-[36.79vw] h-[57.41vh] max-w-[529.62px] max-h-[465px] z-10"
+                    className="absolute hidden md:block xl:top-[27.41%] lg:top-[17%] md:top-[3%] left-[29.70%] w-[36.79vw] h-[57.41vh] max-w-[529.62px] max-h-[465px] z-10"
                     handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
                 />
 
+                {/* mobile */}
                 <Pins
                     className="absolute block md:hidden left-0 bottom-[31%] w-[99vw] h-[57.41vh] max-w-[529.62px] max-h-[465px] z-10"
                     handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}

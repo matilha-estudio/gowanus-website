@@ -67,7 +67,7 @@ export default function WalkThrough({ className, videoSide = "left", fontFamily 
                                 height={482}
                                 width={592}
                                 autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
-                                className="aspect-square hidden md:flex object-contain w-full h-[482px]"
+                                className="aspect-square hidden md:flex object-cover w-full h-[482px]"
                             >walk-through</video>
                         </div>
                     )
@@ -99,7 +99,7 @@ export default function WalkThrough({ className, videoSide = "left", fontFamily 
                                 height={482}
                                 width={592}
                                 autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
-                                className="aspect-square hidden md:flex object-contain w-full h-[482px]"
+                                className="aspect-square hidden md:flex object-cover w-full h-[482px]"
                             >walk-through</video>
                         </div>
                     )
