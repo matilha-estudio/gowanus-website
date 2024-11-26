@@ -18,10 +18,25 @@ interface CardProps {
     setCardIndex: Dispatch<SetStateAction<number | null>>
     cardIndex: number | null
     mdPosition: string
+    type: "douglass" | "union" | "nevis" | "point"
 }
 
 
-const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUrl, backgroudImage, mapImageUrl, altText, index, listSize, cardIndex, setCardIndex, mdPosition }) => {
+const MapCard: React.FC<CardProps> = ({
+    title,
+    description,
+    address,
+    cardImageUrl,
+    backgroudImage,
+    mapImageUrl,
+    altText,
+    index,
+    listSize,
+    cardIndex,
+    setCardIndex,
+    mdPosition,
+    type
+}) => {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
@@ -41,6 +56,54 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
         },
         {
             container: 'bg-red',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
+        },
+        {
+            container: 'bg-sand',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-navy leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-navy`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-navy`,
+        },
+        {
+            container: 'bg-red',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
+        },
+        {
+            container: 'bg-canalRoyale',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
+        },
+        {
+            container: 'bg-sand',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-navy leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-navy`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-navy`,
+        },
+        {
+            container: 'bg-red',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
+        },
+        {
+            container: 'bg-canalRoyale',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
+        },
+        {
+            container: 'bg-sand',
+            title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-navy leading-none flex-wrap break-words`,
+            description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-navy`,
+            address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-navy`,
+        },
+        {
+            container: 'bg-canalRoyale',
             title: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'subheader5' : 'subheader3'} text-white leading-none flex-wrap break-words`,
             description: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent3' : 'body2'} text-white`,
             address: `${SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'accent4-bold' : 'accent1'} text-white`,
@@ -94,8 +157,8 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
 
 
                 <div className={cn(`relative w-full z-10 flex overflow-hidden md:absolute justify-center md:w-72 md:flex-wrap-reverse md:gap-4 md:p-4 min-h-[258px]`,
-                    'transition-opacity duration-1000 ease-in-out', "md:right-0 md:top-0 md:h-full md:max-w-[33%] md:w-full", index < 3 && styles.container,
-                    cardIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none sr-only', index > 2 && "md:items-end md:pt-[70px]")}>
+                    'transition-opacity duration-1000 ease-in-out', "md:right-0 md:top-0 md:h-full md:max-w-[33%] md:w-full", type === 'point' && styles.container,
+                    cardIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none sr-only', type !== 'point' && "md:items-end md:pt-[70px]")}>
 
 
                     {/* Background */}
@@ -112,14 +175,14 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                         )
                     }
 
-                    <div className={cn('relative flex flex-col gap-4 py-8 md:max-w-full w-[139px]', index < 3 && 'md:w-full')}>
+                    <div className={cn('relative flex flex-col gap-4 py-8 md:max-w-full w-[139px]', type === 'point' && 'md:w-full')}>
                         <span className={styles.title}>{title}</span>
                         <span className={styles.description}>{description}</span>
                         <span className={styles.address}>{address}</span>
                     </div>
 
                     {
-                        index > 2 && (
+                        type !== "point" && (
                             <div className='md:relative bg-navy h-[211px] w-full flex justify-center z-10 mx-4 p-8'>
                                 <Image
                                     src={cardImageUrl}
@@ -133,7 +196,7 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                     }
 
                     {
-                        index < 3 &&
+                        type === "point" &&
                         (
                             <Image
                                 src={cardImageUrl}
@@ -146,8 +209,8 @@ const MapCard: React.FC<CardProps> = ({ title, description, address, cardImageUr
                     }
 
                     <div className='absolute w-full top-1/2 -translate-y-1/2 flex md:hidden justify-between z-10 px-3 -ml-4'>
-                        <Button variant={index < 3 ? 'marigold' : 'navy'} className='h-7 w-7' icon={<ArrowLeft className={cn('h-3 w-3', index < 3 ? 'text-marigold' : 'text-navy')} />} onClick={prevCard} />
-                        <Button variant={index < 3 ? 'marigold' : 'navy'} className='h-7 w-7' icon={<ArrowRight className={cn('h-3 w-3', index < 3 ? 'text-marigold' : 'text-navy')} />} onClick={nextCard} />
+                        <Button variant={type === "point" ? 'marigold' : 'navy'} className='h-7 w-7' icon={<ArrowLeft className={cn('h-3 w-3', type === "point" ? 'text-marigold' : 'text-navy')} />} onClick={prevCard} />
+                        <Button variant={type === "point" ? 'marigold' : 'navy'} className='h-7 w-7' icon={<ArrowRight className={cn('h-3 w-3', type === "point" ? 'text-marigold' : 'text-navy')} />} onClick={nextCard} />
                     </div>
                 </div>
             </>
