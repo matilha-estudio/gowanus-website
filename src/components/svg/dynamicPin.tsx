@@ -7,6 +7,7 @@ import { DouglassShape, NevisShape, UnionShape } from "./buildingsShape";
 interface IPins {
     interestPoint: InterestPoint[];
     handleClick: (index: number) => void;
+    cardIndex: number | null
 }
 
 export interface InterestPoint {
@@ -23,7 +24,7 @@ export interface InterestPoint {
 }
 
 const DynamicPin: React.FC<IPins & React.SVGProps<SVGSVGElement>> = (props) => {
-    const { handleClick, ...svgProps } = props;
+    const { handleClick, cardIndex, ...svgProps } = props;
     const svgRef = useRef<SVGSVGElement>(null); // Referência ao elemento SVG
     const [indexState, setIndexState] = useState(0);
     const [svgSize, setSvgSize] = useState({ width: 1440, height: 810 }); // Dimensões padrão
@@ -47,6 +48,12 @@ const DynamicPin: React.FC<IPins & React.SVGProps<SVGSVGElement>> = (props) => {
         window.addEventListener("resize", updateSvgSize);
         return () => window.removeEventListener("resize", updateSvgSize);
     }, []);
+
+    useEffect(() => {
+        if (cardIndex) {
+            setIndexState(cardIndex)
+        }
+    }, [cardIndex])
 
     return (
         <svg

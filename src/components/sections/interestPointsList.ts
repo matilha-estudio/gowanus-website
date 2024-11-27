@@ -39,7 +39,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'insa',
+        title: 'Insa',
         description: 'Korean BBQ, noodles & other staples served in a casual, warm environment with private karaoke rooms.',
         address: '328 Douglass Street, Brooklyn, NY 11217',
         cardImageUrl: '/medias/interestPoints/insa.png',
@@ -51,7 +51,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'Kick axe Throwing brooklyn',
+        title: 'Kick axe Throwing Brooklyn',
         description: 'Chill bar featuring axe-throwing areas & instruction amid flannel decor, plush sofas & mounted deer.',
         address: '622 Degraw St, Brooklyn, NY 11217',
         cardImageUrl: '/medias/interestPoints/axe.png',
@@ -63,7 +63,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'prospect park',
+        title: 'Prospect Park',
         description: 'Sprawling city park featuring the Audubon Center in the historic Boathouse, plus Prospect Park Zoo.',
         address: 'Brooklyn, NY',
         cardImageUrl: '/medias/interestPoints/prospect_park.png',
@@ -75,7 +75,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'PowerHouse arts',
+        title: 'PowerHouse Arts',
         description: 'Powerhouse Arts unites artist and fabricators  to co-create and share practices essential to artists and their communities.',
         address: '322 3rd Ave, Brooklyn, NY 11215',
         cardImageUrl: '/medias/interestPoints/powerhouse.png',
@@ -87,7 +87,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'four & twenty blackbirds',
+        title: 'Four & Twenty Blackbirds',
         description: 'Cozy bakery & cafe featuring a seasonally changing menu of handmade pies whole or by the slice.',
         address: '439 3rd Ave, Brooklyn, NY 11215',
         cardImageUrl: '/medias/interestPoints/420blackbirds.png',
@@ -99,7 +99,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'Gowanus gardens',
+        title: 'Gowanus Gardens',
         description: 'Easygoing haunt with drinks & bar bites plus a spacious rainbow-colored patio out back.',
         address: '256 4th Ave, Brooklyn, NY 11215',
         cardImageUrl: '/medias/interestPoints/gowanusgardens.png',
@@ -111,7 +111,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'brooklyn museum',
+        title: 'Brooklyn Museum',
         description: 'Beaux Arts landmark famed for ancient & modern art collections & world-class temporary exhibitions.',
         address: '200 Eastern Parkway, Brooklyn, NY 11238',
         cardImageUrl: '/medias/interestPoints/museum.png',
@@ -123,7 +123,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "point"
     },
     {
-        title: 'zerospace',
+        title: 'Zerospace',
         description: 'Next-gen production & creative studio specializing in the integration of digital, virtual, and live content',
         address: '337 Butler St, Brooklyn, NY 11217',
         cardImageUrl: '/medias/interestPoints/zerospace.png',
@@ -138,7 +138,7 @@ export const InterestPintsList: InterestPoint[] = [
 
 
     {
-        title: '',
+        title: 'Union Channel',
         description: '',
         address: '585 Union Channel, Gowanus, Brooklyn',
         cardImageUrl: '/logos/union-channel-GA-logo-white.svg',
@@ -150,7 +150,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "union"
     },
     {
-        title: '',
+        title: 'Douglass Port',
         description: '',
         address: '251 Douglass Port, Gowanus, Brooklyn',
         cardImageUrl: '/logos/douglass-port-GA-white.svg',
@@ -162,7 +162,7 @@ export const InterestPintsList: InterestPoint[] = [
         type: "douglass"
     },
     {
-        title: '',
+        title: 'Nevins Landing',
         description: '',
         address: '310 Nevins North, Gowanus, Brooklyn',
         cardImageUrl: '/logos/nevins-lading-GA.svg',

@@ -445,7 +445,7 @@ export default function Neighborhood() {
                     </Carousel>
                 </section>
 
-                <MapComponent showButton />
+                <MapComponent showButton showInterestPointsList />
 
                 <div className="h-20 w-full bg-navy" />
 

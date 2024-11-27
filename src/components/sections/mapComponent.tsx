@@ -9,9 +9,11 @@ import { SetStateAction, useState } from "react";
 import Link from "next/link";
 import DynamicPin, { InterestPoint } from "../svg/dynamicPin";
 import { InterestPintsList } from "./interestPointsList";
+import { cn } from "@/lib/utils";
 
 interface IMapComponent {
     showButton?: boolean
+    showInterestPointsList?: boolean
 }
 
 export default function MapComponent(props: IMapComponent) {
@@ -39,7 +41,11 @@ export default function MapComponent(props: IMapComponent) {
                     onClick={() => setCardIndex(null)}
                 />
 
-                <DynamicPin interestPoint={InterestPintsList} handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")} />
+                <DynamicPin
+                    interestPoint={InterestPintsList}
+                    handleClick={(index) => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
+                    cardIndex={cardIndex}
+                />
 
                 {InterestPintsList.map((item, index) => (
                     <MapCard
@@ -60,6 +66,26 @@ export default function MapComponent(props: IMapComponent) {
                     />
                 ))}
             </div>
+
+            {
+                props.showInterestPointsList && (
+                    <div className="grid grid-cols-2 md:grid-cols-3 p-8 md:py-24 lg:px-36">
+                        {
+                            InterestPintsList.map((item, index) => (
+                                <span
+                                    key={index}
+                                    className={cn("body2 text-white hover:text-marigold cursor-pointer",
+                                        cardIndex === index && "text-marigold"
+                                    )}
+                                    onClick={() => handleMDCard(index, "md:bottom-[15%] md:right-[35%]")}
+                                >
+                                    {item.title}
+                                </span>
+                            ))
+                        }
+                    </div>
+                )
+            }
 
             {
                 props.showButton && (
