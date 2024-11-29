@@ -50,13 +50,13 @@ export default function Inquire() {
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10")}>
                     inquire
                 </h1>
-                <Image
+                {/* <Image
                     src={"/medias/inquirebanner.png"}
                     alt={"inquirebanner"}
                     width={212.8}
                     height={146.06}
                     className="absolute left-1/2 transform -translate-x-1/2 self-center bottom-32 md:bottom-28 object-cover w-[138px] md:w-[213px] "
-                />
+                /> */}
             </section>
 
             <section className="hubspot-custom-container flex flex-col items-center justify-center gap-10 w-full md:py-24 py-12 text-navy bg-white px-8 md:px-16">

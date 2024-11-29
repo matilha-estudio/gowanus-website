@@ -24,6 +24,8 @@ import { TheClubResponse } from "@/services/models/theClub";
 import Link from "next/link";
 import { type CarouselApi } from "@/components/ui/carousel"
 import NavbarComponent from "@/components/navbarComponent";
+import { getLinks } from "@/services/links";
+import { acf } from "@/services/models/links";
 
 export default function UnionChannel() {
     const scrollByVh = useScrollByVh();
@@ -32,6 +34,7 @@ export default function UnionChannel() {
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
 
+    const [links, setLinks] = useState<acf | null>(null)
     const [data, setData] = useState<ApiResponseUnionChannel | null>(null)
     const [dataTheClub, setDataTheClub] = useState<TheClubResponse | null>(null)
     const [loading, setLoading] = useState(true)
@@ -71,6 +74,8 @@ export default function UnionChannel() {
         try {
             const response = await getUnionChannelPage()
             const responseTheClub = await getTheClub()
+            const links = await getLinks()
+            setLinks(links)
             setData(response)
             setDataTheClub(responseTheClub)
         } catch (err) {
@@ -125,9 +130,9 @@ export default function UnionChannel() {
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
                     {data?.acf_medias.description}
                 </span>
-                <div className="w-full md:py-8 flex justify-center">
+                <Link href={links?.model_exterior ?? ''} target="_blank" className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                </div>
+                </Link>
             </section>
             <section className="relative flex flex-col items-center justify-center bg-white w-full pb-8 px-8">
                 <div className="absolute top-0 w-full h-[20%] bg-sand" />

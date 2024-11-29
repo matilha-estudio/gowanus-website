@@ -23,6 +23,8 @@ import { getHomePage } from '@/services/home';
 import { useEffect, useState } from 'react';
 import { ApiResponseHomePage } from '@/services/models/home';
 import NavbarComponent from '@/components/navbarComponent';
+import { getAllPosts } from '@/services/blog';
+import { PostResponse } from '@/services/models/blog';
 
 export default function Home() {
   const windowWidth = useWindowWidth()
@@ -30,12 +32,15 @@ export default function Home() {
   const MOBILE_BREAKPOINT = 768
 
   const [data, setData] = useState<ApiResponseHomePage | null>(null)
+  const [posts, setPosts] = useState<PostResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
   async function handleData() {
     try {
       const response = await getHomePage()
+      const posts = await getAllPosts()
+      setPosts(posts)
       setData(response)
     } catch (err) {
       setError('Failed to fetch data')
@@ -62,7 +67,7 @@ export default function Home() {
       />
 
       <MainHeader />
-      <section className="relative flex flex-col items-center bg-sand w-full pb-24">
+      <section className="relative flex flex-col items-center bg-sand w-full md:pb-24">
         <Image
           src="/logos/waveicon-navy.svg"
           alt="waveicon-navy"
@@ -98,14 +103,17 @@ export default function Home() {
 
           </div>
         </Reveal>
-        <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10">
-          <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm" autoPlay muted loop playsInline>
+        <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10 hidden md:block">
+          <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm"
+            autoPlay playsInline muted loop disablePictureInPicture disableRemotePlayback
+            controls={false}
+          >
             2024_GW_MVP_1_TwinklingWater
           </video>
         </div>
       </section>
 
-      <section className="relative pt-40 md:pt-56 flex flex-col items-center w-full py-12 md:py-24 bg-sand md:bg-white">
+      <section className="relative  md:pt-56 flex flex-col items-center w-full py-12 md:py-24 bg-sand md:bg-white">
         <Reveal className="flex flex-col text-center text-navy gap-8">
           <>
             {
@@ -250,8 +258,12 @@ export default function Home() {
       <section className="flex relative flex-col items-center justify-center w-full py-5 md:py-24 text-navy bg-white">
         <Reveal className='z-10'>
           <div className="grid md:grid-cols-2 grid-cols-1">
-            <video src={data?.acf_medias.the_club_video_url} autoPlay muted loop playsInline className="aspect-square p-4 flex md:hidden object-contain">{data?.acf.the_club.title}</video>
-            <div className="flex flex-col text-center items-center gap-8 md:gap-16 pt-10">
+            <video
+              src={data?.acf_medias.the_club_video_url}
+              autoPlay muted loop playsInline
+              className="aspect-square w-full h-full p-4 flex md:hidden object-cover">{data?.acf.the_club.title}</video>
+
+            <div className="flex flex-col text-center justify-center items-center gap-8 md:gap-16 pt-10">
 
               <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD" : "header1", "leading-none")}>{data?.acf.the_club.title}</h1>
 
@@ -276,7 +288,7 @@ export default function Home() {
                 autoPlay muted loop playsInline
                 width={672}
                 height={618}
-                className="h-full hidden md:flex object-cover">
+                className="h-full w-full hidden md:flex object-cover aspect-square">
                 the-club
               </video>
             </div>
@@ -287,21 +299,25 @@ export default function Home() {
 
       <Services />
 
-      <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
-        <div className="flex flex-col text-center text-navy gap-8 items-center">
-          <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1", "leading-none")}>the drift</h1>
-          <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-2xl", "leading-none")}>
-            Keep adrift of the latest happenings, openings, and offerings at and around the Wharf.
-          </span>
-        </div>
-        <div className="w-full flex justify-center py-16 max-w-screen-2xl">
-          <CustomCarousel />
-        </div>
-        <Link href='the-wharf-dispatch'>
-          <Button variant='marigold' label="read more" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-        </Link>
-        <div className='h-16 md:hidden' />
-      </section>
+      {
+        posts && posts?.length > 0 && (
+          <section className="flex flex-col items-center justify-center w-full py-24 text-navy bg-white">
+            <div className="flex flex-col text-center text-navy gap-8 items-center">
+              <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD px-4 leading-none" : "header1", "leading-none")}>the drift</h1>
+              <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-2xl", "leading-none")}>
+                Keep adrift of the latest happenings, openings, and offerings at and around the Wharf.
+              </span>
+            </div>
+            <div className="w-full flex justify-center py-16 max-w-screen-2xl">
+              <CustomCarousel />
+            </div>
+            <Link href='the-wharf-dispatch'>
+              <Button variant='marigold' label="read more" size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
+            </Link>
+            <div className='h-16 md:hidden' />
+          </section>
+        )
+      }
 
       <AvailableApartments />
 

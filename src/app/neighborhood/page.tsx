@@ -101,11 +101,15 @@ export default function Neighborhood() {
             <>
                 <NavbarComponent pageName="neighborhood" pagePath="/neighborhood" />
 
-                <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
+                <section className="flex relative text-white justify-center w-full h-96 md:h-screen">
                     <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 leading-none absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                         gowanus is calling
                     </h1>
-                    <Image src={"/medias/gowanusiscalling.png"} alt={"gowanusiscalling"} width={1440} height={810} className="w-full md:h-screen object-cover" />
+                    <Image
+                        src={"/medias/gowanusiscalling.png"}
+                        alt={"gowanusiscalling"} width={1440} height={810}
+                        className="w-full h-full md:h-screen object-cover"
+                    />
                     <div className={cn("absolute inset-0 bg-black/30")} />
                     <Button
                         variant="icon"
@@ -175,8 +179,8 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-md leading-none" style={{ lineHeight: .8 }}>Life Out Loud</h1>
-                                <span className="body1 max-w-md">
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD mt-4" : "header1 ", "max-w-md leading-none")} style={{ lineHeight: .8 }}>Life Out Loud</h1>
+                                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body1", "max-w-lg")}>
                                     Artful invention. Personal expression. Makers, doers, and dreamers collide and create culture.
                                 </span>
                             </div>
@@ -308,8 +312,8 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-md leading-none" style={{ lineHeight: .8 }}>Eats and Afters</h1>
-                                <span className="body1 max-w-sm">
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD mt-4" : "header1 ", "max-w-md leading-none")} style={{ lineHeight: .8 }}>Eats and Afters</h1>
+                                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body1", "max-w-lg")}>
                                     A feast for the senses around every corner. The bites are bumping. The beats go boom.
                                 </span>
                             </div>
@@ -379,8 +383,8 @@ export default function Neighborhood() {
 
                             {/* Text Section */}
                             <div className="flex flex-col text-center justify-center items-center gap-12 mx-auto">
-                                <h1 className="header1 max-w-lg leading-none" style={{ lineHeight: .8 }}>Greater Goods</h1>
-                                <span className="body1 max-w-lg">
+                                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header1MD mt-4" : "header1 ", "max-w-md leading-none")} style={{ lineHeight: .8 }}>Greater Goods</h1>
+                                <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3-md" : "body1", "max-w-lg")}>
                                     Shop into an eclectic mix of brands you'll love, curated provisions, and locally-owned businesses.
                                 </span>
                             </div>
@@ -419,7 +423,7 @@ export default function Neighborhood() {
                     </Reveal>
                 </section>
 
-                <section className="w-full flex justify-center md:py-16 relative bg-white">
+                <section className="w-full flex justify-center pb-16 md:py-16 relative bg-white">
                     <div className="absolute w-full h-1/5 bg-white top-0" />
                     <Carousel setApi={setApi3} className="w-full" opts={{ loop: true, align: 'center' }}>
                         <CarouselContent>

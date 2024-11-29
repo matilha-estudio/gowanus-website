@@ -42,7 +42,7 @@ export function CustomCarousel3({ data }: ICustomCarousel3) {
         {
             title: 'amusement',
             image: "/medias/services/240926_KaraokeSelects_004.jpg",
-            description: "See exclusive resdident parties and events hosted in community spaces.",
+            description: "See exclusive resident parties and events hosted in community spaces.",
         },
         {
             title: 'environment',
@@ -52,7 +52,7 @@ export function CustomCarousel3({ data }: ICustomCarousel3) {
         {
             title: 'wellness',
             image: "/medias/services/LaurenFilm_008 copy.jpg",
-            description: "Book spa treatments and RSVP for special wellness offerings and classes..",
+            description: "Book spa treatments and RSVP for special wellness offerings and classes.",
         }
     ];
 

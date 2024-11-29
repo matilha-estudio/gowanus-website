@@ -17,6 +17,8 @@ import { getAllPosts } from "@/services/blog";
 import { parse } from "date-fns";
 import NewsletterComponent from "@/components/sections/newsletter";
 import NavbarComponent from "@/components/navbarComponent";
+import { getLinks } from "@/services/links";
+import { acf } from "@/services/models/links";
 
 export default function TheWharfDispatch() {
     const scrollByVh = useScrollByVh();
@@ -28,6 +30,7 @@ export default function TheWharfDispatch() {
     const mobileHeight = [319]
 
     const [data, setData] = useState<PostResponse | null>(null)
+    const [links, setLinks] = useState<acf | null>(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState<string | null>(null)
 
@@ -42,7 +45,9 @@ export default function TheWharfDispatch() {
     async function handleData() {
         try {
             const response = await getAllPosts()
+            const links = await getLinks()
             setData(response)
+            setLinks(links)
         } catch (err) {
             setError('Failed to fetch data')
         } finally {
@@ -63,11 +68,11 @@ export default function TheWharfDispatch() {
         <main className="flex min-h-screen flex-col items-center justify-between">
             <NavbarComponent pageName="the wharf dispatch" pagePath="/the-wharf-dispatch" />
 
-            <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen">
+            <section className="flex relative text-white justify-center w-full h-96 md:h-screen">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                     the drift
                 </h1>
-                <Image src={"/medias/thewharfdispatch.png"} alt={"thewharfdispatch"} width={1440} height={810} className="w-full md:h-screen object-cover" />
+                <Image src={"/medias/thewharfdispatch.png"} alt={"thewharfdispatch"} width={1440} height={810} className="w-full h-full md:h-screen object-cover" />
                 <div className={cn("absolute inset-0 bg-canalRoyale/70")} />
                 <Button
                     variant="icon"
@@ -82,9 +87,9 @@ export default function TheWharfDispatch() {
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
                     New eats. Arts openings. Exclusive community affairs. Read into the ups, comings and goings on around Gowanus Wharf.
                 </span>
-                <div className="w-full md:py-8 flex justify-center">
+                <Link href={links?.model_exterior ?? ''} className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
-                </div>
+                </Link>
             </section>
 
             <section className="flex flex-wrap gap-16 md:justify-between items-center justify-center pb-20 max-w-6xl justify-self-center">

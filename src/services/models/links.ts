@@ -9,4 +9,5 @@ export type acf = {
     phone_number: string
     email: string
     press_email: string
+    model_exterior: string
 }

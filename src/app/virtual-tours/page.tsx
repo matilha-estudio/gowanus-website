@@ -32,11 +32,12 @@ export default function VirtualTours() {
         <main className="flex flex-col items-center justify-between bg-white">
             <NavbarComponent pageName="virtual tours" pagePath="/virtual-tours" />
 
-            <section className="flex relative text-white justify-center w-full min-h-96 md:h-screen bg-canalRoyale">
+            <section className="flex relative text-white justify-center w-full h-96 md:h-screen bg-canalRoyale">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                     virtual tours
                 </h1>
-                <video src="/medias/walkthrough.mov" autoPlay muted loop playsInline className="aspect-square md:aspect-video object-cover w-full md:h-screen">virtual tours</video>
+                <video src="/medias/walkthrough.mov"
+                    autoPlay muted loop playsInline controls={false} className="aspect-square md:aspect-video object-cover w-full h-full md:h-screen">virtual tours</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button
                     variant="icon"
@@ -57,7 +58,7 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp'}
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/12-585 Union St-Unit H - Living Room-R05A.jpg'}
                                 alt="Living-Room-R05A"
                                 width={584}
                                 height={482.76}
@@ -74,8 +75,8 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/the-club/06-585 Union St-Gym-R02.jpg'}
-                                alt="Living-Room-R05A"
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/06-585 Union St-Gym-R02.jpg'}
+                                alt="Gym-R02"
                                 width={584}
                                 height={482.76}
                                 className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
@@ -91,8 +92,8 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp'}
-                                alt="Living-Room-R05A"
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/Courtyard image.PNG'}
+                                alt="Courtyard"
                                 width={584}
                                 height={482.76}
                                 className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
@@ -108,8 +109,8 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/the-club/11-585 Union St-Rooftop Pool-R02A.jpg'}
-                                alt="Living-Room-R05A"
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/11-585 Union St-Rooftop Pool-R02A.jpg'}
+                                alt="St-Rooftop Pool-R02A"
                                 width={584}
                                 height={482.76}
                                 className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
@@ -125,8 +126,8 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/the-club/09-251 Douglass St-Sky Lounge-R06.jpg'}
-                                alt="Living-Room-R05A"
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/10-585 Union St-Sky lounge-R03.jpg'}
+                                alt="St-Sky lounge-R03"
                                 width={584}
                                 height={482.76}
                                 className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
@@ -142,8 +143,8 @@ export default function VirtualTours() {
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
                             <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
                             <Image
-                                src={'/medias/the-club/08-585 Union St-Coworking Lounge-R05.jpg'}
-                                alt="Living-Room-R05A"
+                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/08-585 Union St-Coworking Lounge-R05.jpg'}
+                                alt="St-Coworking Lounge-R05"
                                 width={584}
                                 height={482.76}
                                 className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"

@@ -349,7 +349,7 @@ export default function Availability() {
                 </section>
 
                 <Reveal>
-                    <section id="availability-section" className="relative w-full bg-white z-10">
+                    <section id="availability-section" className="relative w-full bg-white z-20">
                         {/* <div className="bg-white py-[144px] px-[32px] md:px-[94px] flex items-center justify-center gap-20 flex-wrap">
 
                             <FilterButton />
@@ -386,9 +386,9 @@ export default function Availability() {
                         </div> */}
 
                         <Reveal>
-                            <div className="p-8 bg-white">
+                            <div className="p-4 h-screen bg-white">
 
-                                {
+                                {/* {
                                     selectedView === 'grid' && (
                                         <div className="w-full flex gap-8 gap-y-24 flex-wrap justify-center">
                                             {
@@ -416,7 +416,7 @@ export default function Availability() {
                                             />
                                         </div>
                                     )
-                                }
+                                } */}
                                 {
                                     selectedView === 'render' && (
                                         <iframe

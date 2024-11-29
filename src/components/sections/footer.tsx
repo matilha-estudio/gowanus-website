@@ -30,7 +30,7 @@ export default function Footer() {
     if (error) return <p>{error}</p>
 
     return (
-        <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-16">
+        <section className="flex flex-col justify-between w-full py-24 md:pt-40 text-white bg-navy p-8 md:p-16 flex-wrap">
             <div className="relative flex flex-col gap-8">
                 <div className="flex w-full justify-between">
                     <div className="hidden relative md:flex gap-16 h-full">
@@ -61,7 +61,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className="flex flex-col md:items-end md:justify-end gap-8">
-                        <div className="flex flex-col gap-2 md:text-end md:items-end">
+                        <div className="flex flex-col gap-2 md:text-end md:items-end flex-wrap">
                             <a href="/" className="hidden md:flex">
                                 <img src="/logos/gowanus-favicon-white.svg" alt="gowanus-favicon-white" width={67} height={43} className="mb-8" />
                             </a>
@@ -69,7 +69,7 @@ export default function Footer() {
                                 href="https://www.google.com/maps?q=100+1st+St,+Brooklyn,+NY+11231"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="subheader4 hover:text-marigold"
+                                className="subheader4 hover:text-marigold flex-wrap"
                             >
                                 100 1st St, Brooklyn, NY 11231
                             </a>

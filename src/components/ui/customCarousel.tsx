@@ -43,7 +43,6 @@ export function CustomCarousel() {
         try {
             const response = await getAllPosts()
             setData(response)
-            console.log(response)
         } catch (err) {
             setError('Failed to fetch data')
         } finally {

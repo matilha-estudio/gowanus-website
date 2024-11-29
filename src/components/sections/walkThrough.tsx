@@ -53,7 +53,7 @@ export default function WalkThrough({ className, videoSide = "left", fontFamily 
                     height={482}
                     width={592}
                     autoPlay muted loop disablePictureInPicture disableRemotePlayback playsInline
-                    className="aspect-square p-4 flex md:hidden object-contain"
+                    className="aspect-square p-4 flex md:hidden object-cover"
                 >
                     walk-through
                 </video>

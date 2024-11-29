@@ -65,8 +65,9 @@ export default function MainHeader() {
                 </span>
             </div>
             <video
-                src="/medias/3319184472146877331.webm"
+                src="/medias/WebsiteCanal_V4_BW.webm"
                 autoPlay playsInline muted loop disablePictureInPicture disableRemotePlayback
+                controls={false}
                 width={1511}
                 height={810}
                 className="absolute object-cover w-full h-full opacity-0 animate-mainVideoZoomIn"
@@ -77,7 +78,7 @@ export default function MainHeader() {
                 alt="gowanus-white"
                 width={270}
                 height={103}
-                className="w-full object-contain absolute max-w-[270px] z-10 -mt-6 top-1/2 -translate-y-1/2 opacity-0 animate-zoomIn"
+                className="w-full object-contain absolute max-md:max-h-[87.77px] max-w-[270px] z-10 -mt-10 top-1/2 -translate-y-1/2 opacity-0 animate-zoomIn"
                 style={{ animationDelay: '8s' }}
             />
             <div className="absolute bottom-14 flex flex-col md:flex-row gap-8 lg:gap-36 md:gap-20 opacity-0 animate-show z-10" style={{ animationDelay: '10s' }}>

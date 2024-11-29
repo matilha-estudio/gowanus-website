@@ -42,8 +42,8 @@ export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
     if (error) return <p>{error}</p>
 
     return (
-        <section className="flex w-full h-screen text-navy bg-white justify-center items-center overflow-hidden">
-            <div className="relative flex flex-col items-center max-w-screen-2xl w-screen h-screen py-24 justify-center overflow-hidden">
+        <section className="flex w-full h-screen text-navy bg-white justify-center items-center overflow-hidden min-h-[736px]">
+            <div className="relative flex flex-col items-center max-w-screen-2xl w-screen h-full py-24 justify-center overflow-hidden">
 
                 {/* Image 1 */}
                 <div>
@@ -126,7 +126,7 @@ export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
                 </div>
 
                 {/* Text and Button */}
-                <div className="flex flex-col text-center gap-16">
+                <div className="flex flex-col text-center gap-2 md:gap-16">
                     {
                         fontFamily === "TWK" ? (
                             <div className="flex flex-col z-20">
@@ -142,7 +142,7 @@ export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
                             </div>
                         )
                     }
-                    <span className={cn("md:max-w-lg max-w-xs z-20", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
+                    <span className={cn("md:max-w-lg max-w-xs z-20 pb-2", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent3" : "body1")}>
                         {data?.acf_medias.gowanus_is_calling.text}
                     </span>
                     <Link href={'/neighborhood'} className="z-10">

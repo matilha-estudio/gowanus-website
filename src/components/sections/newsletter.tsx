@@ -58,7 +58,7 @@ export default function NewsletterComponent({ fontFamily = 'Freight' }: IInquire
                 height={841.42}
             />
 
-            <div className="flex flex-col text-center text-navy gap-8 bg-sand px-10 md:px-14 py-16 w-full h-full mt-10 md:mt-0 z-10">
+            <div className="flex flex-col text-center text-navy gap-8 bg-sand px-8 md:px-14 py-16 w-full h-full mt-10 md:mt-0 z-10">
                 {/* {
                     fontFamily === 'TWK' ? (
                         <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD px-4" : "header2", "leading-none")}>SUBSCRIBE TO OUR NEWSLETTER</h1>
@@ -70,13 +70,13 @@ export default function NewsletterComponent({ fontFamily = 'Freight' }: IInquire
                     <HubspotNewsLetterForm />
                 </div>
 
-                <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4 px-4" : "subheader3 mt-5", "leading-4 w-full hidden md:block")}>
+                {/* <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4 px-4" : "subheader3 mt-5", "leading-4 w-full hidden md:block")}>
                     For all press inquiries, contact us: {String(data?.phone_number)?.slice(0, 3)}.
                     {String(data?.phone_number)?.slice(3, 6)}.
                     {String(data?.phone_number)?.slice(6, 10)} | {data?.press_email}
-                </h1>
+                </h1> */}
 
-                <div className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4 px-4" : "subheader3 mt-5", "leading-4 w-full md:hidden")}>
+                {/* <div className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent4 px-4" : "subheader3 mt-5", "leading-4 w-full md:hidden")}>
                     <h1>
                         For all press inquiries, contact us:
                     </h1>
@@ -85,7 +85,7 @@ export default function NewsletterComponent({ fontFamily = 'Freight' }: IInquire
                         {String(data?.phone_number)?.slice(3, 6)}.
                         {String(data?.phone_number)?.slice(6, 10)} | {data?.press_email}
                     </h1>
-                </div>
+                </div> */}
             </div>
         </section>
     )
