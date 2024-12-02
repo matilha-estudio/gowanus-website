@@ -53,6 +53,7 @@ interface Acf {
 }
 
 interface AcfMedias {
+  video: string;
   union_channel_image_url: string;
   douglass_port_image_url: string;
   nevins_landing_image_url: string;

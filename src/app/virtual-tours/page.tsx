@@ -52,7 +52,7 @@ export default function VirtualTours() {
                     Click each image to virtually explore Gowanus Wharf
                 </span>
 
-                <div className="flex gap-20 flex-wrap w-full px-8 md:px-24">
+                <div className="flex gap-20 flex-wrap w-full px-8 md:px-24 items-center justify-center">
 
                     <Link href={virtualTourLinks.unitWalkthrough} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
                         <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">

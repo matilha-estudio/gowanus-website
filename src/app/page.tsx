@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </Reveal>
         <div className="px-8 aspect-video max-h-screen mt-24 -mb-56 z-10 hidden md:block">
-          <video src="/medias/2024_GW_MVP_1_TwinklingWater.webm"
+          <video src={data?.acf_medias.video}
             autoPlay playsInline muted loop disablePictureInPicture disableRemotePlayback
             controls={false}
           >
@@ -282,7 +282,7 @@ export default function Home() {
               <div className='absolute bg-sand bottom-0 h-[65%] w-full -z-10 md:hidden' />
             </div>
 
-            <div className='h-[618px] max-w-[672px] hidden md:flex '>
+            <div className='max-h-[618px] max-w-[672px] hidden md:flex aspect-square overflow-hidden p-4'>
               <video
                 src={data?.acf_medias.the_club_video_url}
                 autoPlay muted loop playsInline
