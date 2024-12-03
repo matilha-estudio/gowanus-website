@@ -87,7 +87,7 @@ export default function TheWharfDispatch() {
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
                     New eats. Arts openings. Exclusive community affairs. Read into the ups, comings and goings on around Gowanus Wharf.
                 </span>
-                <Link href={links?.model_exterior ?? ''} className="w-full md:py-8 flex justify-center">
+                <Link href={'/3d-exterior'} className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                 </Link>
             </section>

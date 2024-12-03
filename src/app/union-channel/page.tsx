@@ -130,7 +130,7 @@ export default function UnionChannel() {
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
                     {data?.acf_medias.description}
                 </span>
-                <Link href={links?.model_exterior ?? ''} target="_blank" className="w-full md:py-8 flex justify-center">
+                <Link href={'/3d-exterior'} target="_blank" className="w-full md:py-8 flex justify-center">
                     <Button label="3d exterior" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />
                 </Link>
             </section>
