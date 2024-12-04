@@ -12,12 +12,39 @@ import AvailableApartments from "@/components/sections/availableApartments";
 import Image from "next/image";
 import Link from "next/link";
 import NavbarComponent from "@/components/navbarComponent";
+import { useEffect, useState } from "react";
+import { ApiResponseWalkThrough } from "@/services/models/walkThrough";
+import { getWalkThroughPage } from "@/services/walkThrough";
 
 export default function VirtualTours() {
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 768
+
+    const [data, setData] = useState<ApiResponseWalkThrough | null>(null)
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getWalkThroughPage()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
+
+    if (loading) return (
+        <div className='w-screen h-screen bg-navy' />
+    )
+    if (error) return <p>{error}</p>
 
     const virtualTourLinks = {
         gym: "https://bubbletourstore.s3.us-east-1.amazonaws.com/gowanus/GYM/vtour/tour.html",
@@ -36,7 +63,7 @@ export default function VirtualTours() {
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
                     virtual tours
                 </h1>
-                <video src="/medias/walkthrough.mov"
+                <video src={data?.acf_medias.video_url ?? ''}
                     autoPlay muted loop playsInline controls={false} className="aspect-square md:aspect-video object-cover w-full h-full md:h-screen">virtual tours</video>
                 <div className={cn("absolute inset-0 bg-black/30")} />
                 <Button

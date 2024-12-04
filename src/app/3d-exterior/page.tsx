@@ -8,16 +8,16 @@ import NavbarComponent from "@/components/navbarComponent";
 import { useEffect } from "react";
 
 export default function Exterior() {
-    const applyFilter = (filter: string, value: any) => {
+    const applyFilter = (value: any) => {
         const iframe = document.querySelector('iframe');
         iframe?.contentWindow?.postMessage({
-            event: 'apply_filter',
-            metadata: { filter, value }
+            event: 'set_stage',
+            metadata: { value: value }
         }, '*');
     };
 
     useEffect(() => {
-        applyFilter('view', ['map']);
+        applyFilter('plan');
     }, []);
 
     return (
