@@ -2,7 +2,6 @@
 import "@/app/globals.css";
 import InquireComponent from "@/components/sections/inquire";
 import Footer from "@/components/sections/footer";
-import Reveal from "@/components/animations/reveal";
 import { HubspotProvider } from 'next-hubspot';
 import NavbarComponent from "@/components/navbarComponent";
 import { useEffect } from "react";
@@ -17,29 +16,26 @@ export default function Exterior() {
     };
 
     useEffect(() => {
-        applyFilter('plan');
+        setTimeout(() => {
+            applyFilter('map');
+        }, 1000);
     }, []);
 
     return (
         <HubspotProvider>
-            <main className="flex min-h-screen flex-col items-center justify-between  bg-white">
+            <main className="flex min-h-screen flex-col items-center bg-white">
                 <NavbarComponent pageName="3d exterior" pagePath="/3d-exterior" variantFirstNavbar="navyOutline" />
 
-                <Reveal>
-                    <section id="availability-section" className="relative w-full pt-8 bg-white z-20">
-
-                        <Reveal>
-                            <div className="h-screen bg-white">
-                                <iframe
-                                    id="availability-iframe"
-                                    src="https://d285m6toqyb25u.cloudfront.net/iframe"
-                                    title="availability"
-                                    className="h-full w-full aspect-video"
-                                />
-                            </div>
-                        </Reveal>
-                    </section>
-                </Reveal>
+                <section id="availability-section" className="relative w-full pt-8 bg-white z-20">
+                    <div className="h-screen p-4 bg-white">
+                        <iframe
+                            id="availability-iframe"
+                            src="https://d285m6toqyb25u.cloudfront.net/iframe"
+                            title="availability"
+                            className="h-full w-full aspect-video"
+                        />
+                    </div>
+                </section>
 
                 <InquireComponent />
 
