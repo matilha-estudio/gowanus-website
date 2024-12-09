@@ -104,10 +104,10 @@ export default function Inquire() {
                     <div className="relative flex flex-col items-center gap-8">
                         <h2 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader2" : "subheader1", "text-center")}>find us</h2>
                         <a
-                            href="https://www.google.com/maps?q=100+1st+St,+Brooklyn,+NY+11231"
+                            href={data?.google_maps_url}
                             target="_blank"
                             className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
-                            585 Union St, Brooklyn, NY
+                            {data?.address}
                         </a>
                         <div className="relative flex flex-col items-center">
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Mon-Fri (8am - 7pm)</span>
