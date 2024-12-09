@@ -81,9 +81,7 @@ export default function Inquire() {
                         <h2 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "subheader2" : "subheader1", "text-center")}>get in touch</h2>
                         <div className="relative flex flex-col items-center">
                             <a href={`tel:+1${data?.phone_number}`} className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
-                                {String(data?.phone_number)?.slice(0, 3)}.
-                                {String(data?.phone_number)?.slice(3, 6)}.
-                                {String(data?.phone_number)?.slice(6, 10)}
+                                {data?.phone_number}
                             </a>
                             <a
                                 href={`mailto:${data?.email}`}

@@ -79,9 +79,7 @@ export default function Footer() {
                                         href={`tel:+1${data?.phone_number}`}
                                         className="subheader4 hover:text-marigold"
                                     >
-                                        {String(data?.phone_number)?.slice(0, 3)}.
-                                        {String(data?.phone_number)?.slice(3, 6)}.
-                                        {String(data?.phone_number)?.slice(6, 10)}
+                                        {data?.phone_number}
                                     </a>
                                 )
                             }
