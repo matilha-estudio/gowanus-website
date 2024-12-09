@@ -12,4 +12,7 @@ export type acf = {
     model_exterior: string
     address: string
     google_maps_url: string
+    "mon-fri": string
+    saturday: string
+    sunday: string
 }

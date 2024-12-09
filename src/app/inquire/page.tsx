@@ -110,9 +110,9 @@ export default function Inquire() {
                             {data?.address}
                         </a>
                         <div className="relative flex flex-col items-center">
-                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Mon-Fri (8am - 7pm)</span>
-                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Saturday (10am - 4pm)</span>
-                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Sunday (Closed)</span>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Mon-Fri {data?.["mon-fri"]}</span>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Saturday {data?.saturday}</span>
+                            <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>Sunday {data?.sunday}</span>
                         </div>
                     </div>
                 </div>
