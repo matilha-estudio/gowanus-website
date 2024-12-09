@@ -96,9 +96,9 @@ export default function Inquire() {
                             <Link href={data?.instagram ?? ""}>
                                 <Image src={"/icons/Instagram-navy.svg"} alt={"Instagram"} width={30} height={30} />
                             </Link>
-                            <Link href={data?.facebook ?? ""}>
+                            {/* <Link href={data?.facebook ?? ""}>
                                 <Image src={"/icons/Linkedin-navy.svg"} alt={"Instagram"} width={30} height={30} />
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                     <div className="relative flex flex-col items-center gap-8">

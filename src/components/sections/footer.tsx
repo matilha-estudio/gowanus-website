@@ -66,12 +66,12 @@ export default function Footer() {
                                 <img src="/logos/gowanus-favicon-white.svg" alt="gowanus-favicon-white" width={67} height={43} className="mb-8" />
                             </a>
                             <a
-                                href="https://www.google.com/maps?q=100+1st+St,+Brooklyn,+NY+11231"
+                                href={data?.google_maps_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="subheader4 hover:text-marigold flex-wrap"
                             >
-                                100 1st St, Brooklyn, NY 11231
+                                {data?.address}
                             </a>
                             {
                                 data?.phone_number && (
@@ -96,9 +96,9 @@ export default function Footer() {
                             <Link href={data?.instagram ?? ''} target="_blank">
                                 <Image src="/icons/Instagram.svg" alt="Instagram" width={24} height={24} />
                             </Link>
-                            <Link href={data?.facebook ?? ''}>
+                            {/* <Link href={data?.facebook ?? ''}>
                                 <Image src="/icons/Linkedin.svg" alt="Facebook" width={24} height={24} />
-                            </Link>
+                            </Link> */}
                         </div>
                         <div className="flex md:hidden flex-col gap-2">
                             {/* <a href={data?.team} className="accent3-xs hover:text-marigold">Team</a> */}

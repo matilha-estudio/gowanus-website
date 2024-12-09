@@ -10,4 +10,6 @@ export type acf = {
     email: string
     press_email: string
     model_exterior: string
+    address: string
+    google_maps_url: string
 }
