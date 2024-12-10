@@ -26,7 +26,7 @@ export function CustomCarousel3({ data }: ICustomCarousel3) {
 
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const events = [
         {

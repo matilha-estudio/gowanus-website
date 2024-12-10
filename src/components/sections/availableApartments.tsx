@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AvailableApartments() {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     return (
         <section className="flex flex-col items-center justify-center w-full pt-6 md:py-16 text-navy bg-white">

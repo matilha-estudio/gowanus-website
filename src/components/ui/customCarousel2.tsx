@@ -23,7 +23,7 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
 
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [expanded, setExpanded] = React.useState(false);
     const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
@@ -40,7 +40,7 @@ export function CustomCarousel2({ data }: ICustomCarousel2) {
             <CarouselItem
                 className={cn(
                     "px-16 transition-max-width duration-1000 ease-in-out mr-10 ",
-                    !expanded && "md:basis-1/4 lg:basis-1/5",
+                    !expanded && "md:basis-2/5 lg:basis-1/4 xl:basis-1/5",
                     !isExpanded && expanded && "hidden"
                 )}
             >

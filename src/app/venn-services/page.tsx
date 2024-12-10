@@ -26,7 +26,7 @@ export default function VennServices() {
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [data, setData] = useState<ApiResponseService | null>(null)
     const [links, setLinks] = useState<acf | null>(null)

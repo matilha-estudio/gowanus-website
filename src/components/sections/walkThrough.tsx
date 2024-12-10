@@ -18,7 +18,7 @@ interface IWalkThrough {
 export default function WalkThrough({ className, videoSide = "left", fontFamily = 'Freight' }: IWalkThrough) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [data, setData] = useState<ApiResponseWalkThrough | null>(null)
     const [loading, setLoading] = useState(true)

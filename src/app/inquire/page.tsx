@@ -16,7 +16,7 @@ import { acf } from "@/services/models/links";
 export default function Inquire() {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [data, setData] = useState<acf | null>(null)
     const [loading, setLoading] = useState(true)

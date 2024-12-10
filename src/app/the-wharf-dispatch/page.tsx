@@ -24,7 +24,7 @@ export default function TheWharfDispatch() {
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const heights = [652, 332, 414, 284, 270, 284, 414, 332];
     const mobileHeight = [319]

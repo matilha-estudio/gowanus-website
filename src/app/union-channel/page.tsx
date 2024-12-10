@@ -32,7 +32,7 @@ export default function UnionChannel() {
 
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [links, setLinks] = useState<acf | null>(null)
     const [data, setData] = useState<ApiResponseUnionChannel | null>(null)
@@ -141,11 +141,11 @@ export default function UnionChannel() {
 
             <section className="flex flex-col items-center justify-center w-full py-24 text-navy">
                 <div className="grid md:grid-cols-2 grid-cols-1 px-4">
-                    <div className="relative w-full overflow-hidden group max-w-[592px] min-h-[482px] h-full">
+                    <div className="relative w-full overflow-hidden group max-w-[592px] max-h-[482px] h-full aspect-square self-center">
                         <Image
                             src="/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp"
                             alt="services"
-                            className="w-full h-full max-w-[592px] min-h-[482px] object-cover"
+                            className="w-full h-full max-w-[592px] max-h-[482px] object-cover"
                             width={592}
                             height={482}
                         />
@@ -154,7 +154,7 @@ export default function UnionChannel() {
                             alt="services"
                             width={592}
                             height={482}
-                            className="w-full h-full max-w-[592px] min-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
+                            className="w-full h-full max-w-[592px] max-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
                         />
                     </div>
                     <Reveal className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">

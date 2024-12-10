@@ -42,7 +42,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body>
+      <body style={{ position: "relative", top: 0 }}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

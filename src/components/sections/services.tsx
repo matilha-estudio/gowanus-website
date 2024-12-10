@@ -16,7 +16,7 @@ interface IServices {
 export default function Services({ fontFamily = "Freight" }: IServices) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [data, setData] = useState<ApiResponseHomePage | null>(null)
     const [loading, setLoading] = useState(true)

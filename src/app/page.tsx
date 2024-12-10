@@ -29,7 +29,7 @@ import { PostResponse } from '@/services/models/blog';
 export default function Home() {
   const windowWidth = useWindowWidth()
   const SCREEN_WIDTH = windowWidth
-  const MOBILE_BREAKPOINT = 768
+  const MOBILE_BREAKPOINT = 769
 
   const [data, setData] = useState<ApiResponseHomePage | null>(null)
   const [posts, setPosts] = useState<PostResponse | null>(null)

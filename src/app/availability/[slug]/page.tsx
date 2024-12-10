@@ -25,7 +25,7 @@ export default function AvailabilityDetails({ params }: { params: { slug: string
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [api, setApi] = useState<CarouselApi>()
     const [current, setCurrent] = useState(0)

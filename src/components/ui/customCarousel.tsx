@@ -25,7 +25,7 @@ export function CustomCarousel() {
 
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [data, setData] = React.useState<PostResponse | null>(null)
     const [loading, setLoading] = React.useState(true)

@@ -23,7 +23,7 @@ export default function Article({ params }: { params: { slug: string } }) {
     const scrollByVh = useScrollByVh();
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const heights = [444, 226, 341];
     const mobileHeight = [319]

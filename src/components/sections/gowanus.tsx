@@ -15,7 +15,7 @@ interface IGowanusWharf {
 export default function GowanusWharf({ fontFamily = "TWK" }: IGowanusWharf) {
     const windowWidth = useWindowWidth();
     const SCREEN_WIDTH = windowWidth;
-    const MOBILE_BREAKPOINT = 768;
+    const MOBILE_BREAKPOINT = 769;
 
     const [data, setData] = useState<ApiResponseHomePage | null>(null)
     const [loading, setLoading] = useState(true)

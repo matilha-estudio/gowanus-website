@@ -10,7 +10,7 @@ import NavbarComponent from "@/components/navbarComponent";
 export default function Availability() {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     return (
         <HubspotProvider>

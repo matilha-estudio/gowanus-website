@@ -19,7 +19,7 @@ interface IMapComponent {
 export default function MapComponent(props: IMapComponent) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     const [cardIndex, setCardIndex] = useState<number | null>(0);
     const [mdPosition, setMdPosition] = useState("");

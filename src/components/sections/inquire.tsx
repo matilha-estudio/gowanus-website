@@ -12,7 +12,7 @@ interface IInquireComponent {
 export default function InquireComponent({ fontFamily = 'Freight' }: IInquireComponent) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
     return (
         <section className="relative flex flex-col items-center justify-center w-full py-8 md:py-24 text-navy bg-navy px-8 md:px-16">
 

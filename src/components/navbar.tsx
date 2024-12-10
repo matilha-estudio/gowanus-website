@@ -25,7 +25,7 @@ interface INavBar extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export default function NavBar({ className, hasBackground, variant, hasHomeButton = true, position = "fixed", pageName, pagePath, ...props }: INavBar) {
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
-    const MOBILE_BREAKPOINT = 768
+    const MOBILE_BREAKPOINT = 769
 
     return (
         <nav className={cn("py-4 flex h-[60px] gap-9 w-full md:px-16 justify-between items-center z-30",
@@ -34,7 +34,7 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
             className
         )} {...props}>
 
-            <Drawer direction="left" handleOnly>
+            <Drawer direction="left" handleOnly noBodyStyles>
                 <div className="flex">
                     <DrawerTrigger asChild>
                         {
