@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/drawer"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "./ui/accordion";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
+import { useEffect, useState } from "react";
+import { acf } from "@/services/models/links";
+import { getLinks } from "@/services/links";
 
 interface INavBar extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     hasBackground: boolean
@@ -26,6 +29,22 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
     const windowWidth = useWindowWidth()
     const SCREEN_WIDTH = windowWidth
     const MOBILE_BREAKPOINT = 769
+
+    const [data, setData] = useState<acf | null>(null)
+    const [error, setError] = useState<string | null>(null)
+
+    async function handleData() {
+        try {
+            const response = await getLinks()
+            setData(response)
+        } catch (err) {
+            setError('Failed to fetch data')
+        }
+    }
+
+    useEffect(() => {
+        handleData()
+    }, [])
 
     return (
         <nav className={cn("py-4 flex h-[60px] gap-9 w-full md:px-16 justify-between items-center z-30",
@@ -62,7 +81,7 @@ export default function NavBar({ className, hasBackground, variant, hasHomeButto
                     <Link href='/inquire' className="w-full py-4 md:py-8 flex justify-center">
                         <Button variant={variant} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'md'} label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Inquire" : "Schedule a tour"} className="min-h-7 md:h-10 md:w-fit" />
                     </Link>
-                    <Link href='/availability' className="w-full py-4 md:py-8 flex justify-center">
+                    <Link href={data?.apply ?? ''} target="_blank" className="w-full py-4 md:py-8 flex justify-center">
                         <Button variant={variant} size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'md'} label={SCREEN_WIDTH < MOBILE_BREAKPOINT ? "Apply" : "Apply now"} icon={<ArrowUpRight />} className="min-h-7  md:h-10 md:w-fit" />
                     </Link>
                 </div>
