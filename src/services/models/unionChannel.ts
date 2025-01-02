@@ -14,6 +14,12 @@ interface AcfMedias {
   title: string;
   description: string;
   image_url: string;
+  apartments_section: {
+    title: string
+    description: string
+    image_1: string
+    image_2: string
+  };
   carousel: CarouselItem[];
   feature_category: FeatureCategory[];
 }

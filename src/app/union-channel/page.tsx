@@ -143,15 +143,15 @@ export default function UnionChannel() {
                 <div className="grid md:grid-cols-2 grid-cols-1 px-4">
                     <div className="relative w-full overflow-hidden group max-w-[592px] max-h-[482px] h-full aspect-square self-center">
                         <Image
-                            src="/medias/apartments/12-585-Union-St-Unit-H-Living-Room-R05A.webp"
-                            alt="services"
+                            src={data?.acf_medias.apartments_section?.image_1 ?? ''}
+                            alt="photo 1"
                             className="w-full h-full max-w-[592px] max-h-[482px] object-cover"
                             width={592}
                             height={482}
                         />
                         <Image
-                            src="/medias/apartments/13-585-Union-St-Unit-H-Master-Bedroom-R07.webp"
-                            alt="services"
+                            src={data?.acf_medias.apartments_section?.image_2 ?? ''}
+                            alt="photo 2"
                             width={592}
                             height={482}
                             className="w-full h-full max-w-[592px] max-h-[482px] object-cover absolute top-0 left-0 transition-transform duration-1000 ease-in-out transform translate-x-full group-hover:translate-x-0"
@@ -159,9 +159,9 @@ export default function UnionChannel() {
                     </div>
                     <Reveal className="flex flex-col text-center justify-center items-center pt-3 gap-8 md:gap-16">
                         <>
-                            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>apartments</h1>
+                            <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>{data?.acf_medias.apartments_section?.title}</h1>
                             <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-lg")}>
-                                More than a place to sleep. These are spaces designed for personal comfort and entertaining. For morning rituals and nightly unwinding.
+                                {data?.acf_medias.apartments_section?.description}
                             </span>
                         </>
                     </Reveal>
@@ -213,11 +213,9 @@ export default function UnionChannel() {
             <section className="w-full flex flex-col justify-center items-center py-16 gap-8 md:gap-16 bg-teal text-navy">
                 <Reveal className="flex flex-col items-center gap-8">
                     <>
-                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>The DRIFT club</h1>
+                        <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2")}>{dataTheClub && dataTheClub[0]?.acf_medias.title}</h1>
                         <span className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "accent2 px-4" : "body1 max-w-3xl", 'text-center')}>
-                            Skyline sunsets from your rooftop pool. Sauna without leaving home. <br />
-                            Co-work. Work out. Entertain friends and find your zen.  <br />
-                            All of the amenities across the three Wharf residences, at your demand.
+                            {dataTheClub && dataTheClub[0]?.acf_medias.description}
                         </span>
                         <Link href='/the-club' className="w-full md:py-8 flex justify-center">
                             <Button label="explore" variant='navy' size={SCREEN_WIDTH < MOBILE_BREAKPOINT ? 'mobile' : 'default'} icon={<ArrowUpRight />} />

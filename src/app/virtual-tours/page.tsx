@@ -1,6 +1,5 @@
 "use client"
 
-import NavBar from "@/components/navbar";
 import { useScrollByVh } from "@/hooks/useScrollByVh";
 import { useWindowWidth } from "@/hooks/useWindowWidth";
 import { cn } from "../lib/utils";
@@ -61,7 +60,7 @@ export default function VirtualTours() {
 
             <section className="flex relative text-white justify-center w-full h-96 md:h-screen bg-canalRoyale">
                 <h1 className={cn(SCREEN_WIDTH < MOBILE_BREAKPOINT ? "header2MD" : "header2XXL", " text-white z-10 absolute left-1/2 transform -translate-x-1/2 self-center text-center")}>
-                    virtual tours
+                    {data?.acf_medias.page_name}
                 </h1>
                 <video src={data?.acf_medias.video_url ?? ''}
                     autoPlay muted loop playsInline controls={false} className="aspect-square md:aspect-video object-cover w-full h-full md:h-screen">virtual tours</video>
@@ -76,114 +75,29 @@ export default function VirtualTours() {
 
             <section className="relative w-full bg-white text-navy items-center flex flex-col py-36 gap-16 max-w-[1440px]">
                 <span className={cn("max-w-64 md:max-w-4xl text-center", SCREEN_WIDTH < MOBILE_BREAKPOINT ? "body2" : "body1")}>
-                    Click each image to virtually explore Gowanus Wharf
+                    {data?.acf_medias.description}
                 </span>
 
                 <div className="flex gap-20 flex-wrap w-full px-8 md:px-24 items-center justify-center">
-
-                    <Link href={virtualTourLinks.unitWalkthrough} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/12-585 Union St-Unit H - Living Room-R05A.jpg'}
-                                alt="Living-Room-R05A"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Unit Walkthrough
-                        </span>
-                    </Link>
-
-                    <Link href={virtualTourLinks.gym} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/06-585 Union St-Gym-R02.jpg'}
-                                alt="Gym-R02"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Premier Gym
-                        </span>
-                    </Link>
-
-                    <Link href={virtualTourLinks.outdoorCourtyard} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/Courtyard image.PNG'}
-                                alt="Courtyard"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Outdoor Courtyard
-                        </span>
-                    </Link>
-
-                    <Link href={virtualTourLinks.rooftopPool} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/11-585 Union St-Rooftop Pool-R02A.jpg'}
-                                alt="St-Rooftop Pool-R02A"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Rooftop Pool
-                        </span>
-                    </Link>
-
-                    <Link href={virtualTourLinks.skyLounge} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/10-585 Union St-Sky lounge-R03.jpg'}
-                                alt="St-Sky lounge-R03"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Sky Lounge
-                        </span>
-                    </Link>
-
-                    <Link href={virtualTourLinks.workFromHomeLounge} target="_blank" className="flex flex-col items-center justify-center gap-8 group">
-                        <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
-                            <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
-                            <Image
-                                src={'/medias/GW_WEBSITE_VIRTUAL_TOURS/08-585 Union St-Coworking Lounge-R05.jpg'}
-                                alt="St-Coworking Lounge-R05"
-                                width={584}
-                                height={482.76}
-                                className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
-                            />
-                        </div>
-
-                        <span className="text-navy flex-wrap flex text-center body2">
-                            Co-Working Lounge
-                        </span>
-                    </Link>
-
-
+                    {
+                        data?.acf_medias.virtual_tour.map((virtualTour, index) => (
+                            <Link href={virtualTour.virtual_tour_link} target="_blank" key={index} className="flex flex-col items-center justify-center gap-8 group">
+                                <div className="relative w-full h-full max-w-[584px] max-h-[482.76px]">
+                                    <div className="absolute w-full h-full group-hover:bg-marigold/70 group-hover:cursor-pointer z-10 transition-colors" />
+                                    <Image
+                                        src={virtualTour.cover}
+                                        alt={virtualTour.title}
+                                        width={584}
+                                        height={482.76}
+                                        className="aspect-square object-cover w-full h-full max-w-[584px] max-h-[482.76px]"
+                                    />
+                                </div>
+                                <span className="text-navy flex-wrap flex text-center body2">
+                                    {virtualTour.title}
+                                </span>
+                            </Link>
+                        ))
+                    }
                 </div>
             </section>
 
