@@ -1,8 +1,16 @@
 import { Content, Excerpt, Links, Meta, Title, Guid } from "./common";
 
 interface AcfMedias {
+  page_name: string;
   description: string;
   video_url: string;
+  virtual_tour: VirtualTour[]
+}
+
+interface VirtualTour {
+  title: string;
+  virtual_tour_link: string;
+  cover: string
 }
 
 export interface ApiResponseWalkThrough {

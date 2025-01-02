@@ -1,9 +1,7 @@
-
 import type { Metadata } from "next";
 import "./globals.css";
 import Script from "next/script";
-// import { useEffect, useState } from "react";
-// import { getPromos } from "@/services/promos";
+import ChatBot from "@/components/chatBot";
 
 export const metadata: Metadata = {
   title: "Gowanus Wharf",
@@ -16,30 +14,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // const [data, setData] = useState<string[] | null>(null);
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState<string | null>(null);
-
-  // async function handleData() {
-  //   try {
-  //     const response = await getPromos();
-  //     setData(response);
-  //   } catch (err) {
-  //     setError("Failed to fetch data");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   handleData();
-  // }, []);
-
-  // if (loading)
-  //   return <div className="w-screen h-screen bg-navy flex items-center justify-center">Carregando...</div>;
-
-  // if (error) return <p className="text-red-500">{error}</p>;
-
   return (
     <html lang="en">
       <body style={{ position: "relative", top: 0 }}>
@@ -53,14 +27,6 @@ export default function RootLayout({
           ></iframe>
         </noscript>
 
-        {/* {data && data?.length > 0 && (
-          <div className="absolute top-0 w-full flex justify-center z-50 leading-none bg-marigold">
-            <div className="w-[95%] h-full bg-navy text-navy flex justify-center text-center px-4 py-4">
-              <span className="accent4 text-white">TESTESTESTE</span>
-            </div>
-          </div>
-        )} */}
-
         {children}
 
         {/* Google Tag Manager Script */}
@@ -71,6 +37,8 @@ export default function RootLayout({
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-NM69X2T5');`}
         </Script>
+
+        <ChatBot />
       </body>
     </html>
   );
