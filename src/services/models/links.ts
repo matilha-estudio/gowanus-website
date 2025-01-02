@@ -15,4 +15,5 @@ export type acf = {
     "mon-fri": string
     saturday: string
     sunday: string
+    apply: string
 }
