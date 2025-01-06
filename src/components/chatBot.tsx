@@ -59,7 +59,7 @@ export default function ChatBot() {
 
                 const iframe = document.createElement('iframe');
                 iframe.id = 'chatbot-iframe';
-                iframe.sandbox = 'allow-scripts allow-same-origin';
+                iframe.sandbox = 'allow-scripts allow-same-origin allow-forms';
 
                 const iframeStyle = iframe.style;
                 iframeStyle.boxSizing = 'border-box';
@@ -140,7 +140,7 @@ export default function ChatBot() {
                     });
                 });
 
-                const widgetUrl = 'https://stage.chatbot.getzuma.com/';
+                const widgetUrl = 'https://prod.chatbot.getzuma.com/';
                 iframe.src = widgetUrl;
 
                 document.body.appendChild(widget);
