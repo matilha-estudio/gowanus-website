@@ -47,7 +47,6 @@ export default function ChatBot() {
                 widgetStyle.height = collapsedHeight;
                 widgetStyle.position = 'absolute';
                 widgetStyle.bottom = \`\${config.bottomPosition ?? 0}px\`;
-                widgetStyle.backgroundColor = '#2B3B4A';
 
                 if (config.leftPosition !== null && config.leftPosition !== undefined) {
                     widgetStyle.left = \`\${config.leftPosition ?? 0}px\`;
